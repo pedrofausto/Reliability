@@ -1,0 +1,43 @@
+// Generated for: spectre
+// Design library name: bertlink
+// Design cell name: osc13
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!
+parameters p5vonly=0 phires=0
+include "/usr/local/Deskits/IBM180/IBM_PDK/cmrf7sf/V1.9.0.2ML/Spectre/models/allModels.scs" section=tt
+include "/usr/local/Deskits/IBM180/IBM_PDK/cmrf7sf/V1.9.0.2ML/Spectre/models/design.scs"
+include "/usr/local/Deskits/IBM180/IBM_PDK/cmrf7sf/V1.9.0.2ML/Spectre/models/wafer.scs"
+
+// Library name: bertlink
+// Cell name: inv
+// View name: schematic
+    M1 (Y A vdd! vdd!) pfet  l=180n w=1u nf=1 m=1 par=1 ad=4e-13 as=4e-13 \
+        pd=2.74u ps=2.74u nrd=0.2766 nrs=0.2766 gcon=1 rf=0 rsx=50 dtemp=0
+    M0 (Y A 0 0) nfet l=180n w=500n nf=1 m=1 par=1 ad=2.3e-13 as=2.3e-13 \
+        pd=1.94u ps=1.94u nrd=0.4815 nrs=0.4815 gcon=1 rf=0 stis=2 rsx=50 \
+        dtemp=0
+// End of subcircuit definition.
+
+V0 (vdd! 0) vsource dc=1.0 type=dc
+ctrsweep sweep dev=V0 param=dc start=0.2 stop=1.2 step=50m {
+  tran1 tran stop=100n
+}
+C0 (Y 0) capacitor c=10.0f
+
+VInput1   (A     	0)    vsource type=pulse val0=0  val1=1.2 delay=0  rise=1f fall=1f width=100p period=200p
+
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts  where=rawfile
+saveOptions options save=allpub pwr=all currents=all
+
+
+
