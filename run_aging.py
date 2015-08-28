@@ -9,7 +9,7 @@ import sys, time
 def gradAging(oldStep, step, netlist, nextNetlist):
     
     print "Changing aging parameter"
-    bashCommand="sed -i s/"+oldStep+"0y/"+step+"/g "+args.netlist
+    bashCommand="sed -i s/"+oldStep+"/"+step+"/g "+args.netlist
     print bashCommand
     os.system(bashCommand)
     result = os.system(bashCommand)
@@ -201,10 +201,11 @@ if (args.age):
     nextNetlist = args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+"_Age"+str(args.step)
     
     for step in range(args.step, args.aging+args.step, args.step):
-        gradAging(oldStep, step, netlist, nextNetlist)
+        stepString = str(step)+"w"
+        gradAging(oldStep, stepString, netlist, nextNetlist)
         netlist = nextNetlist
         #nextNetlist = args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+"_Age"+str(args.step+step)
-        oldStep = str(step)
+        oldStep = stepString
 
 
 
