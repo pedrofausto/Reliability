@@ -17,6 +17,15 @@ def gradAging(oldStep, step, netlist, nextNetlist):
        print "Exiting..."
        quit()
 
+   print "Changing nominal temperature for gradual circuit aging parameters extraction"
+   bashCommand="sed -i s/tnom=27/tnom="+args.tnom+"/g "+args.netlist
+   print bashCommand
+   os.system(bashCommand)
+   result = os.system(bashCommand)
+   if (result != 0):
+      print "Exiting..."
+      quit()
+
     print "\n1. run prebert ... "
     bashCommand="relxpert_pre -sp "+netlist+" "+netlist+".p1 > "+args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+".log"
     print bashCommand
@@ -40,7 +49,25 @@ def gradAging(oldStep, step, netlist, nextNetlist):
     if (result != 0):
         print "Exiting..."
         quit()
-    
+
+   print "4. run aging ... "
+    bashCommand="relxpert_pre -age -sp "+args.netlist+" "+args.netlist+"Age.p2 >> "+args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+".log"
+    print bashCommand
+    result = os.system(bashCommand)
+    if (result != 0):
+        print "Exiting..."
+        quit()
+
+    print "Switching nominal temperature (Tnom) to operation temperature (Temp) to perform spectre simulation"
+    bashCommand="sed -i s/tnom="+args.tnom+"/tnom="+args.temp+"/g "+args.netlist
+    print bashCommand
+    result = os.system(bashCommand)
+    if (result != 0):
+        print "Exiting..."
+        quit()
+
+   #print "Saving aged circuit"
+   #bashCommand="mv "    
 
 
 
@@ -130,14 +157,6 @@ if (result != 0):
    print "Exiting..."
    quit()
 
-print "Changing nominal temperature for gradual circuit aging parameters extraction"
-bashCommand="sed -i s/tnom=27/tnom="+args.tnom+"/g "+args.netlist
-print bashCommand
-os.system(bashCommand)
-result = os.system(bashCommand)
-if (result != 0):
-   print "Exiting..."
-   quit()
 
 
 if  ((args.age == 0) and (args.run == 0)):
@@ -150,6 +169,15 @@ if  ((args.age == 0) and (args.run == 0)):
     if (result != 0):
        print "Exiting..."
        quit()
+
+   print "Changing nominal temperature for gradual circuit aging parameters extraction"
+   bashCommand="sed -i s/tnom=27/tnom="+args.tnom+"/g "+args.netlist
+   print bashCommand
+   os.system(bashCommand)
+   result = os.system(bashCommand)
+   if (result != 0):
+      print "Exiting..."
+      quit()
 
     print "1. run prebert ... "
     bashCommand="relxpert_pre -sp "+args.netlist+" "+args.netlist+".p1 > "+args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+".log"
@@ -204,7 +232,7 @@ if (args.age):
         stepString = str(step)+"w"
         gradAging(oldStep, stepString, netlist, nextNetlist)
         #netlist = nextNetlist
-        #nextNetlist = args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+"_Age"+str(args.step+step)
+        nextNetlist = args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+"_Age"+str(args.step+step)
         oldStep = stepString
 
 
