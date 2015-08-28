@@ -6,7 +6,17 @@ import os
 import sys, time
 
 
-def gradAging(step, netlist, nextNetlist):
+def gradAging(oldStep, step, netlist, nextNetlist):
+    
+    print "Changing aging parameter"
+    bashCommand="sed -i s/"+oldStep+"0y/"+step+"/g "+args.netlist
+    print bashCommand
+    os.system(bashCommand)
+    result = os.system(bashCommand)
+    if (result != 0):
+       print "Exiting..."
+       quit()
+
     print "\n1. run prebert ... "
     bashCommand="relxpert_pre -sp "+netlist+" "+netlist+".p1 > "+args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+".log"
     print bashCommand
@@ -31,13 +41,6 @@ def gradAging(step, netlist, nextNetlist):
         print "Exiting..."
         quit()
     
-    print "\n4. run aging ... "
-    bashCommand="relxpert_pre -age -sp "+netlist+" "+nextNetlist+"Age >> "+args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+".log"
-    print bashCommand
-    result = os.system(bashCommand)
-    if (result != 0):
-        print "Exiting..."
-        quit()
 
 
 
@@ -112,12 +115,12 @@ print "Nominal temperature:",args.tnom
 print "\nChanging DC Operating voltage"
 bashCommand="sed -i s/dc=1.0/dc="+args.dcvolt+"/g "+args.netlist
 print bashCommand
-#os.system(bashCommand)
-#result = os.system(bashCommand)
-#if (result != 0):
-#    print "Exiting..."
-#    quit()
-#
+os.system(bashCommand)
+result = os.system(bashCommand)
+if (result != 0):
+    print "Exiting..."
+    quit()
+
 print "Changing temperature for circuit aging simulation"
 bashCommand="sed -i s/temp=0/temp="+args.temp+"/g "+args.netlist
 print bashCommand
@@ -193,13 +196,15 @@ if  ((args.age == 0) and (args.run == 0)):
 if (args.age):
     print "Running gradual aging. Age step of "+str(args.step)+" week(s)"
 
+    oldStep = "0y"
     netlist = args.netlist
     nextNetlist = args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+"_Age"+str(args.step)
     
     for step in range(args.step, args.aging+args.step, args.step):
-        gradAging(step, netlist, nextNetlist)
+        gradAging(oldStep, step, netlist, nextNetlist)
         netlist = nextNetlist
         nextNetlist = args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+"_Age"+str(args.step+step)
+        oldStep = str(step)
 
 
 
