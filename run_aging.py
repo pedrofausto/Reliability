@@ -10,10 +10,10 @@ def gradAging(step, netlist, nextNetlist):
     print "\n1. run prebert ... "
     bashCommand="relxpert_pre -sp "+netlist+" "+netlist+".p1 > "+args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+".log"
     print bashCommand
-       result = os.system(bashCommand)
-       if (result != 0):
-           print "Exiting..."
-           quit()
+    result = os.system(bashCommand)
+    if (result != 0):
+	print "Exiting..."
+        quit()
     
     print "\n2. run spectre ... "
     bashCommand="spectre "+netlist+".p1 >> "+args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+".log"
