@@ -203,7 +203,7 @@ if (args.age):
     for step in range(args.step, args.aging+args.step, args.step):
         gradAging(oldStep, step, netlist, nextNetlist)
         netlist = nextNetlist
-        nextNetlist = args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+"_Age"+str(args.step+step)
+        #nextNetlist = args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+"_Age"+str(args.step+step)
         oldStep = str(step)
 
 
