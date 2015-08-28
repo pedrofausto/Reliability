@@ -162,7 +162,7 @@ if (result != 0):
 if  ((args.age == 0) and (args.run == 0)):
    print "\nBoth 'age' and 'run' options are disabled. Running non-gradual aging"
    print "Changing aging parameter"
-   bashCommand="sed -i s/0y/"+str(args.aging)+"/g "+args.netlist
+   bashCommand="sed -i s/0y/"+str(args.aging)+"w/g "+args.netlist
    print bashCommand
    os.system(bashCommand)
    result = os.system(bashCommand)
@@ -246,6 +246,3 @@ if (args.run):
 
 
 print "..."
-
-
-
