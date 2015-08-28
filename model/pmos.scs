@@ -1,0 +1,126 @@
+
+***********************************************************************
+* Copyright (C) Cadence Design Systems, Inc. All rights reserved.
+*  DISCLAIMER: The following models are provided for Cadence customers to use at
+*   their own risk. The models are not representative of any real process. The
+*   models may require modification to satisfy the requirements of any user.
+*   The models and any modifications to the models may not be compatible with
+*   current or future versions of Cadence products.
+*   THE CODE IS PROVIDED "AS IS" AND WITH NO WARRANTIES, INCLUDING WITHOUT
+*   LIMITATION ANY EXPRESS WARRANTIES OR IMPLIED WARRANTIES OF MERCHANTABILITY
+*   OR FITNESS FOR A PARTICULAR USE.
+***********************************************************************
+
+model pch bsim4 type=p
++ a0=1.00000e-03 a1=0.00000e+00
++ a2=1.00000e+00 acde=  1.20000 acnqsmod=0.00000e+00
++ agidl=9.00000e-08 ags=  4.44856 aigbacc=1.20000e-02
++ aigbinv=3.47000e-01 aigc=7.12000e-03 aigsd=5.90000e-03
++ alpha0=0.00000e+00 alpha1=6.00000e-02 at=4.00001e+04
++ b0=0.00000e+00 b1=0.00000e+00 beta0= 13.50000
++ bgidl=3.40400e+09 bigbacc=3.49000e-03 bigbinv=3.12000e-02
++ bigc=6.31000e-04 bigsd=2.48000e-04 binunit=  2.00000
++ bvs= 10.00000 capmod=  2.00000 cdsc=0.00000e+00
++ cdscb=0.00000e+00 cdscd=0.00000e+00 cf=1.18000e-10
++ cgbo=0.00000e+00 cgdl=5.40000e-11 cgdo=3.10000e-11
++ cgidl=5.00000e-01 cgsl=5.40000e-11 cgso=3.10000e-11
++ cigbacc=1.31000e-01 cigbinv=6.10000e-03 cigc=0.00000e+00
++ cigsd=3.20000e-02 cit=1.00000e-04 cjs=9.98000e-04
++ cjswgs=2.53000e-10 cjsws=6.21000e-11 ckappad=6.00000e-01
++ ckappas=6.00000e-01 clc=1.00000e-07 cle=6.00000e-01
++ delta=2.00000e-02 diomod=1.00000e+00 dlc=0.00000e+00
++ dlcig=2.52000e-09 dmcg=8.50000e-08 dmcgt=0.00000e+00
++ dmci=8.50000e-08 dmdg=0.00000e+00 drout=  1.13269
++ dsub=  1.27250 dtox=3.29000e-10 dvt0=2.03410e-01
++ dvt0w=0.00000e+00 dvt1=9.51460e-01 dvt1w=5.36650e+06
++ dvt2=1.00000e-02 dvt2w=0.00000e+00 dvtp0=2.20000e-06
++ dvtp1=2.00000e-01 dwb=0.00000e+00 dwc=0.00000e+00
++ dwg=0.00000e+00 dwj=0.00000e+00 ef=  1.14700
++ egidl=1.50000e-01 eigbinv=  1.10000 em=2.10000e+07
++ epsrox=  3.90000 eta0=3.11538e-02 etab=1.75493e-01
++ fnoimod=1.00000e+00 fprout=3.90234e+02 gbmin=1.00000e-12
++ igbmod=1.00000e+00 igcmod=1.00000e+00 ijthsfwd=1.00000e-02
++ ijthsrev=1.00000e-02 jss=1.51000e-07 jswgs=2.47000e-12
++ jsws=3.98000e-13 k1=2.50000e-01 k2=-2.10585e-02
++ k2we=3.00000e-04 k3= -1.70095 k3b=  1.20031
++ keta=-1.37522e-01 kt1=-2.29000e-01 kt1l=0.00000e+00
++ kt2=-1.23200e-02 ku0=1.00000e-07 ku0we=-3.48249e-03
++ kvsat=-3.86000e-01 kvth0=2.00000e-10 kvth0we=-3.19750e-03
++ letab=-1.19606e-08 lint=2.00000e-24 lk2=-8.29996e-11
++ lketa=4.20096e-09 lku0=1.87100e-07 lkvth0=2.40000e-10
++ ll=0.00000e+00 llc=0.00000e+00 lln=1.00000e+00
++ llodku0=1.00000e+00 llodvth=  1.80000 lmax=6.00000e-08
++ lmin=4.00000e-08 lnfactor=4.05840e-08 lodeta0=1.00000e+00
++ lodk2=  1.90000 lpdiblc2=-1.71065e-10 lpe0=7.51993e-08
++ lpeb=5.60807e-08 lu0=-4.02243e-10 lua=0.00000e+00
++ lub=2.53022e-26 luc=2.96027e-17 lvoff=3.84000e-09
++ lvsat=1.09112e-03 lvth0=3.75355e-09 lw=0.00000e+00
++ lwc=0.00000e+00 lwl=0.00000e+00 lwlc=0.00000e+00
++ lwn=1.00000e+00 minr=1.00000e-60 minv=0.00000e+00
++ mjs=3.40000e-01 mjswgs=8.60000e-01 mjsws=1.20000e-02
++ mobmod=0.00000e+00 moin=  8.00000 ndep=8.50000e+17
++ nfactor=4.50931e-01 ngate=8.00000e+19 ngcon=1.00000e+00
++ nigbacc=  5.20000 nigbinv=1.00000e+00 nigc=  2.28000
++ njs=1.00000e+00 noff=  2.50000 noia=1.45000e+42
++ noib=3.57000e+26 noic=2.00000e+10 nsd=1.00000e+20
++ ntox=1.00000e+00 pbs=7.50000e-01 pbswgs=7.10000e-01
++ pbsws=4.90000e-01 pclm=6.27258e-01 pdiblc1=0.00000e+00
++ pdiblc2=1.04829e-02 pdiblcb=0.00000e+00 pdits=5.04262e-03
++ pditsd=0.00000e+00 pditsl=1.00000e+02 permod=1.00000e+00
++ petab=6.28916e-15 phin=0.00000e+00 pigcd=  2.28000
++ pk2=-6.15740e-16 pketa=-1.79703e-14 pku0=-3.24000e-14
++ pkvth0=0.00000e+00 pnfactor=-9.14283e-15 poxedge=1.00000e+00
++ ppdiblc2=-1.38953e-16 prt=0.00000e+00 prwb=-2.49981e-01
++ prwg=2.50000e-01 pscbe1=9.26400e+08 pscbe2=1.00000e-20
++ pu0=3.32421e-16 pub=3.41731e-32 puc=-5.85605e-23
++ pvag=  1.42500 pvsat=-7.40160e-10 pvth0=-4.03421e-16
++ rbdb= 50.00000 rbodymod=0.00000e+00 rbpb= 50.00000
++ rbpd= 50.00000 rbps= 50.00000 rbsb= 50.00000
++ rdsmod=0.00000e+00 rdsw=3.27600e+02 rgatemod=0.00000e+00
++ rsh=  9.68000 rshg=1.00000e-01 saref=6.10000e-07
++ sbref=6.10000e-07 scref=1.00000e-06 steta0=0.00000e+00
++ stk2=0.00000e+00 tcj=7.98000e-04 tcjsw=2.40000e-04
++ tcjswg=4.77000e-03 tku0=2.40000e-01 tnoimod=0.00000e+00
++ tnom= 25.00000 toxe=2.40000e-09 toxm=2.40000e-09
++ toxref=3.00000e-09 tpb=1.90000e-03 tpbsw=1.90000e-03
++ tpbswg=1.90000e-03 trnqsmod=0.00000e+00 u0=2.87262e-02
++ ua=9.41142e-12 ua1=4.54900e-09 ub=1.80174e-18
++ ub1=-5.44100e-18 uc=-4.17284e-10 uc1=-5.00000e-11
++ ud=0.00000e+00 ute= -1.52400 version=  4.30000
++ voff=-1.07133e-01 voffcv=-4.86000e-02 voffl=-6.03621e-09
++ vsat=1.19154e+05 vth0=-3.61251e-01 w0=1.58508e-07
++ wags=-1.12618e-06 web=-2.20000e+02 wec=-3.00000e+03
++ wetab=-1.04819e-07 wint=1.08929e-08 wk2=1.06507e-08
++ wketa=2.12274e-07 wku0=2.40000e-07 wkvth0=1.80000e-10
++ wl=0.00000e+00 wlc=0.00000e+00 wln=1.00000e+00
++ wlod=2.86000e-07 wlodku0=1.00000e+00 wlodvth=1.00000e+00
++ wmax=1.10000e-05 wmin=2.00000e-06 wnfactor=-1.01582e-07
++ wpdiblc2=9.61405e-10 wpemod=0.00000e+00 wr=1.00000e+00
++ wu0=-2.00228e-09 wua=1.13123e-17 wub=-2.44819e-25
++ wuc=8.69932e-16 wvoff=-7.38487e-09 wvsat=-2.11211e-06
++ wvth0=-3.46667e-09 ww=0.00000e+00 wwc=0.00000e+00
++ wwl=0.00000e+00 wwlc=0.00000e+00 wwn=1.00000e+00
++ xgl=0.00000e+00 xgw=0.00000e+00 xj=1.70000e-07
++ xjbvs=1.00000e+00 xl=0.00000e+00 xpart=1.00000e+00
++ xrcrg1= 12.00000 xrcrg2=1.00000e+00 xtis=  3.00000
++ xw=0.00000e+00
+* PMOS HCI reliability models
+*relxpert: agemodel pch agelevel = 0
+*relxpert: +ai = 4.4822e+06  bi = 3.7e+06 
+*relxpert: +ecrit0 = 1.0233e+05  ecritg = 37500 ecritb = 0   
+*relxpert: +lc0 = 1.3402 lc1 = 0.0103 ea = 0
+*relxpert: +h0 = 5.738e+06  m0 = 1.1491 nn0 = 0.1475 wg=0
+*relxpert: +vth0 = [1.79 0 0.16986 1 1  1]  
+*relxpert: +ub = [2.9838 0 0.37357 1 1  1]
+*relxpert: +vsat = [2.5  0 0.19051 1 1 -1]  
+*relxpert: +a0 = [2.4482 0 0.495   1 1 -1]
+* PMOS NBTI reliability models
+*relxpert: agemodel pch agelevel = 1
+*relxpert: +nbn = 0.20225  nba = 1  nbea = 0.055226 
+*relxpert: +nbgamma = 1.6 nbgammad= 0.58759 
+*relxpert: +nbalpha = 1  nbeta0 = 0.0015588  nbeta1 = 20.621
+*relxpert: +nbeta2  = -1  nbemod  = 2
+*relxpert: +vth0 = [0.4    3.4562 0.083139 0.2537  3.347  1]  
+*relxpert: +ub = [0.4196 0 0.45 1 1 1]
+*relxpert: +vsat = [0.3217 2.6701 0.18025  0.12551 4.25  -1]
+

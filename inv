@@ -22,7 +22,7 @@ C0 (Y 0) capacitor c=10.0f
 
 VInput1   (A     	0)    vsource type=pulse val0=0  val1=1.2 delay=0  rise=1f fall=1f width=100p period=200p
 
-simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=0 \
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=50 \
     tnom=0 vnom=1.0 scalem=1.0 scale=1.0 gmin=1e-12 rforce=0.1 maxnotes=5 maxwarns=5 \
     digits=5 cols=80 pivrel=1e-3 ckptclock=1800 rawfmt=psfxl method=trap \
     sensfile="../psf/sens.output" 
