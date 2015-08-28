@@ -1,0 +1,121 @@
+
+***********************************************************************
+* Copyright (C) Cadence Design Systems, Inc. All rights reserved.
+*  DISCLAIMER: The following models are provided for Cadence customers to use at
+*   their own risk. The models are not representative of any real process. The 
+*   models may require modification to satisfy the requirements of any user. 
+*   The models and any modifications to the models may not be compatible with 
+*   current or future versions of Cadence products.
+*   THE CODE IS PROVIDED "AS IS" AND WITH NO WARRANTIES, INCLUDING WITHOUT 
+*   LIMITATION ANY EXPRESS WARRANTIES OR IMPLIED WARRANTIES OF MERCHANTABILITY
+*   OR FITNESS FOR A PARTICULAR USE. 
+***********************************************************************
+
+model nch bsim4 type=n
++ a0=1.00000e-03 a1=0.00000e+00
++ a2=1.00000e+00 acde=1.00000e+00 acnqsmod=0.00000e+00
++ agidl=2.15050e-07 ags=  5.93696 aigbacc=2.00000e-02
++ aigbinv=1.58000e-02 aigc=1.12000e-02 aigsd=1.06000e-02
++ alpha0=2.00000e-10 alpha1=1.00000e-02 at=1.40000e+05
++ b0=0.00000e+00 b1=0.00000e+00 beta0=  6.40000
++ bgidl=2.13920e+09 bigbacc=2.47000e-03 bigbinv=4.89300e-03
++ bigc=1.39200e-03 bigsd=1.23500e-03 binunit=  2.00000
++ bvs= 10.00000 capmod=  2.00000 cdsc=0.00000e+00
++ cdscb=0.00000e+00 cdscd=0.00000e+00 cf=8.13000e-11
++ cgbo=0.00000e+00 cgdl=1.71000e-11 cgdo=5.53000e-11
++ cgidl=2.20000e-01 cgsl=1.71000e-11 cgso=5.53000e-11
++ cigbacc=3.32500e-01 cigbinv=6.10000e-03 cigc=6.22000e-04
++ cigsd=7.00000e-02 cit=7.21200e-04 cjs=8.61000e-04
++ cjswgs=2.56000e-10 cjsws=4.87000e-11 ckappad=6.00000e-01
++ ckappas=6.00000e-01 clc=1.04000e-07 cle=6.00000e-01
++ delta=7.59562e-03 diomod=1.00000e+00 dlc=0.00000e+00
++ dlcig=2.48000e-09 dmcg=4.00000e-08 dmcgt=0.00000e+00
++ dmci=4.00000e-08 dmdg=0.00000e+00 drout=7.67707e-01
++ dsub=4.22235e-01 dtox=3.15000e-10 dvt0=2.36381e-01
++ dvt0w=0.00000e+00 dvt1=5.37442e-01 dvt1w=0.00000e+00
++ dvt2=5.56679e-02 dvt2w=0.00000e+00 dvtp0=2.36094e-06
++ dvtp1=  4.50000 dwb=0.00000e+00 dwc=0.00000e+00
++ dwg=0.00000e+00 dwj=0.00000e+00 ef=9.40000e-01
++ egidl=2.97340e-01 eigbinv=  1.10000 em=1.00000e+06
++ epsrox=  3.90000 eta0=1.76029e-03 etab=-1.13964e-02
++ fnoimod=1.00000e+00 fprout=3.00000e+02 gbmin=1.00000e-12
++ igbmod=1.00000e+00 igcmod=1.00000e+00 ijthsfwd=1.00000e-02
++ ijthsrev=1.00000e-02 jss=2.10000e-07 jswgs=1.20000e-12
++ jsws=3.40000e-13 k1=3.02640e-01 k2=-2.10085e-02
++ k2we=1.50195e-03 k3= -7.28453 k3b=  2.45499
++ keta=-6.69986e-02 kt1=-1.80980e-01 kt1l=0.00000e+00
++ kt2=-3.60000e-02 ku0=-3.47100e-08 ku0we=-3.00150e-03
++ kvsat=3.42000e-01 kvth0=2.46100e-09 kvth0we=3.27002e-03
++ ldrout=-1.20470e-08 letab=-2.89197e-10 lint=1.00000e-09
++ lintnoi=-5.00000e-09 lk2=8.00725e-11 lku0=1.23000e-08
++ lkvth0=-2.42100e-11 ll=0.00000e+00 llc=0.00000e+00
++ lln=1.00000e+00 llodku0=1.00000e+00 llodvth=1.00000e+00
++ lmax=6.00000e-08 lmin=4.00000e-08 lnfactor=1.41099e-07
++ lodeta0=1.00000e+00 lodk2=5.00000e-01 lpdiblc1=5.33299e-10
++ lpdiblc2=2.22120e-10 lpe0=6.61014e-08 lpeb=2.00040e-08
++ lu0=-4.49787e-10 lua=-3.36482e-17 lub=7.93378e-27
++ lvoff=-1.65057e-10 lvsat=7.71378e-04 lvth0=-5.87053e-12
++ lw=0.00000e+00 lwc=0.00000e+00 lwl=0.00000e+00
++ lwlc=0.00000e+00 lwn=1.00000e+00 minr=1.00000e-60
++ minv=-1.50000e-01 mjs=2.64000e-01 mjswgs=5.11000e-01
++ mjsws=1.10000e-02 mobmod=0.00000e+00 moin=  5.67000
++ ndep=1.00000e+17 nfactor=2.34741e-01 ngate=1.60000e+20
++ ngcon=1.00000e+00 nigbacc= 10.00000 nigbinv= 10.00000
++ nigc=  3.07000 njd=1.00000e+00 njs=1.00000e+00
++ noff=  2.96000 noia=2.60000e+42 noib=1.61000e+21
++ noic=3.00000e+08 nsd=1.00000e+20 ntox=1.00000e+00
++ pbs=5.11000e-01 pbswgs=4.64000e-01 pbsws=7.86000e-01
++ pclm=  1.44127 pdiblc1=-1.01684e-02 pdiblc2=2.88314e-03
++ pdiblcb=1.00000e+00 pdits=0.00000e+00 pditsd=0.00000e+00
++ pditsl=0.00000e+00 pdrout=9.16453e-15 permod=1.00000e+00
++ petab=-1.57523e-15 phin=0.00000e+00 pigcd=  2.59100
++ pk2=6.90010e-16 pku0=4.60000e-14 pkvth0=0.00000e+00
++ pnfactor=-3.93247e-16 poxedge=1.00000e+00 ppdiblc1=1.22711e-16
++ ppdiblc2=-1.03135e-16 prt=0.00000e+00 prwb=0.00000e+00
++ prwg=0.00000e+00 pscbe1=1.00000e+09 pscbe2=1.00000e-20
++ pu0=3.25596e-16 pua=3.18105e-23 pub=-1.01688e-32
++ pvag=  1.20000 pvoff=6.59429e-17 pvsat=1.27066e-13
++ pvth0=9.76459e-16 rbdb= 50.00000 rbodymod=0.00000e+00
++ rbpb= 50.00000 rbpd= 50.00000 rbps= 50.00000
++ rbsb= 50.00000 rdsmod=0.00000e+00 rdsw=1.00002e+02
++ rgatemod=0.00000e+00 rsh= 17.50000 rshg= 15.50000
++ saref=6.10000e-07 sbref=6.10000e-07 scref=1.00000e-06
++ steta0=0.00000e+00 stk2=3.87000e-10 tcj=6.52000e-04
++ tcjsw=3.57000e-04 tcjswg=1.50000e-03 tempmod=0.00000e+00
++ tku0=9.70000e-02 tnoimod=0.00000e+00 tnom= 25.00000
++ toxe=2.41000e-09 toxm=2.41000e-09 toxref=3.00000e-09
++ tpb=1.10000e-03 tpbsw=1.90000e-03 tpbswg=1.00000e-03
++ trnqsmod=0.00000e+00 tvfbsdoff=2.20000e-02 tvoff=2.24280e-03
++ u0=2.32553e-02 ua=-1.20450e-09 ua1=1.04000e-09
++ ub=2.13422e-18 ub1=-4.64000e-19 uc=7.79785e-11
++ uc1=8.71000e-11 ud=0.00000e+00 ute=-1.00000e+00
++ version=  4.30000 vfbsdoff=2.00000e-02 voff=-1.56783e-01
++ voffcv=-1.20000e-01 voffl=-3.59518e-09 vsat=1.23807e+05
++ vth0=3.54254e-01 w0=8.19002e-08 wags=-2.14739e-07
++ wdrout=-1.58009e-07 web=-2.10000e+02 wec=-3.51000e+03
++ weta0=-1.59041e-09 wetab=4.11045e-08 wint=2.00000e-09
++ wk2=-4.43371e-09 wketa=8.67511e-08 wku0=9.96000e-08
++ wkvth0=0.00000e+00 wl=0.00000e+00 wlc=0.00000e+00
++ wln=1.00000e+00 wlod=1.37000e-07 wlodku0=1.00000e+00
++ wlodvth=1.00000e+00 wmax=2.00000e-06 wmin=1.00000e-06
++ wnfactor=-6.57039e-10 wpdiblc1=-1.72460e-10 wpdiblc2=-1.32969e-09
++ wpemod=1.00000e+00 wr=1.00000e+00 wu0=-8.08125e-09
++ wua=-7.33625e-16 wub=1.67185e-25 wuc=7.26425e-18
++ wvoff=-8.92420e-10 wvsat=-2.19079e-06 wvth0=-1.41179e-08
++ ww=0.00000e+00 wwc=0.00000e+00 wwl=0.00000e+00
++ wwlc=0.00000e+00 wwn=1.00000e+00 xgl=0.00000e+00
++ xgw=0.00000e+00 xj=8.10000e-08 xjbvs=1.00000e+00
++ xl=0.00000e+00 xpart=1.00000e+00 xrcrg1= 12.00000
++ xrcrg2=1.00000e+00 xtid=  3.00000 xtis=  3.00000
++ xw=0.00000e+00
+*relxpert: agemodel nch agelevel=0
+*relxpert: + ai=7.78220e+06 bi=1.70000e+06 ea=0.0
+*relxpert: + ecrit0=5.71220e+04 ecritb=0.0 ecritg=9.60050e+03
+*relxpert: + lc0=1.26700 lc1=1.06290e-01
+*relxpert: + h0=1.24130e+04 m0=1.97630 nn0=3.89750e-01
+*relxpert: + a0=[ 3.23840 2.93280 1.12600e-01 3.11860e-01 4.32380 -1.0 ]
+*relxpert: + ub=[ 5.88700 0.0 4.29880e-01 1.0 1.0 1.0 ]
+*relxpert: + vsat=[ 4.575e-01 0.0 3.36520e-01 1.0 1.0 -1.0 ]
+*relxpert: + vth0=[ 8.20800 1.17380 4.32600e-01 1.97450e-01 2.82900 1.0 ]
+
+
