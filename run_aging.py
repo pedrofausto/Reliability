@@ -51,7 +51,7 @@ def gradAging(oldStep, step, netlist, nextNetlist):
       quit()
 
    print "4. run aging ... "
-   bashCommand="relxpert_pre -age -sp "+args.netlist+" "+args.netlist+"Age.p2 >> "+args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+".log"
+   bashCommand="relxpert_pre -age -sp "+args.netlist+" "+nextNetlist+"Age.p2 >> "+args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+".log"
    print bashCommand
    result = os.system(bashCommand)
    if (result != 0):
