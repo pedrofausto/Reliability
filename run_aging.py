@@ -12,14 +12,8 @@ def gradAging(step, netlist, nextNetlist):
     print bashCommand
     result = os.system(bashCommand)
     if (result != 0):
-<<<<<<< HEAD
-	print "Exiting..."
-        
-	quit()
-=======
        print "Exiting..."
        quit()
->>>>>>> 1ec9e15c45ac26b8a4efa039477fed7542d77cbb
     
     print "\n2. run spectre ... "
     bashCommand="spectre "+netlist+".p1 >> "+args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+".log"
