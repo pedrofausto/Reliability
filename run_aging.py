@@ -10,34 +10,34 @@ def gradAging(step, netlist, nextNetlist):
     print "\n1. run prebert ... "
     bashCommand="relxpert_pre -sp "+netlist+" "+netlist+".p1 > "+args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+".log"
     print bashCommand
-    #    result = os.system(bashCommand)
-    #    if (result != 0):
-    #        print "Exiting..."
-    #        quit()
+       result = os.system(bashCommand)
+       if (result != 0):
+           print "Exiting..."
+           quit()
     
     print "\n2. run spectre ... "
     bashCommand="spectre "+netlist+".p1 >> "+args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+".log"
     print bashCommand
-    #    result = os.system(bashCommand)
-    #    if (result != 0):
-    #        print "Exiting..."
-    #        quit()
+       result = os.system(bashCommand)
+       if (result != 0):
+           print "Exiting..."
+           quit()
     
     print "\n3. run postbert ... "
     bashCommand="relxpert_post -r "+netlist+".raw/tran.tran "+netlist+".p1"
     print bashCommand
-    #    result = os.system(bashCommand)
-    #    if (result != 0):
-    #    print "Exiting..."
-    #        quit()
+       result = os.system(bashCommand)
+       if (result != 0):
+       print "Exiting..."
+           quit()
     
     print "\n4. run aging ... "
     bashCommand="relxpert_pre -age -sp "+netlist+" "+nextNetlist+"Age >> "+args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+".log"
     print bashCommand
-#    result = os.system(bashCommand)
-#    if (result != 0):
-#    print "Exiting..."
-#        quit()
+    result = os.system(bashCommand)
+    if (result != 0):
+    print "Exiting..."
+       quit()
 
 
 
@@ -121,20 +121,20 @@ print bashCommand
 print "Changing temperature for circuit aging simulation"
 bashCommand="sed -i s/temp=0/temp="+args.temp+"/g "+args.netlist
 print bashCommand
-#os.system(bashCommand)
-#result = os.system(bashCommand)
-#if (result != 0):
-#    print "Exiting..."
-#    quit()
-#
+os.system(bashCommand)
+result = os.system(bashCommand)
+if (result != 0):
+   print "Exiting..."
+   quit()
+
 print "Changing nominal temperature for gradual circuit aging parameters extraction"
 bashCommand="sed -i s/tnom=27/tnom="+args.tnom+"/g "+args.netlist
 print bashCommand
-#os.system(bashCommand)
-#result = os.system(bashCommand)
-#if (result != 0):
-#    print "Exiting..."
-#    quit()
+os.system(bashCommand)
+result = os.system(bashCommand)
+if (result != 0):
+   print "Exiting..."
+   quit()
 
 
 if  ((args.age == 0) and (args.run == 0)):
@@ -142,51 +142,51 @@ if  ((args.age == 0) and (args.run == 0)):
     print "Changing aging parameter"
     bashCommand="sed -i s/0y/"+str(args.aging)+"/g "+args.netlist
     print bashCommand
-#    os.system(bashCommand)
-#    result = os.system(bashCommand)
-#    if (result != 0):
-#        print "Exiting..."
-#        quit()
+    os.system(bashCommand)
+    result = os.system(bashCommand)
+    if (result != 0):
+       print "Exiting..."
+       quit()
 
     print "1. run prebert ... "
     bashCommand="relxpert_pre -sp "+args.netlist+" "+args.netlist+".p1 > "+args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+".log"
     print bashCommand
-#    result = os.system(bashCommand)
-#    if (result != 0):
-#        print "Exiting..."
-#        quit()
+    result = os.system(bashCommand)
+    if (result != 0):
+       print "Exiting..."
+       quit()
 
     print "2. run spectre ... "
     bashCommand="spectre "+args.netlist+".p1 >> "+args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+".log"
     print bashCommand
-#    result = os.system(bashCommand)
-#    if (result != 0):
-#        print "Exiting..."
-#        quit()
+    result = os.system(bashCommand)
+    if (result != 0):
+       print "Exiting..."
+       quit()
 
     print "3. run postbert ... "
     bashCommand="relxpert_post -r "+args.netlist+".raw/tran.tran "+args.netlist+".p1"
     print bashCommand
-#    result = os.system(bashCommand)
-#    if (result != 0):
-#    print "Exiting..."
-#        quit()
+    result = os.system(bashCommand)
+    if (result != 0):
+    print "Exiting..."
+       quit()
 
     print "4. run aging ... "
     bashCommand="relxpert_pre -age -sp "+args.netlist+" "+args.netlist+"Age.p2 >> "+args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+".log"
     print bashCommand
-#    result = os.system(bashCommand)
-#    if (result != 0):
-#    print "Exiting..."
-#        quit()
+    result = os.system(bashCommand)
+    if (result != 0):
+    print "Exiting..."
+       quit()
 
     print "Switching nominal temperature (Tnom) to operation temperature (Temp) to perform spectre simulation"
     bashCommand="sed -i s/tnom="+args.tnom+"/tnom="+args.temp+"/g "+args.netlist
     print bashCommand
-#    result = os.system(bashCommand)
-#    if (result != 0):
-#    print "Exiting..."
-#        quit()
+    result = os.system(bashCommand)
+    if (result != 0):
+    print "Exiting..."
+       quit()
 
 
 
@@ -200,8 +200,6 @@ if (args.age):
         gradAging(step, netlist, nextNetlist)
         netlist = nextNetlist
         nextNetlist = args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+"_Age"+str(args.step+step)
-
-
 
 
 
