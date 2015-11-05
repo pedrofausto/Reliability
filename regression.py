@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-%matplotlib inline
+#%matplotlib inline
 
 import pandas as pd
 import matplotlib as plt
