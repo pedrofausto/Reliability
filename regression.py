@@ -3,9 +3,9 @@
 #%matplotlib inline
 
 import pandas as pd
-import matplotlib as plt
 import numpy as np
-import statsmodels as smf
+import matplotlib.pyplot as plt
+import statsmodels.formula.api as smf
 
 
 
