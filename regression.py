@@ -18,6 +18,7 @@ data.plot(kind='scatter', x='Ton', y='Delay', ax=axs[0], figsize=(16, 8))
 lm = smf.ols(formula='Delay ~ Ton', data=data).fit()
 
 result_params = lm.params
+print result_params
 
 X_new4 = pd.DataFrame({'Ton': [0.4]})
 X_new6 = pd.DataFrame({'Ton': [0.6]})
