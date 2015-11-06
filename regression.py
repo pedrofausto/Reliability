@@ -2,6 +2,10 @@
 
 #%matplotlib inline
 
+# 38% 175.0E-12
+# 40% 255.2E-12
+# 48% 656.3E-12
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
