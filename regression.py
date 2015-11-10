@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-#%matplotlib inline
+
 
 # 38% 175.0E-12
 # 40% 255.2E-12
@@ -11,44 +11,61 @@ import numpy as np
 import matplotlib.pyplot as plt
 import statsmodels.formula.api as smf
 
+%matplotlib
 
 
 data = pd.read_csv('data.csv', index_col=0)
 data.head()
 data.shape
 
-fig, axs = plt.subplots(1, 3, sharey=True)
-data.plot(kind='scatter', x='Ton', y='Delay', ax=axs[0], figsize=(16, 8))
+fig = plt.subplots(sharey=True)
+data.plot(x='Ton', y='Delay')
 lm = smf.ols(formula='Delay ~ Ton', data=data).fit()
 
 result_params = lm.params
 print result_params
 
-X_new4 = pd.DataFrame({'Ton': [0.4]})
-X_new5 = pd.DataFrame({'Ton': [0.5]})
-X_new6 = pd.DataFrame({'Ton': [0.6]})
-X_new7 = pd.DataFrame({'Ton': [0.7]})
-X_new8 = pd.DataFrame({'Ton': [0.8]})
+X_new1 = pd.DataFrame({'Ton': [0.1]})
+X_new2 = pd.DataFrame({'Ton': [0.15]})
+X_new3 = pd.DataFrame({'Ton': [0.26]})
+X_new4 = pd.DataFrame({'Ton': [0.32]})
+X_new5 = pd.DataFrame({'Ton': [0.38]})
+X_new6 = pd.DataFrame({'Ton': [0.4]})
+X_new7 = pd.DataFrame({'Ton': [0.5]})
+X_new8 = pd.DataFrame({'Ton': [0.6]})
+X_new9 = pd.DataFrame({'Ton': [0.65]})
+X_new10 = pd.DataFrame({'Ton': [0.7]})
+X_new11 = pd.DataFrame({'Ton': [0.75]})
+X_new12 = pd.DataFrame({'Ton': [0.8]})
+X_new12 = pd.DataFrame({'Ton': [0.85]})
 
 
+result1 = lm.predict(X_new1)
+result2 = lm.predict(X_new2)
+result3 = lm.predict(X_new3)
 result4 = lm.predict(X_new4)
 result5 = lm.predict(X_new5)
 result6 = lm.predict(X_new6)
 result7 = lm.predict(X_new7)
 result8 = lm.predict(X_new8)
-print X_new4.head() 
+result9 = lm.predict(X_new9)
+result10 = lm.predict(X_new10)
+result11 = lm.predict(X_new11)
+result12 = lm.predict(X_new12)
+
+
+print result1
+print result2
+print result3
 print result4
-
-print X_new5.head() 
-print result5 
-
-print X_new6.head() 
+print result5
 print result6
-
-print X_new7.head() 
-print result7 
-
-print X_new8.head() 
+print result7
 print result8
+print result9
+print result10
+print result11
+print result12
 
-print data
+
+#plt.autoscale(enable=True, axis='both', tight=None)
