@@ -53,6 +53,8 @@ result10 = lm.predict(X_new10)
 result11 = lm.predict(X_new11)
 result12 = lm.predict(X_new12)
 
+result = result1, result2, result3, result4, result5, result6, result7, result8, result9, result10, result11, result12
+result.plot(x='Ton', y='Delay')
 
 print result1
 print result2
