@@ -1,45 +1,153 @@
 // Generated for: spectre
-// Design library name: bertlink
-// Design cell name: osc13
+// Generated on: Oct 27 23:19:54 2015
+// Design library name: AgingLibrary
+// Design cell name: inverterChain
 // Design view name: schematic
 simulator lang=spectre
 global 0 vdd!
+parameters p5vonly=0 phires=0
 include "model/nmos.scs"
 include "model/pmos.scs"
 
 // Library name: bertlink
 // Cell name: inv
 // View name: schematic
+subckt inv A Y
     M1 (Y A vdd! vdd!) pch w=2.0u l=45n
     M0 (Y A 0 0) nch w=1.0u l=45n
+ends inv
 // End of subcircuit definition.
 
-// Library name: bertlink
-// Cell name: osc13
+//V0 (vdd! 0) vsource dc=1.3 type=dc
+//V0   (vdd!            0)    vsource type=pwl wave=[ 0 1.3 99.9999999ms 1.3 100ms 0 1s 0 ]
+V0   (vdd!      0)    vsource type=pulse val0=0 val1=1.3 delay=0 rise=1ps fall=1ps width=0.01ms period=0.1ms
+
+//VInput1   (A          0)    vsource type=pwl wave=[ 0 1.3 99ms 1.3 100ms 0 1s 0 ]
+VInput1   (A            0)    vsource type=pulse val0=0 val1=1.3 delay=0 rise=1ps fall=1ps width=20us period=40us
+
+// Library name: AgingLibrary
+// Cell name: inverterChain
 // View name: schematic
-V0 (vdd! 0) vsource dc=1.0 type=dc
-C0 (Y 0) capacitor c=10.0f
+I99 (net132 Y ) inv
+I98 (net103 net105 ) inv
+I97 (net109 net110 ) inv
+I96 (net110 net132 ) inv
+I95 (net107 net109 ) inv
+I94 (net106 net107 ) inv
+I93 (net105 net106 ) inv
+I92 (net126 net101 ) inv
+I91 (net101 net102 ) inv
+I90 (net102 net103 ) inv
+I89 (net92 net93 ) inv
+I88 (net91 net92 ) inv
+I87 (net124 net91 ) inv
+I86 (net95 net96 ) inv
+I85 (net96 net97 ) inv
+I84 (net97 net99 ) inv
+I83 (net100 net126 ) inv
+I82 (net99 net100 ) inv
+I81 (net93 net95 ) inv
+I80 (net83 net85 ) inv
+I79 (net89 net90 ) inv
+I78 (net90 net124 ) inv
+I77 (net87 net89 ) inv
+I76 (net86 net87 ) inv
+I75 (net85 net86 ) inv
+I74 (net122 net81 ) inv
+I73 (net81 net82 ) inv
+I72 (net82 net83 ) inv
+I71 (net72 net73 ) inv
+I70 (net71 net72 ) inv
+I69 (net131 net71 ) inv
+I68 (net75 net76 ) inv
+I67 (net76 net77 ) inv
+I66 (net77 net79 ) inv
+I65 (net80 net122 ) inv
+I64 (net79 net80 ) inv
+I63 (net73 net75 ) inv
+I62 (net63 net65 ) inv
+I61 (net69 net70 ) inv
+I60 (net70 net131 ) inv
+I59 (net67 net69 ) inv
+I58 (net66 net67 ) inv
+I57 (net65 net66 ) inv
+I56 (net119 net61 ) inv
+I55 (net61 net62 ) inv
+I54 (net62 net63 ) inv
+I53 (net52 net53 ) inv
+I52 (net51 net52 ) inv
+I51 (net117 net51 ) inv
+I50 (net55 net56 ) inv
+I49 (net56 net57 ) inv
+I48 (net57 net59 ) inv
+I47 (net60 net119 ) inv
+I46 (net59 net60 ) inv
+I45 (net53 net55 ) inv
+I44 (net43 net45 ) inv
+I43 (net49 net50 ) inv
+I42 (net50 net117 ) inv
+I41 (net47 net49 ) inv
+I40 (net46 net47 ) inv
+I39 (net45 net46 ) inv
+I38 (net130 net41 ) inv
+I37 (net41 net42 ) inv
+I36 (net42 net43 ) inv
+I35 (net32 net33 ) inv
+I34 (net31 net32 ) inv
+I33 (net129 net31 ) inv
+I32 (net35 net36 ) inv
+I31 (net36 net37 ) inv
+I30 (net37 net39 ) inv
+I29 (net40 net130 ) inv
+I28 (net39 net40 ) inv
+I27 (net33 net35 ) inv
+I26 (net23 net25 ) inv
+I25 (net29 net30 ) inv
+I24 (net30 net129 ) inv
+I23 (net27 net29 ) inv
+I22 (net26 net27 ) inv
+I21 (net25 net26 ) inv
+I20 (net113 net21 ) inv
+I19 (net21 net22 ) inv
+I18 (net22 net23 ) inv
+I17 (net12 net13 ) inv
+I16 (net11 net12 ) inv
+I15 (net128 net11 ) inv
+I14 (net15 net16 ) inv
+I13 (net16 net17 ) inv
+I12 (net17 net19 ) inv
+I11 (net20 net113 ) inv
+I10 (net19 net20 ) inv
+I9 (net13 net15 ) inv
+I8 (net9 net10 ) inv
+I7 (net10 net128 ) inv
+I6 (net7 net9 ) inv
+I5 (net6 net7 ) inv
+I4 (net5 net6 ) inv
+I3 (net3 net5 ) inv
+I2 (net2 net3 ) inv
+I1 (net1 net2 ) inv
+I0 (A net1 ) inv
+C100 (Y 0) capacitor c=10.0f
 
-VInput1   (A     	0)    vsource type=pulse val0=0  val1=1.2 delay=0  rise=1f fall=1f width=100p period=200p
-
-simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=50 \
-    tnom=0 vnom=1.0 scalem=1.0 scale=1.0 gmin=1e-12 rforce=0.1 maxnotes=5 maxwarns=5 \
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=70 \
+    tnom=70 scalem=1.0 scale=1.0 gmin=1e-12 rforce=0.1 maxnotes=5 maxwarns=5 \
     digits=5 cols=80 pivrel=1e-3 ckptclock=1800 rawfmt=psfxl method=trap \
-    sensfile="../psf/sens.output" 
-tran tran stop=10n write="spectre.ic" writefinal="spectre.fc" \
-    annotate=status maxiters=5 
+    sensfile="../psf/sens.output"
+tran tran stop=0.3ms write="spectre.ic" writefinal="spectre.fc" \
+    annotate=status maxiters=5
 finalTimeOP info what=oppoint where=rawfile
 modelParameter info what=models where=rawfile
 element info what=inst where=rawfile
 outputParameter info what=output where=rawfile
-saveOptions options save=allpub pwr=all currents=all
+saveOptions options save=allpub
 
-*relxpert: age 0y
+*relxpert: age 1y
 *relxpert: deltad 0.1
 *relxpert: agemethod agemos
+*relxpert: .dumpagemodel invagemodel
 *relxpert: degsort
 *relxpert: report_model_param
 *relxpert: vthmethod spice
 **relxpert: agelevel_only [level=101]
 **relxpert: new_bo0_format
-
