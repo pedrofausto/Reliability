@@ -4,100 +4,94 @@
 import argparse
 import os
 import sys, time
+import  csv
 
+netlists = [];
 
-def gradAging(oldStep, step, netlist, nextNetlist):
+def netlistCopy(vdd, temp, act, period, age, netlist_name):
     
-   print "Changing aging parameter"
-   bashCommand="sed -i s/"+oldStep+"/"+step+"/g "+args.netlist
-   print bashCommand
-   os.system(bashCommand)
-   result = os.system(bashCommand)
-   if (result != 0):
-      print "Exiting..."
-      quit()
+  print "\nCopying default netlist file to " + netlist_name
+  bashCommand="cp "+args.netlist+" " + netlist_name
+  #print bashCommand
+  os.system(bashCommand)
+  result = os.system(bashCommand)
+  if (result != 0):
+    print "Exiting..."
+    quit()
 
-   print "Changing nominal temperature for gradual circuit aging parameters extraction"
-   bashCommand="sed -i s/tnom=27/tnom="+args.tnom+"/g "+args.netlist
-   print bashCommand
-   os.system(bashCommand)
-   result = os.system(bashCommand)
-   if (result != 0):
-     print "Exiting..."
-     quit()
+  
+  print "Changing Vdd for circuit aging simulation"
+  bashCommand="sed -i s/dc\=0\.0/dc\="+ vdd +"/g "+ netlist_name
+  #print bashCommand
+  os.system(bashCommand)
+  result = os.system(bashCommand)
+  if (result != 0):
+    print "Exiting..."
+    quit()
+  
+  print "Changing temperature"
+  bashCommand="sed -i s/temp\=0/temp="+temp+"/g "+ netlist_name
+  #print bashCommand
+  os.system(bashCommand)
+  result = os.system(bashCommand)
+  if (result != 0):
+    print "Exiting..."
+    quit()
 
-   print "\n1. run prebert ... "
-   bashCommand="relxpert_pre -sp "+netlist+" "+netlist+".p1 > "+args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+".log"
-   print bashCommand
-   result = os.system(bashCommand)
-   if (result != 0):
-      print "Exiting..."
-      quit()
+  print "Changing input signal activity"
+  unit = (period.translate(None, '1234567890'))
+  percent = (float(act)/100.0)  * float((period.translate(None, 'usnmpf')))
+  bashCommand="sed -i s/width\=0us/width\="+ str(percent) + unit +"/g "+ netlist_name
+  #print bashCommand
+  os.system(bashCommand)
+  result = os.system(bashCommand)
+  if (result != 0):
+    print "Exiting..."
+    quit()
     
-   print "\n2. run spectre ... "
-   bashCommand="spectre "+netlist+".p1 >> "+args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+".log"
-   print bashCommand
-   result = os.system(bashCommand)
-   if (result != 0):
-      print "Exiting..."
-      quit()
-    
-   print "\n3. run postbert ... "
-   bashCommand="relxpert_post -r "+netlist+".raw/tran.tran "+netlist+".p1"
-   print bashCommand
-   result = os.system(bashCommand)
-   if (result != 0):
-      print "Exiting..."
-      quit()
+  print "Changing input signal period"
+  bashCommand="sed -i s/period\=0us/period\="+ period + "/g "+ netlist_name
+  #print bashCommand
+  os.system(bashCommand)
+  result = os.system(bashCommand)
+  if (result != 0):
+    print "Exiting..."
+    quit()
 
-   print "4. run aging ... "
-   bashCommand="relxpert_pre -age -sp "+args.netlist+" "+nextNetlist+"Age.p2 >> "+args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+".log"
-   print bashCommand
-   result = os.system(bashCommand)
-   if (result != 0):
-      print "Exiting..."
-      quit()
-
-   print "Switching nominal temperature (Tnom) to operation temperature (Temp) to perform spectre simulation"
-   bashCommand="sed -i s/tnom="+args.tnom+"/tnom="+args.temp+"/g "+args.netlist
-   print bashCommand
-   result = os.system(bashCommand)
-   if (result != 0):
-      print "Exiting..."
-      quit()
-
-   #print "Saving aged circuit"
-   #bashCommand="mv "    
-
+  print "Changing aging period"
+  bashCommand="sed -i s/age\ 0h/age\ "+ age + "h/g "+ netlist_name
+  #print bashCommand
+  os.system(bashCommand)
+  result = os.system(bashCommand)
+  if (result != 0):
+    print "Exiting..."
+    quit()
 
 
 animation_strings = ('[=', '=', '=]')
 parser = argparse.ArgumentParser()
 
-parser.add_argument("netlist", help="Name of the netlist file to be aged. Ex: inverter")
-parser.add_argument("dcvolt", help="DC operating voltage (Volts); Ex: 1.2")
-parser.add_argument("temp", help="Operation temperature (C). Ex: 25")
-parser.add_argument("tnom", help="Nominal temperature (C). Ex: 27. This value will be used to extract the correspondent aging parameters")
-parser.add_argument("aging", help="Aging time (weeks. 52 weeks = 1 year). Ex: 52",type=int)
-parser.add_argument("--step", "-s", help="Aging time step. The netlist will be aged for each step (in weeks)",type=int)
+parser.add_argument("inputFile", help="input file with aging conditions. Must be an CSV formatd file")
+parser.add_argument("netlist", help="Name of the default netlist file to be aged. Ex: inverter")
+parser.add_argument("--directory", "-d", help="Output directory. All results will reside within this directory.")
 
 
-group = parser.add_mutually_exclusive_group()
-group.add_argument("-a", "--age", action="store_true", help="Aging flow. Extract aging values")
-group.add_argument("-r", "--run", action="store_true", help="Run a simulation with aged values")
+# group = parser.add_mutually_exclusive_group()
+# group.add_argument("-a", "--age", action="store_true", help="Aging flow. Extract aging values")
+# group.add_argument("-r", "--run", action="store_true", help="Run a simulation with aged values")
 
 args = parser.parse_args()
 
 bashCommand="clear"
 os.system(bashCommand)
 
-print "Evaluating options..."
-for i in range(20):
+print "Evaluating options and values..."
+for i in range(5):
     if (i == 0):
         sys.stdout.write(animation_strings[0])
         sys.stdout.flush()
         time.sleep(0.1)
-    elif (i == 19):
+    elif (i == 4):
         sys.stdout.write(animation_strings[2])
         sys.stdout.flush()
         time.sleep(0.1)
@@ -107,142 +101,49 @@ for i in range(20):
         time.sleep(0.1)
 
 print "\n..."
-if args.step == 0 :
-    print "Aging step value must not be zero"
+if args.inputFile == None :
+    print "Environmental conditions must be provided. Please provide an input file."
     print "Quiting..."
     quit()
-elif args.step > args.aging:
-    print "Aging step value must not be greater than aging value"
+elif args.netlist == None:
+    print "Netlist must be provided. Please provide an input file."
     print "Quiting..."
     quit()
-elif args.step < 0 and args.step != None:
-    print "Aging step value must not negative"
-    print "Quiting..."
-    print args.step
-    quit()
-elif  (args.age and (args.step == None)):
-    print "Gradual aging set but no aging step defined. Either define aging step or disable gradual aging"
-    quit()
-elif args.step != None:
-    print "Aging step:", args.step
-else:
-    print "No age step defined"
+elif args.directory != None:
+    print "Output directory defined. Using value " + args.directory
+    outputDirectory = args.directory
     pass
+else:
+    print "Output directory not defined. Using default value 'results'"
+    outputDirectory = "results"
+    pass
+  
+  
+with open(args.inputFile, 'rb') as csvfile:
+  reader = csv.reader(csvfile)
+  try:
+    for row in reader:
+      if reader.line_num != 1 :
+	print row
+	netlist_name = args.netlist + "_vdd" + (row[0].translate(None, '.'))+ "_temp" + row[1] + "_act" + row[2] + "_period" + row[3] +  "_age" + row[4] + "h"
+	netlists.append(netlist_name);
+	netlistCopy(row[0], row[1], row[2], row[3], row[4], netlist_name)
+  except csv.Error as err:
+      sys.exit('Error on file %s, line %d: %s' % (args.inputFile, reader.line_num, e))
 
+print "Creating default profile file 'profile.cfg'"
+profileFile = open('profile.cfg','w')
+profileFile.write('.netlist_type spectre\n')
+profileFile.write('.profile_names ' + ' '.join(netlists) + '\n')
+profileFile.close() 
 
-
-print "Evaluating values..."
-print "Aging time:",args.aging, "week(s)"
-print "Aging netlist:",args.netlist
-print "DC operation voltage:",args.dcvolt,"V"
-print "Operation temperature:",args.temp
-print "Nominal temperature:",args.tnom
-
-
-print "\nChanging DC Operating voltage"
-bashCommand="sed -i s/dc=1.0/dc="+args.dcvolt+"/g "+args.netlist
+print "\nRunning rxprofile tool"
+bashCommand="rxprofile profile.cfg -raw "+ outputDirectory
 print bashCommand
-os.system(bashCommand)
 result = os.system(bashCommand)
 if (result != 0):
-    print "Exiting..."
-    quit()
-
-print "Changing temperature for circuit aging simulation"
-bashCommand="sed -i s/temp=0/temp="+args.temp+"/g "+args.netlist
-print bashCommand
-os.system(bashCommand)
-result = os.system(bashCommand)
-if (result != 0):
-   print "Exiting..."
-   quit()
-
-
-
-if  ((args.age == 0) and (args.run == 0)):
-   print "\nBoth 'age' and 'run' options are disabled. Running non-gradual aging"
-   print "Changing aging parameter"
-   bashCommand="sed -i s/0y/"+str(args.aging)+"/g "+args.netlist
-   print bashCommand
-   os.system(bashCommand)
-   result = os.system(bashCommand)
-   if (result != 0):
-      print "Exiting..."
-      quit()
-
-   print "Changing nominal temperature for gradual circuit aging parameters extraction"
-   bashCommand="sed -i s/tnom=27/tnom="+args.tnom+"/g "+args.netlist
-   print bashCommand
-   os.system(bashCommand)
-   result = os.system(bashCommand)
-   if (result != 0):
-      print "Exiting..."
-      quit()
-
-   print "1. run prebert ... "
-   bashCommand="relxpert_pre -sp "+args.netlist+" "+args.netlist+".p1 > "+args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+".log"
-   print bashCommand
-   result = os.system(bashCommand)
-   if (result != 0):
-      print "Exiting..."
-      quit()
-
-   print "2. run spectre ... "
-   bashCommand="spectre "+args.netlist+".p1 >> "+args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+".log"
-   print bashCommand
-   result = os.system(bashCommand)
-   if (result != 0):
-      print "Exiting..."
-      quit()
-
-   print "3. run postbert ... "
-   bashCommand="relxpert_post -r "+args.netlist+".raw/tran.tran "+args.netlist+".p1"
-   print bashCommand
-   result = os.system(bashCommand)
-   if (result != 0):
-      print "Exiting..."
-      quit()
-
-   print "4. run aging ... "
-   bashCommand="relxpert_pre -age -sp "+args.netlist+" "+args.netlist+"Age.p2 >> "+args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+".log"
-   print bashCommand
-   result = os.system(bashCommand)
-   if (result != 0):
-      print "Exiting..."
-      quit()
-
-   print "Switching nominal temperature (Tnom) to operation temperature (Temp) to perform spectre simulation"
-   bashCommand="sed -i s/tnom="+args.tnom+"/tnom="+args.temp+"/g "+args.netlist
-   print bashCommand
-   result = os.system(bashCommand)
-   if (result != 0):
-      print "Exiting..."
-      quit()
-
-
-
-if (args.age):
-   print "Running gradual aging. Age step of "+str(args.step)+" week(s)"
-
-   oldStep = "0y"
-   netlist = args.netlist
-   nextNetlist = args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+"_Age"+str(args.step)
-    
-   for step in range(args.step, args.aging+args.step, args.step):
-      stepString = str(step)+"w"
-      gradAging(oldStep, stepString, netlist, nextNetlist)
-      #netlist = nextNetlist
-      nextNetlist = args.netlist+"_vdd"+args.dcvolt+"_temp"+args.tnom+"_Age"+str(args.step+step)
-      oldStep = stepString
-
-
-
-
-
-if (args.run):
-   print "Running aged simulation for "+str(args.aging)+" week(s)"
-
-
+  print "Failed to execute rxprofile. Quiting..."
+  quit()
 
 
 print "..."
