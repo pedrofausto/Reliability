@@ -7,6 +7,7 @@ import sys, time
 import  csv
 
 netlists = [];
+vddList  = [];
 
 def netlistCopy(vdd, temp, act, period, age, netlist_name):
     
@@ -67,6 +68,27 @@ def netlistCopy(vdd, temp, act, period, age, netlist_name):
     print "Exiting..."
     quit()
 
+def extractDelays(netlist_name):
+    
+  print "\nCopying default netlist file to " + netlist_name
+  bashCommand="cp "+args.netlist+" " + netlist_name
+  #print bashCommand
+  os.system(bashCommand)
+  result = os.system(bashCommand)
+  if (result != 0):
+    print "Exiting..."
+    quit()
+
+  
+  print "Changing Vdd for circuit aging simulation"
+  bashCommand="sed -i s/dc\=0\.0/dc\="+ vdd +"/g "+ netlist_name
+  #print bashCommand
+  os.system(bashCommand)
+  result = os.system(bashCommand)
+  if (result != 0):
+    print "Exiting..."
+    quit()
+  
 
 animation_strings = ('[=', '=', '=]')
 parser = argparse.ArgumentParser()
@@ -124,10 +146,12 @@ with open(args.inputFile, 'rb') as csvfile:
   try:
     for row in reader:
       if reader.line_num != 1 :
-	print row
-	netlist_name = args.netlist + "_vdd" + (row[0].translate(None, '.'))+ "_temp" + row[1] + "_act" + row[2] + "_period" + row[3] +  "_age" + row[4] + "h"
-	netlists.append(netlist_name);
-	netlistCopy(row[0], row[1], row[2], row[3], row[4], netlist_name)
+      	#print row
+      	netlist_name = args.netlist + "_vdd" + (row[0].translate(None, '.')) + "_temp" + row[1] + "_act" + row[2] + "_period" + row[3] +  "_age" + row[4] + "h"
+      	vdds = row[0]
+        vddList.append(vdds);
+        netlists.append(netlist_name);
+      	netlistCopy(row[0], row[1], row[2], row[3], row[4], netlist_name)
   except csv.Error as err:
       sys.exit('Error on file %s, line %d: %s' % (args.inputFile, reader.line_num, e))
 
@@ -140,10 +164,49 @@ profileFile.close()
 print "\nRunning rxprofile tool"
 bashCommand="rxprofile profile.cfg -raw "+ outputDirectory
 print bashCommand
-result = os.system(bashCommand)
-if (result != 0):
-  print "Failed to execute rxprofile. Quiting..."
-  quit()
+#result = os.system(bashCommand)
+#if (result != 0):
+#  print "Failed to execute rxprofile. Quiting..."
+#  quit()
+
+
+print "Creating extraction script file "
+extractFile = open('extractDelay.ocn','w')
+flag = True
+count = 1;
+for net in netlists:
+  if flag == True:
+    firstNetlist = net
+    flag = False
+    extractFile.write(';Extract script file for ' + netlist_name +'\n')
+    extractFile.write('out_delay=outfile("./delays_inv.csv", "a")\n')
+    extractFile.write('fprintf(out_delay "Extract results file for ' + netlist_name +'\\n")\n')
+  else:
+    currentNetlist = net
+    
+    #initial value for result manipulation
+    extractFile.write('result=0\n')
+    
+    #finding the rising and falling delay
+    extractFile.write('result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "./' + firstNetlist + '"), ?value1 '+ vddList[0] +', ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "./' + currentNetlist + '"), ?value2 '+ vddList[count] +', ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)\\n\n')
+    extractFile.write('result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "./' + firstNetlist + '"), ?value1 '+ vddList[0] +', ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "./' + currentNetlist + '"), ?value2 '+ vddList[count] +', ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)\\n\n')
+    
+    #getting the difference
+    extractFile.write('diff = result1 - result2\n')
+    # testing to discover the smaller of both
+    extractFile.write('if((diff < 0) result=diff result=result2) "npn"\n')
+
+    extractFile.write('fprintf(out_delay "\\n\%.e5\\n" result)')
+
+
+    #extractFile.write('result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "./' + firstNetlist + '"), ?value1 '+ vddList[0] +', ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "./' + currentNetlist + '"), ?value2 '+ vddList[count] +', ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)\\n\n')
+    count = count+1
+    
+
+extractFile.write('drain(out_delay)\n')
+extractFile.write('close(out_delay)\n')      
+
+extractFile.close() 
 
 
 print "..."
