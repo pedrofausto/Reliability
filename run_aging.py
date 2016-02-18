@@ -165,17 +165,17 @@ profileFile.close()
 print "\nRunning rxprofile tool"
 bashCommand="rxprofile profile.cfg -raw "+ outputDirectory
 print bashCommand
-#result = os.system(bashCommand)
-#if (result != 0):
-#  print "Failed to execute rxprofile. Quiting..."
-#  quit()
+result = os.system(bashCommand)
+if (result != 0):
+  print "Failed to execute rxprofile. Quiting..."
+  quit()
 
 
 print "Creating extraction script file"
 extractFile = open('extractDelay.ocn','w')
 flag = True
 count = 1;
-extractFile.write('out_delay=outfile("./delays_inv.csv", "a")\n')    
+extractFile.write('out_delay=outfile("./delays_' + args.netlist + '.csv", "a")\n')    
 extractFile.write(';Extract script file for ' + netlist_name +'\n')
 extractFile.write('fprintf(out_delay "Extract results file for ' + args.netlist +'\\n")\n')
 for net in netlists:
@@ -184,7 +184,7 @@ for net in netlists:
     flag = False    
   else:
     currentNetlist = net
-    
+
     #initial value for result manipulation
     extractFile.write('result=0\n')
     
@@ -197,7 +197,7 @@ for net in netlists:
     # testing to discover the smaller of both
     extractFile.write('if((diff < 0) result=result1 result=result2) "npn"\n')
 
-    extractFile.write('fprintf(out_delay "\\n%.e5\\n" result)\n')
+    extractFile.write('fprintf(out_delay "%.5e\\n" result)\n')
 
     #extractFile.write('result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "./' + firstNetlist + '"), ?value1 '+ vddList[0] +', ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "./' + currentNetlist + '"), ?value2 '+ vddList[count] +', ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)\\n\n')
     count = count+1

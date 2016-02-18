@@ -1,9 +1,29 @@
-;Extract script file for inv100_vdd11_temp55_act20_period40us_age16012h
-out_delay=outfile("./delays_inv.csv", "a")
-fprintf(out_delay ";Extract results file for inv100_vdd11_temp55_act20_period40us_age16012h\n")
-result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "./inv100_vdd11_temp25_act20_period40us_age1000h"), ?value1 1.1, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "./inv100_vdd11_temp30_act20_period40us_age8012h"), ?value2 1.1, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)\n
-result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "./inv100_vdd11_temp25_act20_period40us_age1000h"), ?value1 1.1, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "./inv100_vdd11_temp30_act20_period40us_age8012h"), ?value2 1.1, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)\n
-result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "./inv100_vdd11_temp25_act20_period40us_age1000h"), ?value1 1.1, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "./inv100_vdd11_temp55_act20_period40us_age16012h"), ?value2 1.1, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)\n
-result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "./inv100_vdd11_temp25_act20_period40us_age1000h"), ?value1 1.1, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "./inv100_vdd11_temp55_act20_period40us_age16012h"), ?value2 1.1, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)\n
+out_delay=outfile("./delays_inv100.csv", "a")
+;Extract script file for inv100_vdd12_temp58_act20_period40us_age35040h
+fprintf(out_delay "Extract results file for inv100\n")
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultado/inv100_vdd11_temp25_act20_period40us_age24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultado/inv100_vdd11_temp30_act20_period40us_age8760h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultado/inv100_vdd11_temp25_act20_period40us_age24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultado/inv100_vdd11_temp30_act20_period40us_age8760h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultado/inv100_vdd11_temp25_act20_period40us_age24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultado/inv100_vdd11_temp55_act20_period40us_age17520h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultado/inv100_vdd11_temp25_act20_period40us_age24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultado/inv100_vdd11_temp55_act20_period40us_age17520h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultado/inv100_vdd11_temp25_act20_period40us_age24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultado/inv100_vdd12_temp55_act20_period40us_age26280h.raw"), ?value2 0.6, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultado/inv100_vdd11_temp25_act20_period40us_age24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultado/inv100_vdd12_temp55_act20_period40us_age26280h.raw"), ?value2 0.6, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultado/inv100_vdd11_temp25_act20_period40us_age24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultado/inv100_vdd12_temp58_act20_period40us_age35040h.raw"), ?value2 0.6, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultado/inv100_vdd11_temp25_act20_period40us_age24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultado/inv100_vdd12_temp58_act20_period40us_age35040h.raw"), ?value2 0.6, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
 drain(out_delay)
 close(out_delay)
