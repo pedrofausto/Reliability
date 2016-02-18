@@ -8,13 +8,14 @@ import  csv
 
 netlists = [];
 vddList  = [];
+currentDir = os.getcwd()
 
 def netlistCopy(vdd, temp, act, period, age, netlist_name):
     
   print "\nCopying default netlist file to " + netlist_name
   bashCommand="cp "+args.netlist+" " + netlist_name
   #print bashCommand
-  os.system(bashCommand)
+  #os.system(bashCommand)
   result = os.system(bashCommand)
   if (result != 0):
     print "Exiting..."
@@ -170,17 +171,17 @@ print bashCommand
 #  quit()
 
 
-print "Creating extraction script file "
+print "Creating extraction script file"
 extractFile = open('extractDelay.ocn','w')
 flag = True
 count = 1;
+extractFile.write('out_delay=outfile("./delays_inv.csv", "a")\n')    
+extractFile.write(';Extract script file for ' + netlist_name +'\n')
+extractFile.write('fprintf(out_delay "Extract results file for ' + args.netlist +'\\n")\n')
 for net in netlists:
   if flag == True:
     firstNetlist = net
-    flag = False
-    extractFile.write(';Extract script file for ' + netlist_name +'\n')
-    extractFile.write('out_delay=outfile("./delays_inv.csv", "a")\n')
-    extractFile.write('fprintf(out_delay "Extract results file for ' + netlist_name +'\\n")\n')
+    flag = False    
   else:
     currentNetlist = net
     
@@ -188,19 +189,19 @@ for net in netlists:
     extractFile.write('result=0\n')
     
     #finding the rising and falling delay
-    extractFile.write('result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "./' + firstNetlist + '"), ?value1 '+ vddList[0] +', ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "./' + currentNetlist + '"), ?value2 '+ vddList[count] +', ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)\\n\n')
-    extractFile.write('result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "./' + firstNetlist + '"), ?value1 '+ vddList[0] +', ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "./' + currentNetlist + '"), ?value2 '+ vddList[count] +', ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)\\n\n')
+    extractFile.write('result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "' + currentDir + '/'+ outputDirectory + '/'+ firstNetlist + '.raw"), ?value1 '+ str(float(vddList[0])/2) +', ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "' + currentDir + '/'+ outputDirectory + '/'+ currentNetlist + '.raw"), ?value2 '+ str(float(vddList[count])/2) +', ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)\n')
+    extractFile.write('result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "' + currentDir + '/'+ outputDirectory + '/'+ firstNetlist + '.raw"), ?value1 '+ str(float(vddList[0])/2) +', ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "' + currentDir + '/'+ outputDirectory + '/'+ currentNetlist + '.raw"), ?value2 '+ str(float(vddList[count])/2) +', ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)\n')
     
     #getting the difference
     extractFile.write('diff = result1 - result2\n')
     # testing to discover the smaller of both
-    extractFile.write('if((diff < 0) result=diff result=result2) "npn"\n')
+    extractFile.write('if((diff < 0) result=result1 result=result2) "npn"\n')
 
-    extractFile.write('fprintf(out_delay "\\n\%.e5\\n" result)')
-
+    extractFile.write('fprintf(out_delay "\\n%.e5\\n" result)\n')
 
     #extractFile.write('result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "./' + firstNetlist + '"), ?value1 '+ vddList[0] +', ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "./' + currentNetlist + '"), ?value2 '+ vddList[count] +', ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)\\n\n')
     count = count+1
+flag = True
     
 
 extractFile.write('drain(out_delay)\n')
