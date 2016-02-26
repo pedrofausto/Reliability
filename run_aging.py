@@ -1,14 +1,19 @@
 #!/usr/bin/python
 
-
 import argparse
 import os
 import sys, time
 import  csv
+import time
 
 netlists = [];
 vddList  = [];
 currentDir = os.getcwd()
+profileQty = 0
+
+initialDate = time.strftime("%a %b %d %H:%M:%S %Z %Y")
+
+print "Start simulation at: " + initialDate
 
 def netlistCopy(vdd, temp, act, period, age, netlist_name):
     
@@ -147,28 +152,44 @@ with open(args.inputFile, 'rb') as csvfile:
   try:
     for row in reader:
       if reader.line_num != 1 :
-      	#print row
-      	netlist_name = args.netlist + "_vdd" + (row[0].translate(None, '.')) + "_temp" + row[1] + "_act" + row[2] + "_period" + row[3] +  "_age" + row[4] + "h"
+      	netlist_name = args.netlist + "vdd" + (row[0].translate(None, '.')) + "t" + row[1].replace(".", "_") + "a" + row[2] + "p" + row[3] +  "_ag" + row[4].replace(".", "_") + "h"
       	vdds = row[0]
         vddList.append(vdds);
         netlists.append(netlist_name);
-      	netlistCopy(row[0], row[1], row[2], row[3], row[4], netlist_name)
+      	netlistCopy(row[0], row[1], row[2], row[3], row[4], netlist_name)    
   except csv.Error as err:
       sys.exit('Error on file %s, line %d: %s' % (args.inputFile, reader.line_num, e))
 
+#Getting the size of netlist list
+# netlistsSize = len(netlists)
+# netlistSubset = []
+
+# for net in netlists:
+#   if (profileQty != netlistsSize):
+#     netlistSubset.append(net)
+#     profileQty = profileQty + 1
+#   if (profileQty % 10 == 0)
+
+
+#   print net
+
+# def profileCreation(profileQty, netlistSet):
 print "Creating default profile file 'profile.cfg'"
 profileFile = open('profile.cfg','w')
 profileFile.write('.netlist_type spectre\n')
-profileFile.write('.profile_names ' + ' '.join(netlists) + '\n')
+profileFile.write('.profile_names ')
+for net in netlists:
+  profileFile.write(net + ' \\ \n')
+# profileFile.write('.profile_names ' + ' '.join(netlists) + '\n')
 profileFile.close() 
 
-print "\nRunning rxprofile tool"
+# print "\nRunning rxprofile tool"
 bashCommand="rxprofile profile.cfg -raw "+ outputDirectory
 print bashCommand
-result = os.system(bashCommand)
-if (result != 0):
-  print "Failed to execute rxprofile. Quiting..."
-  quit()
+# result = os.system(bashCommand)
+# if (result != 0):
+#  print "Failed to execute rxprofile. Quiting..."
+#  quit()
 
 
 print "Creating extraction script file"
@@ -209,8 +230,17 @@ extractFile.write('close(out_delay)\n')
 
 extractFile.close() 
 
+print "Running Ocean extraction script"
+bashCommand="ocean < extractDelay.ocn"
+print bashCommand
+# result = os.system(bashCommand)
+# if (result != 0):
+#  print "Failed to execute ocean script. Quiting..."
+#  quit()
 
 print "..."
 
+finalDate = time.strftime("%a %b %d %H:%M:%S %Z %Y")
 
-
+print "Start simulation time & date: " + initialDate
+print "End simulation time & date: " + finalDate
