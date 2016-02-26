@@ -1,27 +1,597 @@
 out_delay=outfile("./delays_inv100.csv", "a")
-;Extract script file for inv100_vdd12_temp58_act20_period40us_age35040h
+;Extract script file for inv100vdd11t82_09a20p40us_ag8696_40h
 fprintf(out_delay "Extract results file for inv100\n")
 result=0
-result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultado/inv100_vdd11_temp25_act20_period40us_age24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultado/inv100_vdd11_temp30_act20_period40us_age8760h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
-result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultado/inv100_vdd11_temp25_act20_period40us_age24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultado/inv100_vdd11_temp30_act20_period40us_age8760h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t67_86a20p40us_ag111_60h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t67_86a20p40us_ag111_60h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
 diff = result1 - result2
 if((diff < 0) result=result1 result=result2) "npn"
 fprintf(out_delay "%.5e\n" result)
 result=0
-result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultado/inv100_vdd11_temp25_act20_period40us_age24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultado/inv100_vdd11_temp55_act20_period40us_age17520h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
-result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultado/inv100_vdd11_temp25_act20_period40us_age24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultado/inv100_vdd11_temp55_act20_period40us_age17520h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t84_68a20p40us_ag199_20h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t84_68a20p40us_ag199_20h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
 diff = result1 - result2
 if((diff < 0) result=result1 result=result2) "npn"
 fprintf(out_delay "%.5e\n" result)
 result=0
-result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultado/inv100_vdd11_temp25_act20_period40us_age24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultado/inv100_vdd12_temp55_act20_period40us_age26280h.raw"), ?value2 0.6, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
-result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultado/inv100_vdd11_temp25_act20_period40us_age24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultado/inv100_vdd12_temp55_act20_period40us_age26280h.raw"), ?value2 0.6, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t58_87a20p40us_ag286_80h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t58_87a20p40us_ag286_80h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
 diff = result1 - result2
 if((diff < 0) result=result1 result=result2) "npn"
 fprintf(out_delay "%.5e\n" result)
 result=0
-result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultado/inv100_vdd11_temp25_act20_period40us_age24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultado/inv100_vdd12_temp58_act20_period40us_age35040h.raw"), ?value2 0.6, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
-result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultado/inv100_vdd11_temp25_act20_period40us_age24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultado/inv100_vdd12_temp58_act20_period40us_age35040h.raw"), ?value2 0.6, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t70_65a20p40us_ag374_40h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t70_65a20p40us_ag374_40h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t73_99a20p40us_ag462_00h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t73_99a20p40us_ag462_00h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t90_21a20p40us_ag549_60h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t90_21a20p40us_ag549_60h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_36a20p40us_ag637_20h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_36a20p40us_ag637_20h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t70_00a20p40us_ag724_80h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t70_00a20p40us_ag724_80h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t81_36a20p40us_ag812_40h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t81_36a20p40us_ag812_40h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t69_18a20p40us_ag900_00h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t69_18a20p40us_ag900_00h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t68_59a20p40us_ag987_60h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t68_59a20p40us_ag987_60h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t67_70a20p40us_ag1075_20h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t67_70a20p40us_ag1075_20h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t72_51a20p40us_ag1162_80h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t72_51a20p40us_ag1162_80h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t77_56a20p40us_ag1250_40h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t77_56a20p40us_ag1250_40h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t84_01a20p40us_ag1338_00h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t84_01a20p40us_ag1338_00h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t77_28a20p40us_ag1425_60h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t77_28a20p40us_ag1425_60h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t81_72a20p40us_ag1513_20h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t81_72a20p40us_ag1513_20h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t93_72a20p40us_ag1600_80h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t93_72a20p40us_ag1600_80h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t75_09a20p40us_ag1688_40h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t75_09a20p40us_ag1688_40h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t69_41a20p40us_ag1776_00h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t69_41a20p40us_ag1776_00h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t93_83a20p40us_ag1863_60h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t93_83a20p40us_ag1863_60h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t72_43a20p40us_ag1951_20h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t72_43a20p40us_ag1951_20h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t67_44a20p40us_ag2038_80h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t67_44a20p40us_ag2038_80h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t103_10a20p40us_ag2126_40h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t103_10a20p40us_ag2126_40h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t77_94a20p40us_ag2214_00h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t77_94a20p40us_ag2214_00h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t101_14a20p40us_ag2301_60h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t101_14a20p40us_ag2301_60h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t81_43a20p40us_ag2389_20h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t81_43a20p40us_ag2389_20h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t91_20a20p40us_ag2476_80h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t91_20a20p40us_ag2476_80h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t67_91a20p40us_ag2564_40h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t67_91a20p40us_ag2564_40h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t69_12a20p40us_ag2652_00h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t69_12a20p40us_ag2652_00h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t72_21a20p40us_ag2739_60h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t72_21a20p40us_ag2739_60h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t72_56a20p40us_ag2827_20h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t72_56a20p40us_ag2827_20h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t82_29a20p40us_ag2914_80h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t82_29a20p40us_ag2914_80h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_59a20p40us_ag3002_40h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_59a20p40us_ag3002_40h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t71_30a20p40us_ag3090_00h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t71_30a20p40us_ag3090_00h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t84_16a20p40us_ag3177_60h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t84_16a20p40us_ag3177_60h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t75_09a20p40us_ag3265_20h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t75_09a20p40us_ag3265_20h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t89_95a20p40us_ag3352_80h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t89_95a20p40us_ag3352_80h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t90_26a20p40us_ag3440_40h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t90_26a20p40us_ag3440_40h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t78_77a20p40us_ag3528_00h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t78_77a20p40us_ag3528_00h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t74_92a20p40us_ag3615_60h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t74_92a20p40us_ag3615_60h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t90_91a20p40us_ag3703_20h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t90_91a20p40us_ag3703_20h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t69_23a20p40us_ag3790_80h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t69_23a20p40us_ag3790_80h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t82_53a20p40us_ag3878_40h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t82_53a20p40us_ag3878_40h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t70_96a20p40us_ag3966_00h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t70_96a20p40us_ag3966_00h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t92_28a20p40us_ag4053_60h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t92_28a20p40us_ag4053_60h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t90_22a20p40us_ag4141_20h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t90_22a20p40us_ag4141_20h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t69_75a20p40us_ag4228_80h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t69_75a20p40us_ag4228_80h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t75_89a20p40us_ag4316_40h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t75_89a20p40us_ag4316_40h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t84_20a20p40us_ag4404_00h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t84_20a20p40us_ag4404_00h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t77_86a20p40us_ag4491_60h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t77_86a20p40us_ag4491_60h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t89_99a20p40us_ag4579_20h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t89_99a20p40us_ag4579_20h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t78_02a20p40us_ag4666_80h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t78_02a20p40us_ag4666_80h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t86_41a20p40us_ag4754_40h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t86_41a20p40us_ag4754_40h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t66_13a20p40us_ag4842_00h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t66_13a20p40us_ag4842_00h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t93_02a20p40us_ag4929_60h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t93_02a20p40us_ag4929_60h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t80_08a20p40us_ag5017_20h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t80_08a20p40us_ag5017_20h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t94_83a20p40us_ag5104_80h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t94_83a20p40us_ag5104_80h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t85_58a20p40us_ag5192_40h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t85_58a20p40us_ag5192_40h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t81_92a20p40us_ag5280_00h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t81_92a20p40us_ag5280_00h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t73_47a20p40us_ag5367_60h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t73_47a20p40us_ag5367_60h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t88_55a20p40us_ag5455_20h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t88_55a20p40us_ag5455_20h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t80_51a20p40us_ag5542_80h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t80_51a20p40us_ag5542_80h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t78_88a20p40us_ag5630_40h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t78_88a20p40us_ag5630_40h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t72_84a20p40us_ag5718_00h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t72_84a20p40us_ag5718_00h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t79_29a20p40us_ag5805_60h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t79_29a20p40us_ag5805_60h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t77_34a20p40us_ag5893_20h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t77_34a20p40us_ag5893_20h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t80_51a20p40us_ag5980_80h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t80_51a20p40us_ag5980_80h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t76_73a20p40us_ag6068_40h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t76_73a20p40us_ag6068_40h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t86_02a20p40us_ag6156_00h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t86_02a20p40us_ag6156_00h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t63_64a20p40us_ag6243_60h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t63_64a20p40us_ag6243_60h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t86_47a20p40us_ag6331_20h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t86_47a20p40us_ag6331_20h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t82_85a20p40us_ag6418_80h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t82_85a20p40us_ag6418_80h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t68_41a20p40us_ag6506_40h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t68_41a20p40us_ag6506_40h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t72_18a20p40us_ag6594_00h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t72_18a20p40us_ag6594_00h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t51_98a20p40us_ag6681_60h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t51_98a20p40us_ag6681_60h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t71_47a20p40us_ag6769_20h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t71_47a20p40us_ag6769_20h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t79_14a20p40us_ag6856_80h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t79_14a20p40us_ag6856_80h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t80_22a20p40us_ag6944_40h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t80_22a20p40us_ag6944_40h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t92_59a20p40us_ag7032_00h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t92_59a20p40us_ag7032_00h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t63_46a20p40us_ag7119_60h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t63_46a20p40us_ag7119_60h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t86_56a20p40us_ag7207_20h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t86_56a20p40us_ag7207_20h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t79_84a20p40us_ag7294_80h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t79_84a20p40us_ag7294_80h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t78_00a20p40us_ag7382_40h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t78_00a20p40us_ag7382_40h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t66_80a20p40us_ag7470_00h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t66_80a20p40us_ag7470_00h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t69_70a20p40us_ag7557_60h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t69_70a20p40us_ag7557_60h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t90_70a20p40us_ag7645_20h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t90_70a20p40us_ag7645_20h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_65a20p40us_ag7732_80h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_65a20p40us_ag7732_80h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t86_94a20p40us_ag7820_40h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t86_94a20p40us_ag7820_40h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t86_68a20p40us_ag7908_00h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t86_68a20p40us_ag7908_00h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t71_47a20p40us_ag7995_60h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t71_47a20p40us_ag7995_60h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t64_47a20p40us_ag8083_20h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t64_47a20p40us_ag8083_20h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t79_55a20p40us_ag8170_80h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t79_55a20p40us_ag8170_80h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t77_13a20p40us_ag8258_40h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t77_13a20p40us_ag8258_40h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t94_92a20p40us_ag8346_00h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t94_92a20p40us_ag8346_00h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t84_85a20p40us_ag8433_60h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t84_85a20p40us_ag8433_60h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t70_84a20p40us_ag8521_20h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t70_84a20p40us_ag8521_20h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t64_91a20p40us_ag8608_80h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t64_91a20p40us_ag8608_80h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+diff = result1 - result2
+if((diff < 0) result=result1 result=result2) "npn"
+fprintf(out_delay "%.5e\n" result)
+result=0
+result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t82_09a20p40us_ag8696_40h.raw"), ?value2 0.55, ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
+result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t83_53a20p40us_ag24h.raw"), ?value1 0.55, ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "/home/pedrofausto/cadence2/scripts/Reliability/resultados/inv100vdd11t82_09a20p40us_ag8696_40h.raw"), ?value2 0.55, ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)
 diff = result1 - result2
 if((diff < 0) result=result1 result=result2) "npn"
 fprintf(out_delay "%.5e\n" result)
