@@ -160,43 +160,29 @@ with open(args.inputFile, 'rb') as csvfile:
   except csv.Error as err:
       sys.exit('Error on file %s, line %d: %s' % (args.inputFile, reader.line_num, e))
 
-#Getting the size of netlist list
-# netlistsSize = len(netlists)
-# netlistSubset = []
 
-# for net in netlists:
-#   if (profileQty != netlistsSize):
-#     netlistSubset.append(net)
-#     profileQty = profileQty + 1
-#   if (profileQty % 10 == 0)
-
-
-#   print net
-
-# def profileCreation(profileQty, netlistSet):
 print "Creating default profile file 'profile.cfg'"
 profileFile = open('profile.cfg','w')
 profileFile.write('.netlist_type spectre\n')
 profileFile.write('.profile_names ')
 for net in netlists:
   profileFile.write(net + ' \\ \n')
-# profileFile.write('.profile_names ' + ' '.join(netlists) + '\n')
 profileFile.close() 
 
 # print "\nRunning rxprofile tool"
 bashCommand="rxprofile profile.cfg -raw "+ outputDirectory
 print bashCommand
-# result = os.system(bashCommand)
-# if (result != 0):
-#  print "Failed to execute rxprofile. Quiting..."
-#  quit()
+result = os.system(bashCommand)
+if (result != 0):
+ print "Failed to execute rxprofile. Quiting..."
+ quit()
 
 
 print "Creating extraction script file"
 extractFile = open('extractDelay.ocn','w')
 flag = True
 count = 1;
-extractFile.write('out_delay=outfile("./delays_' + args.netlist + '.csv", "a")\n')    
+extractFile.write('out_delay=outfile("./delays_' + args.netlist + '_' + args.inputFile +'", "a")\n')    
 extractFile.write(';Extract script file for ' + netlist_name +'\n')
 extractFile.write('fprintf(out_delay "Extract results file for ' + args.netlist +'\\n")\n')
 for net in netlists:
@@ -233,14 +219,54 @@ extractFile.close()
 print "Running Ocean extraction script"
 bashCommand="ocean < extractDelay.ocn"
 print bashCommand
-# result = os.system(bashCommand)
-# if (result != 0):
-#  print "Failed to execute ocean script. Quiting..."
-#  quit()
+result = os.system(bashCommand)
+if (result != 0):
+ print "Failed to execute ocean script. Quiting..."
+ quit()
 
 print "..."
 
 finalDate = time.strftime("%a %b %d %H:%M:%S %Z %Y")
 
+tempList =  []
+actList =   []
+agingList = []
+
+with open(args.inputFile, 'rb') as csvfile:
+  reader = csv.reader(csvfile)
+  try:
+    for row in reader:
+      if reader.line_num != 1 :
+        tempList.append(row[1])
+        actList.append(row[2])
+        agingList.append(row[4])   
+  except csv.Error as err:
+      sys.exit('Error on file %s, line %d: %s' % (args.inputFile, reader.line_num, e))
+
+delaysList = []
+delayExtract = []
+
+#with open('./delays_inv100.csv') as f:
+file = './delays_' + args.netlist + '_' + args.inputFile +''
+with open(file, 'rb') as f:
+  delayExtract = f.readlines()
+  for delay in range(len(delayExtract)):
+    if delay != 0 :
+      delaysList.append(delayExtract)    
+
+
+delayFile = open('delayTable_' + str(args.netlist) + '_' + str(args.inputFile) +'' ,'w')
+
+count = 0
+for vdd, temp, act, aging, delay in map(None, vddList, tempList, actList, agingList, delaysList):
+  if count != 0:
+    delayFile.write('' + str(vdd) + ';' + str(temp) + ';' + str(act) + ';' + str(aging) +  ';' + str(delay) )
+  count = count + 1
+
 print "Start simulation time & date: " + initialDate
 print "End simulation time & date: " + finalDate
+
+bashCommand = "echo Start simulation time & date: " + initialDate + "> time.log"
+os.system(bashCommand)
+bashCommand = "echo End simulation time & date: " + finalDate + ">> time.log"
+os.system(bashCommand)
