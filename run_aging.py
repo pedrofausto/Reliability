@@ -74,26 +74,26 @@ def netlistCopy(vdd, temp, act, period, age, netlist_name):
     print "Exiting..."
     quit()
 
-def extractDelays(netlist_name):
+# def extractDelays(netlist_name):
     
-  print "\nCopying default netlist file to " + netlist_name
-  bashCommand="cp "+args.netlist+" " + netlist_name
-  #print bashCommand
-  os.system(bashCommand)
-  result = os.system(bashCommand)
-  if (result != 0):
-    print "Exiting..."
-    quit()
+#   print "\nCopying default netlist file to " + netlist_name
+#   bashCommand="cp "+args.netlist+" " + netlist_name
+#   #print bashCommand
+#   os.system(bashCommand)
+#   result = os.system(bashCommand)
+#   if (result != 0):
+#     print "Exiting..."
+#     quit()
 
   
-  print "Changing Vdd for circuit aging simulation"
-  bashCommand="sed -i s/dc\=0\.0/dc\="+ vdd +"/g "+ netlist_name
-  #print bashCommand
-  os.system(bashCommand)
-  result = os.system(bashCommand)
-  if (result != 0):
-    print "Exiting..."
-    quit()
+#   print "Changing Vdd for circuit aging simulation"
+#   bashCommand="sed -i s/dc\=0\.0/dc\="+ vdd +"/g "+ netlist_name
+#   #print bashCommand
+#   os.system(bashCommand)
+#   result = os.system(bashCommand)
+#   if (result != 0):
+#     print "Exiting..."
+#     quit()
   
 
 animation_strings = ('[=', '=', '=]')
@@ -114,19 +114,19 @@ bashCommand="clear"
 os.system(bashCommand)
 
 print "Evaluating options and values..."
-for i in range(5):
-    if (i == 0):
-        sys.stdout.write(animation_strings[0])
-        sys.stdout.flush()
-        time.sleep(0.1)
-    elif (i == 4):
-        sys.stdout.write(animation_strings[2])
-        sys.stdout.flush()
-        time.sleep(0.1)
-    else:
-        sys.stdout.write(animation_strings[1])
-        sys.stdout.flush()
-        time.sleep(0.1)
+# for i in range(5):
+#     if (i == 0):
+#         sys.stdout.write(animation_strings[0])
+#         sys.stdout.flush()
+#         time.sleep(0.1)
+#     elif (i == 4):
+#         sys.stdout.write(animation_strings[2])
+#         sys.stdout.flush()
+#         time.sleep(0.1)
+#     else:
+#         sys.stdout.write(animation_strings[1])
+#         sys.stdout.flush()
+#         time.sleep(0.1)
 
 print "\n..."
 if args.inputFile == None :
@@ -146,30 +146,58 @@ else:
     outputDirectory = "results"
     pass
   
-  
+
+# vddAux = ''
+# tempAux= ''
+# actAux= ''
+# perAux= ''
+# ageAux = ''  
 with open(args.inputFile, 'rb') as csvfile:
   reader = csv.reader(csvfile)
   try:
     for row in reader:
       if reader.line_num != 1 :
-      	netlist_name = args.netlist + "vdd" + (row[0].translate(None, '.')) + "t" + row[1].replace(".", "_") + "a" + row[2] + "p" + row[3] +  "_ag" + row[4].replace(".", "_") + "h"
+      	netlist_name = args.netlist + "vdd" + (row[0].translate(None, '.')) + "t" + row[1].replace(".", "_") + "a" + row[2].replace(".", "_") + "p" + row[3] +  "_ag" + row[4].replace(".", "_") + "h"
       	vdds = row[0]
         vddList.append(vdds);
         netlists.append(netlist_name);
-      	netlistCopy(row[0], row[1], row[2], row[3], row[4], netlist_name)    
+        # vddAux = (row[0].translate(None, '.'))
+        # tempAux = row[1].replace(".", "_")
+        # actAux = row[2].replace(".", "_")
+        # perAux = row[3]
+        # ageAux = row[4].replace(".", "_")
+      	netlistCopy(row[0], row[1], row[2], row[3], row[4], netlist_name)
   except csv.Error as err:
       sys.exit('Error on file %s, line %d: %s' % (args.inputFile, reader.line_num, e))
+
+# vddAux = vddAux.translate(None, '.')
+# tempAux = tempAux.replace("_", ".")
+# actAux = actAux.replace("_", ".")
+# perAux = perAux
+# ageAux = ageAux.replace("_", ".")
+# ageFloat = float(ageAux)
+
+# ageFloat = ageFloat + 1.0
+# ageAux = str(ageFloat)
+
+# netlistCopy("1.1", "27", actAux, perAux, ageAux, netlist_name)
 
 
 print "Creating default profile file 'profile.cfg'"
 profileFile = open('profile.cfg','w')
 profileFile.write('.netlist_type spectre\n')
 profileFile.write('.profile_names ')
-for net in netlists:
-  profileFile.write(net + ' \\ \n')
+index = 0
+for net in netlists:  
+  if (index == (len(netlists) - 1)):
+    profileFile.write(net + '\n')
+  else:
+    profileFile.write(net + ' \\ \n')
+  index = index +1
+#profileFile.write(args.netlist + 'vdd' + '11' + 't27a' + str(actAux) + 'p' + str(perAux) +  '_ag' + str(ageAux) + 'h') 
 profileFile.close() 
 
-# print "\nRunning rxprofile tool"
+print "\nRunning rxprofile tool"
 bashCommand="rxprofile profile.cfg -raw "+ outputDirectory
 print bashCommand
 result = os.system(bashCommand)
@@ -218,7 +246,6 @@ extractFile.close()
 
 print "Running Ocean extraction script"
 bashCommand="ocean < extractDelay.ocn"
-print bashCommand
 result = os.system(bashCommand)
 if (result != 0):
  print "Failed to execute ocean script. Quiting..."
@@ -257,11 +284,11 @@ with open(file, 'rb') as f:
 
 delayFile = open('delayTable_' + str(args.netlist) + '_' + str(args.inputFile) +'' ,'w')
 
-count = 0
-for vdd, temp, act, aging, delay in map(None, vddList, tempList, actList, agingList, delaysList):
-  if count != 0:
-    delayFile.write('' + str(vdd) + ';' + str(temp) + ';' + str(act) + ';' + str(aging) +  ';' + str(delay) )
-  count = count + 1
+# count = 0
+# for vdd, temp, act, aging, delay in map(None, vddList, tempList, actList, agingList, delaysList):
+#   if (count >= 1):
+#     delayFile.write('' + str(vdd) + ';' + str(temp) + ';' + str(act) + ';' + str(aging) +  ';' + str(delay[count-1]) )
+#   count = count + 1
 
 print "Start simulation time & date: " + initialDate
 print "End simulation time & date: " + finalDate
