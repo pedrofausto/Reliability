@@ -95,7 +95,7 @@ tempStep = 0
 activityStep = 101.0/100.0
 
 tabela4.write('vdd,temp,act,period,age\n')
-tabela4.write('1.1,20,20,40us,23\n')
+tabela4.write('1.1,27,20,40us,23\n')
 
 for step in range(1,101):
   if flag == True:
@@ -110,7 +110,7 @@ for step in range(1,101):
     tabela4.write('1.1,20,20,40us,' + str("{0:.2f}".format(age)) +'\n')
 
 age = age + ageStep
-tabela4.write('1.1,20,20,40us,' + str("{0:.2f}".format(age)) +'\n')  
+tabela4.write('1.1,27,20,40us,' + str("{0:.2f}".format(age)) +'\n')  
 
 tabela5 = open('tabela5.csv','w')
 vdd = 1.1
@@ -123,7 +123,7 @@ tempStep = 0
 activityStep = 101.0/100.0
 
 tabela5.write('vdd,temp,act,period,age\n')
-tabela5.write('1.1,100,20,40us,23\n')
+tabela5.write('1.1,27,20,40us,23\n')
 
 for step in range(1,101):
   if flag == True:
@@ -138,7 +138,7 @@ for step in range(1,101):
     tabela5.write('1.1,100,20,40us,' + str("{0:.2f}".format(age)) +'\n')
 
 age = age + ageStep
-tabela5.write('1.1,100,20,40us,' + str("{0:.2f}".format(age)) +'\n')    
+tabela5.write('1.1,27,20,40us,' + str("{0:.2f}".format(age)) +'\n')    
 
 tabela6 = open('tabela6.csv','w')
 vdd = 1.1
@@ -535,7 +535,7 @@ tempStep = 0
 activityStep = 101.0/100.0
 
 tabela19.write('vdd,temp,act,period,age\n')
-tabela19.write('1.2,27,20,40us,23\n')
+tabela19.write('1.1,27,20,40us,23\n')
 for step in range(1,101):
   if flag == True:
     temp = numpy.random.normal(80,10)
@@ -548,7 +548,7 @@ for step in range(1,101):
     tabela19.write('0.8,20,0,40us,' + str("{0:.2f}".format(age)) +'\n')
 
 age = age + ageStep
-tabela19.write('1.2,27,20,40us,' + str("{0:.2f}".format(age)) +'\n') 
+tabela19.write('1.1,27,20,40us,' + str("{0:.2f}".format(age)) +'\n') 
 
 
 tabela20 = open('tabela20.csv','w')
@@ -575,4 +575,100 @@ for step in range(1,101):
     tabela20.write('1.2,100,100,40us,' + str("{0:.2f}".format(age)) +'\n')
 
 age = age + ageStep
-tabela20.write('1.1,27,20,40us,' + str("{0:.2f}".format(age)) +'\n') 
+tabela20.write('1.1,27,20,40us,' + str("{0:.2f}".format(age)) +'\n')
+
+tabela21 = open('tabela21.csv','w')
+vdd = 1.1
+flag = True
+initialAge = 24
+initialTemp = 100
+initialActivity = 100
+ageStep = 8760.0/100.0
+tempStep = 0
+activityStep = 101.0/100.0
+swapFlag = True;
+
+tabela21.write('vdd,temp,act,period,age\n')
+tabela21.write('1.1,27,20,40us,23\n')
+for step in range(1,101):
+  if flag == True:
+    tabela21.write('1.1,20,80,40us,' + str(initialAge) +'\n')
+    flag = False
+    age = initialAge
+    
+  else:
+    if swapFlag == True:
+      age = age + ageStep
+      tabela21.write('0.8,20,80,40us,' + str("{0:.2f}".format(age)) +'\n')
+      swapFlag = False
+    else:
+      age = age + ageStep
+      tabela21.write('1.2,100,80,40us,' + str("{0:.2f}".format(age)) +'\n')
+      swapFlag = True
+
+age = age + ageStep
+tabela21.write('1.1,27,20,40us,' + str("{0:.2f}".format(age)) +'\n')
+
+tabela22 = open('tabela22.csv','w')
+vdd = 1.1
+flag = True
+initialAge = 24
+initialTemp = 100
+initialActivity = 100
+ageStep = 8760.0/100.0
+tempStep = 0
+activityStep = 101.0/100.0
+count = 0;
+
+tabela22.write('vdd,temp,act,period,age\n')
+tabela22.write('1.1,27,20,40us,23\n')
+for step in range(1,101):
+  if flag == True:
+    tabela22.write('1.1,20,80,40us,' + str(initialAge) +'\n')
+    flag = False
+    age = initialAge
+    
+  else:
+    if count < 49:
+      age = age + ageStep
+      tabela22.write('0.8,20,80,40us,' + str("{0:.2f}".format(age)) +'\n')
+      count = count + 1
+    else:
+      age = age + ageStep
+      tabela22.write('1.2,100,80,40us,' + str("{0:.2f}".format(age)) +'\n')
+      count = count + 1
+
+age = age + ageStep
+tabela22.write('1.1,27,20,40us,' + str("{0:.2f}".format(age)) +'\n')
+
+tabela23 = open('tabela23.csv','w')
+vdd = 1.1
+flag = True
+initialAge = 24
+initialTemp = 100
+initialActivity = 100
+ageStep = 8760.0/100.0
+tempStep = 0
+activityStep = 101.0/100.0
+count = 0;
+
+tabela23.write('vdd,temp,act,period,age\n')
+tabela23.write('1.1,27,20,40us,23\n')
+for step in range(1,101):
+  if flag == True:
+    tabela23.write('1.1,20,80,40us,' + str(initialAge) +'\n')
+    flag = False
+    age = initialAge
+    
+  else:
+    if count < 49:
+      age = age + ageStep
+      tabela23.write('1.2,100,80,40us,' + str("{0:.2f}".format(age)) +'\n')
+      count = count + 1
+    else:
+      age = age + ageStep
+      tabela23.write('0.8,20,80,40us,' + str("{0:.2f}".format(age)) +'\n')
+      count = count + 1
+
+age = age + ageStep
+tabela23.write('1.1,27,20,40us,' + str("{0:.2f}".format(age)) +'\n')
