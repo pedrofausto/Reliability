@@ -96,7 +96,7 @@ for vddRow, tempRow in map(None, vddList, tempList):
 print vddParameters
 
 # count = len(vddSteps)
-for vddRow, tempRow, step in map(None, vddParameters, tempParameters, vddProfileStep):
+for vddRow, tempRow, step in map(None, vddParameters, tempParameters, ):
 #   for row in range(0,count+1):
    print step
     # vddSteps.append(int(vddRow[row]))
