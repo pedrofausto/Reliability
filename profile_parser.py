@@ -147,7 +147,7 @@ files = 1
 fileSteps = 1
 for step,  vdds, temps in map(None,range(1,numberSteps+1), vddValues, tempValues): 
   if flag == True:
-    table = open(args.outputFile+files+'.csv','w')
+    table = open(args.outputFile+str(files)+'.csv','w')
     table.write('vdd,temp,act,period,age\n')
     table.write(''+ str(vdd)+','+ str(initialTemp)+ ','+ str(initialActivity)+',40us,' + str(initialAge) +'\n')
     flag = False
