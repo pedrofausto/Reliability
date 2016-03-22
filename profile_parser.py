@@ -80,39 +80,66 @@ vddSteps = []
 tempSteps = []
 count = 0
 
+lines = len(vddProfileList)
+
 #Splitting as an array
 for vdd, temp in map(None, vddProfileList, tempProfileList):
   vddList.append(np.split(vdd,argQuantity/2))
   tempList.append(np.split(temp,argQuantity/2))
 
-count = len(vddList)
+
+countList = len(vddList)
 
 # Taking the parameters one by one
 for vddRow, tempRow in map(None, vddList, tempList):
-  for row in range(0,count+1):
+  for row in range(0,countList+1):
     vddParameters.append(int(vddRow[row]))
     tempParameters.append(int(tempRow[row]))
 
-print vddParameters
-
-# count = len(vddSteps)
-for vddRow, tempRow, step in map(None, vddParameters, tempParameters, ):
-#   for row in range(0,count+1):
-   print step
-    # vddSteps.append(int(vddRow[row]))
-    # tempSteps.append(int(tempRow[row]))
+count = 0
+size = 0
 
 
-# for vddParam, step in map(None, vddParameters, vddProfileStep):
-#   print vddProfileStep
-#   if int(step) != 0:
-#     count = int(step)
-#     print count
-  # for lines in range(0,count):
-  #   vddParameters.append(row)
-  #   print str(row) + " " + str(vddProfile)
+vddValues = []
+tempValues = []
 
 
+for vdd in vddParameters:
+  sizeSum = 0
+  if int(vdd) != 0:
+    size = int(vdd)
+    sizeSum = sizeSum + size
+    for i in range(0,size):
+      vddValues.append(str(vddProfileStep[count]))
+  count = count + 1
+  if count == 5:
+    count = 0
+
+count = 0
+size = 0
+for temp in tempParameters:
+  if int(temp) != 0:
+    size = int(temp)
+    for i in range(0,size):
+      tempValues.append(str(tempProfileStep[count]))
+  count = count + 1
+  if count == 5:
+    count = 0
+
+steps = len(vddValues)/lines
+
+print vddValues
+print tempValues
+
+print len(vddValues)
+print len(tempValues)
+
+
+'''
+Agora, percorrer os 400 registros.
+A cada 100 registros, uma tabela para o run_aging.py, que ira construir o
+profile.cfg
+'''
 
 #
 #
