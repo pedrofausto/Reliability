@@ -44,8 +44,6 @@ elif args.outputFile == None :
 
 table = open(args.outputFile,'w')
 
-table.write('vdd,temp,act,period,age\n')
-#table.write('1.1,27,20,40us,' + str(initialAge - 1) +'\n')
 
 with open(args.inputFile, 'rb') as csvfile:
   reader = csv.reader(csvfile)
@@ -141,34 +139,33 @@ A cada 100 registros, uma tabela para o run_aging.py, que ira construir o
 profile.cfg
 '''
 
-#
-#
-# vdd = 1.1
-# flag = True
-# numberSteps = 100
-# initialAge = 24
-# initialTemp = 20
-# initialActivity = 20
-# ageStep = 8760.0/numberSteps
-# tempStep = 101.0/numberSteps
-# activityStep = 101.0/numberSteps
-#
-# for step in range(1,numberSteps+1):
-#   if flag == True:
-#     temp = numpy.random.normal(80,10)
-#     table.write('1.1,20,20,40us,' + str(initialAge) +'\n')
-#     flag = False
-#     age = initialAge
-#
-#   else:
-#     age = age + ageStep
-#     temp = numpy.random.normal(80,10)
-#     tabela4.write('1.1,20,20,40us,' + str("{0:.2f}".format(age)) +'\n')
-#
-# age = age + ageStep
-# tabela4.write('1.1,27,20,40us,' + str("{0:.2f}".format(age)) +'\n')
-#
-#
+
+
+vdd = 1.1
+flag = True
+numberSteps = steps
+initialAge = 24
+initialTemp = 27
+initialActivity = 80
+ageStep = 8760.0/steps
+tempStep = 101.0/steps
+activityStep = 101.0/steps
+
+table.write('vdd,temp,act,period,age\n')
+
+for step,  vdds, temps in map(None,range(1,numberSteps+1), vddValues, tempValues):
+  if flag == True:
+    table.write(''+ str(vdd)+','+ str(initialTemp)+ ','+ str(initialActivity)+',40us,' + str(initialAge) +'\n')
+    flag = False
+    age = initialAge
+  else:
+    age = age + ageStep
+    table.write('' + str(vdds)+','+ str(temps)+ ','+ str(initialActivity)+',40us,' + str("{0:.2f}".format(age)) +'\n')
+
+age = age + ageStep
+table.write(''+ str(vdd)+','+ str(initialTemp)+ ','+ str(initialActivity)+',40us,' + + str("{0:.2f}".format(age)) +'\n')
+
+
 #
 #
 # print str(tempProfileList) + "\n"
