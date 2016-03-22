@@ -160,7 +160,7 @@ for step,  vdds, temps in map(None,range(1,numberSteps+1), vddValues, tempValues
       table.write(''+ str(vdd)+','+ str(initialTemp)+ ','+ str(initialActivity)+',40us,' + str("{0:.2f}".format(age)) +'\n')
       files = files + 1
       flag = True
-    elif ((fileSteps%100 == 0) && (fileSteps > 100)):
+    elif ((fileSteps%100 == 0) and (fileSteps > 100)):
       age = age + ageStep
       table.write(''+ str(vdd)+','+ str(initialTemp)+ ','+ str(initialActivity)+',40us,' + str("{0:.2f}".format(age)) +'\n')
       files = files + 1
