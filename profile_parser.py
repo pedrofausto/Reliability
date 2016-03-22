@@ -19,7 +19,7 @@ print "Start simulation at: " + initialDate
 parser = argparse.ArgumentParser()
 
 parser.add_argument("inputFile", help="input file with profiling environment conditions. Must be a CSV formatd file")
-parser.add_argument("outputFile", help="output table file as a CSV formatd file")
+parser.add_argument("outputFile", help="Provide the base name used to create the output files. Table file as a CSV formatd file.")
 
 # group = parser.add_mutually_exclusive_group()
 # group.add_argument("-a", "--age", action="store_true", help="Aging flow. Extract aging values")
@@ -38,11 +38,9 @@ if args.inputFile == None :
     print "Quiting..."
     quit()
 elif args.outputFile == None :
-    print "Environmental conditions CSV file name must be provided."
+    print "Environmental conditions CSV file must be provided."
     print "Quiting..."
     quit()
-
-table = open(args.outputFile,'w')
 
 
 with open(args.inputFile, 'rb') as csvfile:
@@ -126,12 +124,6 @@ for temp in tempParameters:
 
 steps = len(vddValues)/lines
 
-print vddValues
-print tempValues
-
-print len(vddValues)
-print len(tempValues)
-
 
 '''
 Agora, percorrer os 400 registros.
@@ -150,11 +142,13 @@ initialActivity = 80
 ageStep = 8760.0/steps
 tempStep = 101.0/steps
 activityStep = 101.0/steps
+fileQuantity = range(1,(steps+1)
 
-table.write('vdd,temp,act,period,age\n')
 
 for step,  vdds, temps in map(None,range(1,numberSteps+1), vddValues, tempValues):
   if flag == True:
+    table = open(args.outputFile,'w')
+    table.write('vdd,temp,act,period,age\n')
     table.write(''+ str(vdd)+','+ str(initialTemp)+ ','+ str(initialActivity)+',40us,' + str(initialAge) +'\n')
     flag = False
     age = initialAge
