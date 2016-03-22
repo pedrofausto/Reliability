@@ -131,8 +131,6 @@ A cada 100 registros, uma tabela para o run_aging.py, que ira construir o
 profile.cfg
 '''
 
-
-
 vdd = 1.1
 flag = True
 numberSteps = steps
@@ -142,12 +140,14 @@ initialActivity = 80
 ageStep = 8760.0/steps
 tempStep = 101.0/steps
 activityStep = 101.0/steps
-fileQuantity = range(1,(steps+1)
 
 
-for step,  vdds, temps in map(None,range(1,numberSteps+1), vddValues, tempValues):
+
+files = 1
+fileSteps = 1
+for step,  vdds, temps in map(None,range(1,numberSteps+1), vddValues, tempValues): 
   if flag == True:
-    table = open(args.outputFile,'w')
+    table = open(args.outputFile+files+'.csv','w')
     table.write('vdd,temp,act,period,age\n')
     table.write(''+ str(vdd)+','+ str(initialTemp)+ ','+ str(initialActivity)+',40us,' + str(initialAge) +'\n')
     flag = False
@@ -155,9 +155,19 @@ for step,  vdds, temps in map(None,range(1,numberSteps+1), vddValues, tempValues
   else:
     age = age + ageStep
     table.write('' + str(vdds)+','+ str(temps)+ ','+ str(initialActivity)+',40us,' + str("{0:.2f}".format(age)) +'\n')
+    if (fileSteps == 100):
+      age = age + ageStep
+      table.write(''+ str(vdd)+','+ str(initialTemp)+ ','+ str(initialActivity)+',40us,' + str("{0:.2f}".format(age)) +'\n')
+      files = files + 1
+      flag = True
+    elif ((fileSteps%100 == 0) && (fileSteps > 100)):
+      age = age + ageStep
+      table.write(''+ str(vdd)+','+ str(initialTemp)+ ','+ str(initialActivity)+',40us,' + str("{0:.2f}".format(age)) +'\n')
+      files = files + 1
+      flag = True
+  fileSteps = fileSteps + 1
 
-age = age + ageStep
-table.write(''+ str(vdd)+','+ str(initialTemp)+ ','+ str(initialActivity)+',40us,' + str("{0:.2f}".format(age)) +'\n')
+
 
 
 #
