@@ -163,7 +163,7 @@ for step,  vdds, temps in map(None,range(1,numberSteps+1), vddValues, tempValues
     table.write('' + str(vdds)+','+ str(temps)+ ','+ str(initialActivity)+',40us,' + str("{0:.2f}".format(age)) +'\n')
 
 age = age + ageStep
-table.write(''+ str(vdd)+','+ str(initialTemp)+ ','+ str(initialActivity)+',40us,' + + str("{0:.2f}".format(age)) +'\n')
+table.write(''+ str(vdd)+','+ str(initialTemp)+ ','+ str(initialActivity)+',40us,' + str("{0:.2f}".format(age)) +'\n')
 
 
 #
