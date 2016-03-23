@@ -19,7 +19,9 @@ print "Start simulation at: " + initialDate
 parser = argparse.ArgumentParser()
 
 parser.add_argument("inputFile", help="input file with profiling environment conditions. Must be a CSV formatd file")
-parser.add_argument("outputFile", help="Provide the base name used to create the output files. Table file as a CSV formatd file.")
+parser.add_argument("outputFile", help="Provide the base name used to create the output files. Table file as a CSV formated file.")
+parser.add_argument("outputDir", help="Provide the base name used to create the output directory.")
+parser.add_argument("netlist", help="Provide the netlist to be analyzed.")
 
 # group = parser.add_mutually_exclusive_group()
 # group.add_argument("-a", "--age", action="store_true", help="Aging flow. Extract aging values")
@@ -145,7 +147,9 @@ activityStep = 101.0/steps
 
 files = 1
 fileSteps = 1
-for step,  vdds, temps in map(None,range(1,numberSteps+1), vddValues, tempValues): 
+bashCommandList = []
+
+for step,  vdds, temps in map(None,range(1,numberSteps+1), vddValues, tempValues):
   if flag == True:
     table = open(args.outputFile+str(files)+'.csv','w')
     table.write('vdd,temp,act,period,age\n')
@@ -161,15 +165,19 @@ for step,  vdds, temps in map(None,range(1,numberSteps+1), vddValues, tempValues
       table.write(''+ str(vdd)+','+ str(initialTemp)+ ','+ str(initialActivity)+',40us,' + str("{0:.2f}".format(age)) +'\n')
       files = files + 1
       flag = True
+      bashCommandList.append("./run_aging.py -d " + str(args.outputDir)+str(files) + " " + str(args.outputFile+str(files)+'.csv') + " " + str(args.netlist))
     elif ((fileSteps%100 == 0) and (fileSteps > 100)):
       age = age + ageStep
       table.write(''+ str(vdd)+','+ str(initialTemp)+ ','+ str(initialActivity)+',40us,' + str("{0:.2f}".format(age)) +'\n')
       files = files + 1
       flag = True
+      bashCommandList.append("./run_aging.py -d " + str(args.outputDir)+str(files) + " " + str(args.outputFile+str(files)+'.csv') + " " + str(args.netlist))
   fileSteps = fileSteps + 1
 
-
-
+for command in bashCommandList:
+  #os.system("mkdir ")
+  #print command
+  result = os.system(command)
 
 #
 #
