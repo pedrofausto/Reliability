@@ -252,10 +252,9 @@ if (result != 0):
  quit()
 else:
   bashCommand="rm -Rf " + str(args.netlist) + "vdd* " + str(args.directory)
+  os.system(bashCommand)
 
 print "..."
-
-finalDate = time.strftime("%a %b %d %H:%M:%S %Z %Y")
 
 tempList =  []
 actList =   []
@@ -272,19 +271,24 @@ with open(args.inputFile, 'rb') as csvfile:
   except csv.Error as err:
       sys.exit('Error on file %s, line %d: %s' % (args.inputFile, reader.line_num, e))
 
-delaysList = []
-delayExtract = []
-
-#with open('./delays_inv100.csv') as f:
-file = './delays_' + args.netlist + '_' + args.inputFile +''
-with open(file, 'rb') as f:
-  delayExtract = f.readlines()
-  for delay in range(len(delayExtract)):
-    if delay != 0 :
-      delaysList.append(delayExtract)
+'''
+Avoiding create another delay table.
+'''
 
 
-delayFile = open('delayTable_' + str(args.netlist) + '_' + str(args.inputFile) +'' ,'w')
+# delaysList = []
+# delayExtract = []
+#
+# #with open('./delays_inv100.csv') as f:
+# file = './delays_' + args.netlist + '_' + args.inputFile +''
+# with open(file, 'rb') as f:
+#   delayExtract = f.readlines()
+#   for delay in range(len(delayExtract)):
+#     if delay != 0 :
+#       delaysList.append(delayExtract)
+#
+#
+# delayFile = open('delayTable_' + str(args.netlist) + '_' + str(args.inputFile) +'' ,'w')
 
 # count = 0
 # for vdd, temp, act, aging, delay in map(None, vddList, tempList, actList, agingList, delaysList):
@@ -292,10 +296,12 @@ delayFile = open('delayTable_' + str(args.netlist) + '_' + str(args.inputFile) +
 #     delayFile.write('' + str(vdd) + ';' + str(temp) + ';' + str(act) + ';' + str(aging) +  ';' + str(delay[count-1]) )
 #   count = count + 1
 
+finalDate = time.strftime("%a %b %d %H:%M:%S %Z %Y")
+
 print "Start simulation time & date: " + initialDate
 print "End simulation time & date: " + finalDate
 
-bashCommand = "echo Start simulation time & date: " + initialDate + "> time.log"
+bashCommand = "echo Start simulation time & date: " + initialDate
 os.system(bashCommand)
-bashCommand = "echo End simulation time & date: " + finalDate + ">> time.log"
+bashCommand = "echo End simulation time & date: " + finalDate
 os.system(bashCommand)
