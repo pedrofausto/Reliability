@@ -23,9 +23,6 @@ parser.add_argument("outputFile", help="Provide the base name used to create the
 parser.add_argument("outputDir", help="Provide the base name used to create the output directory.")
 parser.add_argument("netlist", help="Provide the netlist to be analyzed.")
 
-# group = parser.add_mutually_exclusive_group()
-# group.add_argument("-a", "--age", action="store_true", help="Aging flow. Extract aging values")
-# group.add_argument("-r", "--run", action="store_true", help="Run a simulation with aged values")
 
 args = parser.parse_args()
 
@@ -66,6 +63,8 @@ with open(args.inputFile, 'rb') as csvfile:
   except csv.Error as err:
       sys.exit('Error on file %s, line %d: %s' % (args.inputFile, reader.line_num, e))
 
+print argQuantity
+
 # print vddProfileStep
 # print tempProfileStep
 
@@ -86,11 +85,12 @@ for vdd, temp in map(None, vddProfileList, tempProfileList):
   tempList.append(np.split(temp,argQuantity/2))
 
 
-countList = len(vddList)
+countList = argQuantity/2
+print countList
 
 # Taking the parameters one by one
 for vddRow, tempRow in map(None, vddList, tempList):
-  for row in range(0,countList+1):
+  for row in range(0,countList):
     vddParameters.append(int(vddRow[row]))
     tempParameters.append(int(tempRow[row]))
 
@@ -163,15 +163,15 @@ for step,  vdds, temps in map(None,range(1,numberSteps+1), vddValues, tempValues
     if (fileSteps == 100):
       age = age + ageStep
       table.write(''+ str(vdd)+','+ str(initialTemp)+ ','+ str(initialActivity)+',40us,' + str("{0:.2f}".format(age)) +'\n')
+      bashCommandList.append("./run_aging.py -d " + str(args.outputDir)+str(files) + " " + str(args.outputFile+str(files)+'.csv') + " " + str(args.netlist))
       files = files + 1
       flag = True
-      bashCommandList.append("./run_aging.py -d " + str(args.outputDir)+str(files) + " " + str(args.outputFile+str(files)+'.csv') + " " + str(args.netlist))
     elif ((fileSteps%100 == 0) and (fileSteps > 100)):
       age = age + ageStep
       table.write(''+ str(vdd)+','+ str(initialTemp)+ ','+ str(initialActivity)+',40us,' + str("{0:.2f}".format(age)) +'\n')
+      bashCommandList.append("./run_aging.py -d " + str(args.outputDir)+str(files) + " " + str(args.outputFile+str(files)+'.csv') + " " + str(args.netlist))
       files = files + 1
       flag = True
-      bashCommandList.append("./run_aging.py -d " + str(args.outputDir)+str(files) + " " + str(args.outputFile+str(files)+'.csv') + " " + str(args.netlist))
   fileSteps = fileSteps + 1
 
 for command in bashCommandList:
