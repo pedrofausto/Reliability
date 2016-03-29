@@ -102,6 +102,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("inputFile", help="input file with aging conditions. Must be an CSV formatd file")
 parser.add_argument("netlist", help="Name of the default netlist file to be aged. Ex: inverter")
 parser.add_argument("--directory", "-d", help="Output directory. All results will reside within this directory.")
+parser.add_argument("--profileNumber", "-p", help="Profile numbering. The default profile name will be 'profile<profileNumber>'.")
 
 
 # group = parser.add_mutually_exclusive_group()
@@ -137,13 +138,29 @@ elif args.netlist == None:
     print "Netlist must be provided. Please provide an input file."
     print "Quiting..."
     quit()
-elif args.directory != None:
+elif args.directory != None and args.profileNumber != None:
     print "Output directory defined. Using value " + args.directory
     outputDirectory = args.directory
+    print "Profile numbering defined. Using value " + args.profileNumber
+    profileNumber = args.profileNumber
+    pass
+elif args.directory != None and args.profileNumber == None:
+    print "Output directory defined. Using value " + args.directory
+    outputDirectory = args.directory
+    print "Profile numbering not defined. Using default value 'profile.cfg'"
+    profileNumber = ''
+    pass
+elif args.directory == None and args.profileNumber != None:
+    print "Output directory not defined. Using default value 'results'"
+    outputDirectory = "results"
+    print "Profile numbering defined. Using value " + args.profileNumber
+    profileNumber = args.profileNumber
     pass
 else:
     print "Output directory not defined. Using default value 'results'"
     outputDirectory = "results"
+    print "Profile numbering not defined. Using default value 'profile.cfg'"
+    profileNumber = ''
     pass
 
 
@@ -184,7 +201,7 @@ with open(args.inputFile, 'rb') as csvfile:
 
 
 print "Creating default profile file 'profile.cfg'"
-profileFile = open('profile.cfg','w')
+profileFile = open('profile'+str(profileNumber)+'.cfg','w')
 profileFile.write('.netlist_type spectre\n')
 profileFile.write('.profile_names ')
 index = 0
@@ -198,7 +215,7 @@ for net in netlists:
 profileFile.close()
 
 print "\nRunning rxprofile tool"
-bashCommand="rxprofile profile.cfg -raw "+ outputDirectory
+bashCommand="rxprofile profile"+str(profileNumber)+".cfg -raw "+ outputDirectory
 print bashCommand
 result = os.system(bashCommand)
 if (result != 0):
