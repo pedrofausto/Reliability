@@ -148,6 +148,7 @@ fileSteps = 1
 bashCommandList = []
 
 for step,  vdds, temps in map(None,range(1,numberSteps+1), vddValues, tempValues):
+  print vdds
   if flag == True:
     table = open(args.outputFile+str(files)+'.csv','w')
     table.write('vdd,temp,act,period,age\n')
@@ -174,8 +175,8 @@ for step,  vdds, temps in map(None,range(1,numberSteps+1), vddValues, tempValues
 
 for command in bashCommandList:
   #os.system("mkdir ")
-  #print command
-  result = os.system(command)
+  print command
+  #result = os.system(command)
 
 #
 #
