@@ -63,7 +63,6 @@ with open(args.inputFile, 'rb') as csvfile:
   except csv.Error as err:
       sys.exit('Error on file %s, line %d: %s' % (args.inputFile, reader.line_num, e))
 
-print argQuantity
 
 # print vddProfileStep
 # print tempProfileStep
@@ -86,7 +85,6 @@ for vdd, temp in map(None, vddProfileList, tempProfileList):
 
 
 countList = argQuantity/2
-print countList
 
 # Taking the parameters one by one
 for vddRow, tempRow in map(None, vddList, tempList):
@@ -138,7 +136,7 @@ flag = True
 numberSteps = steps
 initialAge = 24
 initialTemp = 27
-initialActivity = 80
+initialActivity = 40
 ageStep = 8760.0/steps
 tempStep = 101.0/steps
 activityStep = 101.0/steps
@@ -163,13 +161,13 @@ for step,  vdds, temps in map(None,range(1,numberSteps+1), vddValues, tempValues
     if (fileSteps == 100):
       age = age + ageStep
       table.write(''+ str(vdd)+','+ str(initialTemp)+ ','+ str(initialActivity)+',40us,' + str("{0:.2f}".format(age)) +'\n')
-      bashCommandList.append("./run_aging.py -d " + str(args.outputDir)+str(files) + " " + str(args.outputFile+str(files)+'.csv') + " " + str(args.netlist) + " -p profile" + str(files) +".cfg")
+      bashCommandList.append("./run_aging.py -d " + str(args.outputDir)+str(files) + " " + str(args.outputFile+str(files)+'.csv') + " " + str(args.netlist) + " -p " + str(files))
       files = files + 1
       flag = True
     elif ((fileSteps%100 == 0) and (fileSteps > 100)):
       age = age + ageStep
       table.write(''+ str(vdd)+','+ str(initialTemp)+ ','+ str(initialActivity)+',40us,' + str("{0:.2f}".format(age)) +'\n')
-      bashCommandList.append("./run_aging.py -d " + str(args.outputDir)+str(files) + " " + str(args.outputFile+str(files)+'.csv') + " " + str(args.netlist) + " -p profile" + str(files) +".cfg")
+      bashCommandList.append("./run_aging.py -d " + str(args.outputDir)+str(files) + " " + str(args.outputFile+str(files)+'.csv') + " " + str(args.netlist) + " -p " + str(files))
       files = files + 1
       flag = True
   fileSteps = fileSteps + 1
