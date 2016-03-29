@@ -95,6 +95,8 @@ for vddRow, tempRow in map(None, vddList, tempList):
 count = 0
 size = 0
 
+print vddParameters
+print tempParameters
 
 vddValues = []
 tempValues = []
@@ -148,7 +150,6 @@ fileSteps = 1
 bashCommandList = []
 
 for step,  vdds, temps in map(None,range(1,numberSteps+1), vddValues, tempValues):
-  print vdds
   if flag == True:
     table = open(args.outputFile+str(files)+'.csv','w')
     table.write('vdd,temp,act,period,age\n')
