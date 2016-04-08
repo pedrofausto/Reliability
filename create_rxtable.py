@@ -827,3 +827,55 @@ for step in range(1,101):
 
 age = age + ageStep
 tabela29.write('1.1,27,20,40us,' + str("{0:.2f}".format(age)) +'\n')
+
+tabela30 = open('tabela30.csv','w')
+vdd = 1.1
+flag = True
+initialAge = 24
+initialTemp = 100
+initialActivity = 20
+ageStep = 8760.0/100.0
+tempStep = 0
+activityStep = 101.0/100.0
+
+tabela30.write('vdd,temp,act,period,age\n')
+tabela30.write('1.1,27,20,40us,23\n')
+
+for step in range(1,101):
+  if flag == True:
+    tabela30.write('1.1,16,20,40us,' + str(initialAge) +'\n')
+    flag = False
+    age = initialAge
+
+  else:
+    age = age + ageStep
+    tabela30.write('1.1,16,20,40us,' + str("{0:.2f}".format(age)) +'\n')
+
+age = age + ageStep
+tabela30.write('1.1,27,20,40us,' + str("{0:.2f}".format(age)) +'\n')
+
+tabela31 = open('tabela31.csv','w')
+vdd = 1.1
+flag = True
+initialAge = 24
+initialTemp = 100
+initialActivity = 20
+ageStep = 8760.0/100.0
+tempStep = 0
+activityStep = 101.0/100.0
+
+tabela31.write('vdd,temp,act,period,age\n')
+tabela31.write('1.1,27,20,40us,23\n')
+
+for step in range(1,101):
+  if flag == True:
+    tabela31.write('1.1,18,20,40us,' + str(initialAge) +'\n')
+    flag = False
+    age = initialAge
+
+  else:
+    age = age + ageStep
+    tabela31.write('1.1,18,20,40us,' + str("{0:.2f}".format(age)) +'\n')
+
+age = age + ageStep
+tabela31.write('1.1,27,20,40us,' + str("{0:.2f}".format(age)) +'\n')
