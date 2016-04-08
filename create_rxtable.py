@@ -94,7 +94,7 @@ tempStep = 0
 activityStep = 101.0/100.0
 
 tabela4.write('vdd,temp,act,period,age\n')
-tabela4.write('1.1,27,20,40us + 'str(initialAge - 1) +'\n')
+tabela4.write('1.1,27,20,40us + ' + str(initialAge - 1) +'\n')
 
 for step in range(1,101):
   if flag == True:
