@@ -63,9 +63,8 @@ with open(args.inputFile, 'rb') as csvfile:
   except csv.Error as err:
       sys.exit('Error on file %s, line %d: %s' % (args.inputFile, reader.line_num, e))
 
-
-# print vddProfileStep
-# print tempProfileStep
+#print tempProfileStep
+#print vddProfileStep
 
 vddParameters = []
 tempParameters = []
@@ -95,40 +94,50 @@ for vddRow, tempRow in map(None, vddList, tempList):
 count = 0
 size = 0
 
-print vddParameters
-print tempParameters
+# print vddParameters
+# print tempParameters
+
 
 vddValues = []
 tempValues = []
 
 
+#print "vdd " + str(len(vddParameters))
 for vdd in vddParameters:
-  sizeSum = 0
-  if int(vdd) != 0:
-    size = int(vdd)
-    sizeSum = sizeSum + size
-    for i in range(0,size):
-      vddValues.append(str(vddProfileStep[count]))
+  #if int(vdd) != 0:
+  size = int(vdd)
+  for i in range(0,size):
+    vddValues.append(vddProfileStep[count])
   count = count + 1
   if count == 5:
     count = 0
+
+# print vddProfileStep
 
 count = 0
 size = 0
+
+#print "vdd " + str(len(tempParameters))
 for temp in tempParameters:
-  if int(temp) != 0:
-    size = int(temp)
-    for i in range(0,size):
-      tempValues.append(str(tempProfileStep[count]))
+  #if int(temp) != 0:
+  size = int(temp)
+  for j in range(0,size):
+    tempValues.append(tempProfileStep[count])
   count = count + 1
   if count == 5:
     count = 0
 
+# print tempProfileStep
+#
+# print len(vddValues)
+# print len(tempValues)
+
 steps = len(vddValues)/lines
 
+print steps
 
 '''
-Agora, percorrer os 400 registros.
+Agora, percorrer os N registros.
 A cada 100 registros, uma tabela para o run_aging.py, que ira construir o
 profile.cfg
 '''
@@ -138,7 +147,7 @@ flag = True
 numberSteps = steps
 initialAge = 24
 initialTemp = 27
-initialActivity = 40
+initialActivity = 80
 ageStep = 8760.0/steps
 tempStep = 101.0/steps
 activityStep = 101.0/steps
@@ -149,7 +158,8 @@ files = 1
 fileSteps = 1
 bashCommandList = []
 
-for step,  vdds, temps in map(None,range(1,numberSteps+1), vddValues, tempValues):
+
+for step, vdds, temps in map(None,range(1,numberSteps+1), vddValues, tempValues):
   if flag == True:
     table = open(args.outputFile+str(files)+'.csv','w')
     table.write('vdd,temp,act,period,age\n')
@@ -160,24 +170,25 @@ for step,  vdds, temps in map(None,range(1,numberSteps+1), vddValues, tempValues
   else:
     age = age + ageStep
     table.write('' + str(vdds)+','+ str(temps)+ ','+ str(initialActivity)+',40us,' + str("{0:.2f}".format(age)) +'\n')
-    if (fileSteps == 100):
+    if (fileSteps == numberSteps):
       age = age + ageStep
       table.write(''+ str(vdd)+','+ str(initialTemp)+ ','+ str(initialActivity)+',40us,' + str("{0:.2f}".format(age)) +'\n')
+      table.close()
       bashCommandList.append("./run_aging.py -d " + str(args.outputDir)+str(files) + " " + str(args.outputFile+str(files)+'.csv') + " " + str(args.netlist) + " -p " + str(files))
       files = files + 1
       flag = True
-    elif ((fileSteps%100 == 0) and (fileSteps > 100)):
+    elif ((fileSteps%numberSteps == 0) and (fileSteps > numberSteps)):
       age = age + ageStep
       table.write(''+ str(vdd)+','+ str(initialTemp)+ ','+ str(initialActivity)+',40us,' + str("{0:.2f}".format(age)) +'\n')
+      table.close()
       bashCommandList.append("./run_aging.py -d " + str(args.outputDir)+str(files) + " " + str(args.outputFile+str(files)+'.csv') + " " + str(args.netlist) + " -p " + str(files))
       files = files + 1
       flag = True
   fileSteps = fileSteps + 1
 
 for command in bashCommandList:
-  #os.system("mkdir ")
   print command
-  #result = os.system(command)
+  result = os.system(command)
 
 #
 #

@@ -17,7 +17,7 @@ print "Start simulation at: " + initialDate
 
 def netlistCopy(vdd, temp, act, period, age, netlist_name):
 
-  print "\nCopying default netlist file to " + netlist_name
+  print "Copying default netlist file to " + netlist_name
   bashCommand="cp "+args.netlist+" " + netlist_name
   #print bashCommand
   #os.system(bashCommand)
@@ -27,7 +27,7 @@ def netlistCopy(vdd, temp, act, period, age, netlist_name):
     quit()
 
 
-  print "Changing Vdd for circuit aging simulation"
+  #print "Changing Vdd for circuit aging simulation"
   bashCommand="sed -i s/dc\=0\.0/dc\="+ vdd +"/g "+ netlist_name
   #print bashCommand
   os.system(bashCommand)
@@ -36,7 +36,7 @@ def netlistCopy(vdd, temp, act, period, age, netlist_name):
     print "Exiting..."
     quit()
 
-  print "Changing temperature"
+  #print "Changing temperature"
   bashCommand="sed -i s/temp\=0/temp="+temp+"/g "+ netlist_name
   #print bashCommand
   os.system(bashCommand)
@@ -45,7 +45,7 @@ def netlistCopy(vdd, temp, act, period, age, netlist_name):
     print "Exiting..."
     quit()
 
-  print "Changing input signal activity"
+  #print "Changing input signal activity"
   unit = (period.translate(None, '1234567890'))
   percent = (float(act)/100.0)  * float((period.translate(None, 'usnmpf')))
   bashCommand="sed -i s/width\=0us/width\="+ str(percent) + unit +"/g "+ netlist_name
@@ -56,7 +56,7 @@ def netlistCopy(vdd, temp, act, period, age, netlist_name):
     print "Exiting..."
     quit()
 
-  print "Changing input signal period"
+  #print "Changing input signal period"
   bashCommand="sed -i s/period\=0us/period\="+ period + "/g "+ netlist_name
   #print bashCommand
   os.system(bashCommand)
@@ -65,7 +65,7 @@ def netlistCopy(vdd, temp, act, period, age, netlist_name):
     print "Exiting..."
     quit()
 
-  print "Changing aging period"
+  #print "Changing aging period"
   bashCommand="sed -i s/age\ 0h/age\ "+ age + "h/g "+ netlist_name
   #print bashCommand
   os.system(bashCommand)
@@ -73,28 +73,6 @@ def netlistCopy(vdd, temp, act, period, age, netlist_name):
   if (result != 0):
     print "Exiting..."
     quit()
-
-# def extractDelays(netlist_name):
-
-#   print "\nCopying default netlist file to " + netlist_name
-#   bashCommand="cp "+args.netlist+" " + netlist_name
-#   #print bashCommand
-#   os.system(bashCommand)
-#   result = os.system(bashCommand)
-#   if (result != 0):
-#     print "Exiting..."
-#     quit()
-
-
-#   print "Changing Vdd for circuit aging simulation"
-#   bashCommand="sed -i s/dc\=0\.0/dc\="+ vdd +"/g "+ netlist_name
-#   #print bashCommand
-#   os.system(bashCommand)
-#   result = os.system(bashCommand)
-#   if (result != 0):
-#     print "Exiting..."
-#     quit()
-
 
 animation_strings = ('[=', '=', '=]')
 parser = argparse.ArgumentParser()
@@ -115,19 +93,6 @@ bashCommand="clear"
 os.system(bashCommand)
 
 print "Evaluating options and values..."
-# for i in range(5):
-#     if (i == 0):
-#         sys.stdout.write(animation_strings[0])
-#         sys.stdout.flush()
-#         time.sleep(0.1)
-#     elif (i == 4):
-#         sys.stdout.write(animation_strings[2])
-#         sys.stdout.flush()
-#         time.sleep(0.1)
-#     else:
-#         sys.stdout.write(animation_strings[1])
-#         sys.stdout.flush()
-#         time.sleep(0.1)
 
 print "\n..."
 if args.inputFile == None :
@@ -168,7 +133,10 @@ else:
 # tempAux= ''
 # actAux= ''
 # perAux= ''
-# ageAux = ''
+# ageAux =
+
+netlist_name = ""
+
 with open(args.inputFile, 'rb') as csvfile:
   reader = csv.reader(csvfile)
   try:
@@ -178,14 +146,10 @@ with open(args.inputFile, 'rb') as csvfile:
       	vdds = row[0]
         vddList.append(vdds);
         netlists.append(netlist_name);
-        # vddAux = (row[0].translate(None, '.'))
-        # tempAux = row[1].replace(".", "_")
-        # actAux = row[2].replace(".", "_")
-        # perAux = row[3]
-        # ageAux = row[4].replace(".", "_")
       	netlistCopy(row[0], row[1], row[2], row[3], row[4], netlist_name)
   except csv.Error as err:
-      sys.exit('Error on file %s, line %d: %s' % (args.inputFile, reader.line_num, e))
+    print "Error"
+    sys.exit('Error on file %s, line %d: %s' % (args.inputFile, reader.line_num, e))
 
 # vddAux = vddAux.translate(None, '.')
 # tempAux = tempAux.replace("_", ".")
@@ -211,7 +175,6 @@ for net in netlists:
   else:
     profileFile.write(net + ' \\ \n')
   index = index +1
-#profileFile.write(args.netlist + 'vdd' + '11' + 't27a' + str(actAux) + 'p' + str(perAux) +  '_ag' + str(ageAux) + 'h')
 profileFile.close()
 
 print "\nRunning rxprofile tool"
@@ -227,7 +190,7 @@ print "Creating extraction script file"
 extractFile = open('extractDelay.ocn','w')
 flag = True
 count = 1;
-extractFile.write('out_delay=outfile("./delays_' + args.netlist + '_' + args.inputFile +'", "a")\n')
+extractFile.write('out_delay=outfile("./delays_' + args.netlist + '_' + args.inputFile + '", "a")\n')
 extractFile.write(';Extract script file for ' + netlist_name +'\n')
 extractFile.write('fprintf(out_delay "Extract results file for ' + args.netlist +'\\n")\n')
 for net in netlists:
@@ -317,8 +280,3 @@ finalDate = time.strftime("%a %b %d %H:%M:%S %Z %Y")
 
 print "Start simulation time & date: " + initialDate
 print "End simulation time & date: " + finalDate
-
-bashCommand = "echo Start simulation time & date: " + initialDate
-os.system(bashCommand)
-bashCommand = "echo End simulation time & date: " + finalDate
-os.system(bashCommand)

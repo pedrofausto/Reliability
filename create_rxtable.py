@@ -12,7 +12,7 @@ tabela1 = open('tabela1.csv','w')
 flag = True
 initialAge = 24
 initialTemp = 0
-ageStep = 8760.0/100.0
+ageStep = 87600.0/100.0
 tempStep = 101.0/100.0
 
 tabela1.write('vdd,temp,act,period,age\n')
@@ -20,14 +20,14 @@ tabela1.write('1.1,27,20,40us,' + str(initialAge - 1) +'\n')
 
 for step in range(1,101):
   if flag == True:
-    temp = numpy.random.normal(80,10)
+    temp = numpy.random.normal(40,7)
     tabela1.write('1.1,' + str("{0:.2f}".format(temp)) +',20,40us,' + str(initialAge) +'\n')
     flag = False
     age = initialAge
 
   else:
     age = age + ageStep
-    temp = numpy.random.normal(80,10)
+    temp = numpy.random.normal(40,7)
     tabela1.write('1.1,' + str("{0:.2f}".format(temp)) +',20,40us,' + str("{0:.2f}".format(age)) +'\n')
 
 age = age + ageStep
@@ -37,7 +37,7 @@ tabela2 = open('tabela2.csv','w')
 flag = True
 initialAge = 24
 initialTemp = 0
-ageStep = 8760.0/100.0
+ageStep = 87600.0/100.0
 tempStep = 101.0/100.0
 
 tabela2.write('vdd,temp,act,period,age\n')
@@ -45,14 +45,14 @@ tabela2.write('1.1,27,20,40us,' + str(initialAge - 1) +'\n')
 
 for step in range(1,101):
   if flag == True:
-    temp = numpy.random.normal(60,10)
+    temp = numpy.random.normal(60,7)
     tabela2.write('1.1,' + str("{0:.2f}".format(temp)) +',20,40us,' + str(initialAge) +'\n')
     flag = False
     age = initialAge
 
   else:
     age = age + ageStep
-    temp = numpy.random.normal(60,10)
+    temp = numpy.random.normal(60,7)
     tabela2.write('1.1,' + str("{0:.2f}".format(temp)) +',20,40us,' + str("{0:.2f}".format(age)) +'\n')
 
 age = age + ageStep
@@ -62,7 +62,7 @@ tabela3 = open('tabela3.csv','w')
 flag = True
 initialAge = 24
 initialTemp = 0
-ageStep = 8760.0/100.0
+ageStep = 87600.0/100.0
 tempStep = 101.0/100.0
 
 tabela3.write('vdd,temp,act,period,age\n')
@@ -70,14 +70,14 @@ tabela3.write('1.1,27,20,40us,' + str(initialAge - 1) +'\n')
 
 for step in range(1,101):
   if flag == True:
-    temp = numpy.random.normal(40,10)
+    temp = numpy.random.normal(80,7)
     tabela3.write('1.1,' + str("{0:.2f}".format(temp)) +',20,40us,' + str(initialAge) +'\n')
     flag = False
     age = initialAge
 
   else:
     age = age + ageStep
-    temp = numpy.random.normal(40,10)
+    temp = numpy.random.normal(80,7)
     tabela3.write('1.1,' + str("{0:.2f}".format(temp)) +',20,40us,' + str("{0:.2f}".format(age)) +'\n')
 
 age = age + ageStep
@@ -89,7 +89,7 @@ flag = True
 initialAge = 24
 initialTemp = 20
 initialActivity = 20
-ageStep = 8760.0/100.0
+ageStep = 87600.0/100.0
 tempStep = 0
 activityStep = 101.0/100.0
 
@@ -98,14 +98,14 @@ tabela4.write('1.1,27,20,40us,23\n')
 
 for step in range(1,101):
   if flag == True:
-    temp = numpy.random.normal(80,10)
+    #temp = numpy.random.normal(80,10)
     tabela4.write('1.1,20,20,40us,' + str(initialAge) +'\n')
     flag = False
     age = initialAge
 
   else:
     age = age + ageStep
-    temp = numpy.random.normal(80,10)
+    #temp = numpy.random.normal(80,10)
     tabela4.write('1.1,20,20,40us,' + str("{0:.2f}".format(age)) +'\n')
 
 age = age + ageStep
@@ -117,7 +117,7 @@ flag = True
 initialAge = 24
 initialTemp = 100
 initialActivity = 20
-ageStep = 8760.0/100.0
+ageStep = 87600.0/100.0
 tempStep = 0
 activityStep = 101.0/100.0
 
@@ -145,7 +145,7 @@ flag = True
 initialAge = 24
 initialTemp = 27
 initialActivity = 0
-ageStep = 8760.0/100.0
+ageStep = 87600.0/100.0
 tempStep = 0
 activityStep = 101.0/100.0
 
@@ -173,7 +173,7 @@ flag = True
 initialAge = 24
 initialTemp = 27
 initialActivity = 0
-ageStep = 8760.0/100.0
+ageStep = 87600.0/100.0
 tempStep = 0
 activityStep = 101.0/100.0
 
@@ -200,7 +200,7 @@ flag = True
 initialAge = 24
 initialTemp = 27
 initialActivity = 0
-ageStep = 8760.0/100.0
+ageStep = 87600.0/100.0
 tempStep = 0
 activityStep = 101.0/100.0
 
@@ -226,7 +226,7 @@ flag = True
 initialAge = 24
 initialTemp = 27
 initialActivity = 0
-ageStep = 8760.0/100.0
+ageStep = 87600.0/100.0
 tempStep = 0
 activityStep = 101.0/100.0
 
@@ -252,7 +252,7 @@ flag = True
 initialAge = 24
 initialTemp = 27
 initialActivity = 100
-ageStep = 8760.0/100.0
+ageStep = 87600.0/100.0
 tempStep = 0
 activityStep = 101.0/100.0
 
@@ -276,7 +276,7 @@ flag = True
 initialAge = 24
 initialTemp = 27
 initialActivity = 20
-ageStep = 8760.0/100.0
+ageStep = 87600.0/100.0
 tempStep = 0
 activityStep = 101.0/100.0
 
@@ -307,7 +307,7 @@ flag = True
 initialAge = 24
 initialTemp = 27
 initialActivity = 20
-ageStep = 8760.0/100.0
+ageStep = 87600.0/100.0
 tempStep = 0
 activityStep = 101.0/100.0
 
@@ -338,7 +338,7 @@ flag = True
 initialAge = 24
 initialTemp = 27
 initialActivity = 20
-ageStep = 8760.0/100.0
+ageStep = 87600.0/100.0
 tempStep = 0
 activityStep = 101.0/100.0
 
@@ -368,7 +368,7 @@ flag = True
 initialAge = 24
 initialTemp = 27
 initialActivity = 20
-ageStep = 8760.0/100.0
+ageStep = 87600.0/100.0
 tempStep = 0
 activityStep = 101.0/100.0
 
@@ -394,7 +394,7 @@ flag = True
 initialAge = 24
 initialTemp = 27
 initialActivity = 20
-ageStep = 8760.0/100.0
+ageStep = 87600.0/100.0
 tempStep = 0
 activityStep = 101.0/100.0
 
@@ -419,7 +419,7 @@ flag = True
 initialAge = 24
 initialTemp = 27
 initialActivity = 20
-ageStep = 8760.0/100.0
+ageStep = 87600.0/100.0
 tempStep = 0
 activityStep = 101.0/100.0
 
@@ -454,7 +454,7 @@ flag = True
 initialAge = 24
 initialTemp = 27
 initialActivity = 20
-ageStep = 8760.0/100.0
+ageStep = 87600.0/100.0
 tempStep = 0
 activityStep = 101.0/100.0
 
@@ -492,7 +492,7 @@ flag = True
 initialAge = 24
 initialTemp = 27
 initialActivity = 20
-ageStep = 8760.0/100.0
+ageStep = 87600.0/100.0
 tempStep = 0
 activityStep = 101.0/100.0
 
@@ -529,7 +529,7 @@ flag = True
 initialAge = 24
 initialTemp = 20
 initialActivity = 0
-ageStep = 8760.0/100.0
+ageStep = 87600.0/100.0
 tempStep = 0
 activityStep = 101.0/100.0
 
@@ -556,7 +556,7 @@ flag = True
 initialAge = 24
 initialTemp = 100
 initialActivity = 100
-ageStep = 8760.0/100.0
+ageStep = 87600.0/100.0
 tempStep = 0
 activityStep = 101.0/100.0
 
@@ -582,7 +582,7 @@ flag = True
 initialAge = 24
 initialTemp = 100
 initialActivity = 100
-ageStep = 8760.0/100.0
+ageStep = 87600.0/100.0
 tempStep = 0
 activityStep = 101.0/100.0
 swapFlag = True;
@@ -614,7 +614,7 @@ flag = True
 initialAge = 24
 initialTemp = 100
 initialActivity = 100
-ageStep = 8760.0/100.0
+ageStep = 87600.0/100.0
 tempStep = 0
 activityStep = 101.0/100.0
 count = 0;
@@ -646,7 +646,7 @@ flag = True
 initialAge = 24
 initialTemp = 100
 initialActivity = 100
-ageStep = 8760.0/100.0
+ageStep = 87600.0/100.0
 tempStep = 0
 activityStep = 101.0/100.0
 count = 0;
