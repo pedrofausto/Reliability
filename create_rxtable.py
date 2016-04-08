@@ -750,7 +750,7 @@ for step in range(1,101):
 age = age + ageStep
 tabela26.write('1.1,27,20,40us,' + str("{0:.2f}".format(age)) +'\n')
 
-tabela29 = open('tabela29.csv','w')
+tabela27 = open('tabela27.csv','w')
 vdd = 1.1
 flag = True
 initialAge = 24
@@ -760,21 +760,21 @@ ageStep = 8760.0/100.0
 tempStep = 0
 activityStep = 101.0/100.0
 
-tabela29.write('vdd,temp,act,period,age\n')
-tabela29.write('1.1,27,20,40us,23\n')
+tabela27.write('vdd,temp,act,period,age\n')
+tabela27.write('1.1,27,20,40us,23\n')
 
 for step in range(1,101):
   if flag == True:
-    tabela29.write('1.1,10,20,40us,' + str(initialAge) +'\n')
+    tabela27.write('1.1,10,20,40us,' + str(initialAge) +'\n')
     flag = False
     age = initialAge
 
   else:
     age = age + ageStep
-    tabela29.write('1.1,10,20,40us,' + str("{0:.2f}".format(age)) +'\n')
+    tabela27.write('1.1,10,20,40us,' + str("{0:.2f}".format(age)) +'\n')
 
 age = age + ageStep
-tabela29.write('1.1,27,20,40us,' + str("{0:.2f}".format(age)) +'\n')
+tabela27.write('1.1,27,20,40us,' + str("{0:.2f}".format(age)) +'\n')
 
 tabela28 = open('tabela28.csv','w')
 vdd = 1.1
