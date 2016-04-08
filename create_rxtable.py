@@ -800,7 +800,7 @@ for step in range(1,101):
     tabela28.write('1.1,12,20,40us,' + str("{0:.2f}".format(age)) +'\n')
 
 age = age + ageStep
-tabela29.write('1.1,27,20,40us,' + str("{0:.2f}".format(age)) +'\n')
+tabela28.write('1.1,27,20,40us,' + str("{0:.2f}".format(age)) +'\n')
 
 tabela29 = open('tabela29.csv','w')
 vdd = 1.1
