@@ -6,6 +6,7 @@ import sys, time
 import  csv
 import time
 import numpy as np
+import pdb
 
 tempProfileStep = []
 vddProfileStep = []
@@ -13,8 +14,6 @@ vddProfileStep = []
 # vddProfileList = [][]
 
 initialDate = time.strftime("%a %b %d %H:%M:%S %Z %Y")
-
-print "Start simulation at: " + initialDate
 
 parser = argparse.ArgumentParser()
 
@@ -51,6 +50,7 @@ with open(args.inputFile, 'rb') as csvfile:
   reader = csv.reader(csvfile)
   try:
     for row in reader:
+      pdb.set_trace()
       if reader.line_num == 1 :
         argQuantity = len(row)
       	tempProfileStep = row[0:(argQuantity/2)]
@@ -62,6 +62,9 @@ with open(args.inputFile, 'rb') as csvfile:
         vddProfileList [(reader.line_num)-2][0:(argQuantity/2)]  = row[(argQuantity/2) : argQuantity+1]
   except csv.Error as err:
       sys.exit('Error on file %s, line %d: %s' % (args.inputFile, reader.line_num, e))
+
+
+
 
 #print tempProfileStep
 #print vddProfileStep
@@ -81,7 +84,6 @@ lines = len(vddProfileList)
 for vdd, temp in map(None, vddProfileList, tempProfileList):
   vddList.append(np.split(vdd,argQuantity/2))
   tempList.append(np.split(temp,argQuantity/2))
-
 
 countList = argQuantity/2
 
@@ -189,6 +191,14 @@ for step, vdds, temps in map(None,range(1,numberSteps+1), vddValues, tempValues)
 for command in bashCommandList:
   print command
   result = os.system(command)
+
+
+finalDate = time.strftime("%a %b %d %H:%M:%S %Z %Y")
+
+
+
+print "Started profiles simulation at: " + initialDate
+print "Ended profiles simulation at: " + finalDate
 
 #
 #
