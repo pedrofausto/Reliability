@@ -196,7 +196,6 @@ for command in bashCommandList:
 finalDate = time.strftime("%a %b %d %H:%M:%S %Z %Y")
 
 
-
 print "Started profiles simulation at: " + initialDate
 print "Ended profiles simulation at: " + finalDate
 
