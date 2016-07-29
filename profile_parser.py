@@ -7,13 +7,14 @@ import  csv
 import time
 import numpy as np
 import pdb
+import commands
 
 tempProfileStep = []
 vddProfileStep = []
-# tempProfileList = [][]
-# vddProfileList = [][]
 
 initialDate = time.strftime("%a %b %d %H:%M:%S %Z %Y")
+
+print "Start simulation at: " + initialDate
 
 parser = argparse.ArgumentParser()
 
@@ -40,11 +41,12 @@ elif args.outputFile == None :
     print "Quiting..."
     quit()
 
-
 with open(args.inputFile, 'rb') as csvfile:
   reader = csv.reader(csvfile)
   data = list(reader)
   lineQuant = len(data)
+
+  profileHeader = ''
 
 with open(args.inputFile, 'rb') as csvfile:
   reader = csv.reader(csvfile)
@@ -53,6 +55,7 @@ with open(args.inputFile, 'rb') as csvfile:
       pdb.set_trace()
       if reader.line_num == 1 :
         argQuantity = len(row)
+        profileHeader = row
       	tempProfileStep = row[0:(argQuantity/2)]
         vddProfileStep = row[(argQuantity/2) : argQuantity+1]
         tempProfileList = np.zeros((lineQuant-1, argQuantity/2))
@@ -64,10 +67,6 @@ with open(args.inputFile, 'rb') as csvfile:
       sys.exit('Error on file %s, line %d: %s' % (args.inputFile, reader.line_num, e))
 
 
-
-
-#print tempProfileStep
-#print vddProfileStep
 
 vddParameters = []
 tempParameters = []
@@ -192,14 +191,21 @@ for command in bashCommandList:
   print command
   result = os.system(command)
 
+'''
+Creating output table
+'''
+resultList = []
+tableFile = open(args.outputFile+'_delays.csv','w')
+for delayNumber in range(1,lineQuant):
+  command = "tail -n 1 delays_" + args.netlist + "_tabela" + str(delayNumber) + ".csv"
+  resultList.append(commands.getoutput(command))
+
+tableFile.write(''.join((str(profileHeader).translate(None,"[']")).split()).replace(",","\t") + '\n')
+for index in range(0,lineQuant-1):
+  tableFile.write(''.join((str(tempProfileList[index]).translate(None,"[]") + str(vddProfileList[index]).translate(None,"[]")).split()).replace(".","\t") +str(resultList[index])+'\n')
+
 
 finalDate = time.strftime("%a %b %d %H:%M:%S %Z %Y")
 
-
 print "Started profiles simulation at: " + initialDate
 print "Ended profiles simulation at: " + finalDate
-
-#
-#
-# print str(tempProfileList) + "\n"
-# print vddProfileList
