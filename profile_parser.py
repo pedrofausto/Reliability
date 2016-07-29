@@ -6,7 +6,6 @@ import sys, time
 import  csv
 import time
 import numpy as np
-import pdb
 import commands
 
 tempProfileStep = []
@@ -52,7 +51,6 @@ with open(args.inputFile, 'rb') as csvfile:
   reader = csv.reader(csvfile)
   try:
     for row in reader:
-      pdb.set_trace()
       if reader.line_num == 1 :
         argQuantity = len(row)
         profileHeader = row
