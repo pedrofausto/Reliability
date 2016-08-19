@@ -2,8 +2,8 @@
 
 import argparse
 import os
-import sys, time
-import  csv
+import sys
+import csv
 import time
 import numpy as np
 import commands
@@ -25,7 +25,7 @@ parser.add_argument("netlist", help="Provide the netlist to be analyzed.")
 
 args = parser.parse_args()
 
-bashCommand="clear"
+bashCommand = "clear"
 os.system(bashCommand)
 
 print "Evaluating options and values..."
