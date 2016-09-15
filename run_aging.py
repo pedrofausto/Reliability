@@ -2,12 +2,12 @@
 
 import argparse
 import os
-import sys, time
-import  csv
+import sys
+import csv
 import time
 
-netlists = [];
-vddList  = [];
+netlists = []
+vddList = []
 currentDir = os.getcwd()
 profileQty = 0
 
