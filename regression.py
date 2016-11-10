@@ -14,7 +14,7 @@ import statsmodels.formula.api as smf
 %matplotlib
 
 
-data = pd.read_csv('data.csv', index_col=0)
+data = pd.read_csv('tabela_delays.csv', index_col=0)
 data.head()
 data.shape
 
