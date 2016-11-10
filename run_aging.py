@@ -129,12 +129,6 @@ else:
     pass
 
 
-# vddAux = ''
-# tempAux= ''
-# actAux= ''
-# perAux= ''
-# ageAux =
-
 netlist_name = ""
 
 with open(args.inputFile, 'rb') as csvfile:
@@ -151,22 +145,12 @@ with open(args.inputFile, 'rb') as csvfile:
     print "Error"
     sys.exit('Error on file %s, line %d: %s' % (args.inputFile, reader.line_num, e))
 
-# vddAux = vddAux.translate(None, '.')
-# tempAux = tempAux.replace("_", ".")
-# actAux = actAux.replace("_", ".")
-# perAux = perAux
-# ageAux = ageAux.replace("_", ".")
-# ageFloat = float(ageAux)
-
-# ageFloat = ageFloat + 1.0
-# ageAux = str(ageFloat)
-
-# netlistCopy("1.1", "27", actAux, perAux, ageAux, netlist_name)
-
 
 print "Creating default profile file 'profile.cfg'"
 profileFile = open('profile'+str(profileNumber)+'.cfg','w')
 profileFile.write('.netlist_type spectre\n')
+# The below option tries to force the saving of only 3 steps: The first, the last and the step #1 (which doesn't matter)
+profileFile.write('.save_tempfile step=1\n')
 profileFile.write('.profile_names ')
 index = 0
 for net in netlists:
@@ -183,6 +167,8 @@ print bashCommand
 result = os.system(bashCommand)
 if (result != 0):
  print "Failed to execute rxprofile. Quiting..."
+ bashCommand="rm -Rf " + str(args.netlist) + "vdd* " + str(args.directory) + " " + str(profileNumber)+ ".cfg " + str(outputDirectory)
+ os.system(bashCommand)
  quit()
 
 
@@ -192,7 +178,7 @@ flag = True
 count = 1;
 extractFile.write('out_delay=outfile("./delays_' + args.netlist + '_' + args.inputFile + '", "a")\n')
 extractFile.write(';Extract script file for ' + netlist_name +'\n')
-extractFile.write('fprintf(out_delay "Extract results file for ' + args.netlist +'\\n")\n')
+extractFile.write('fprintf(out_delay "Vdd;Temp;DelayRising;DelayFalling;WorstCase\\n")\n')
 for net in netlists:
   if flag == True:
     firstNetlist = net
@@ -212,7 +198,11 @@ for net in netlists:
     # testing to discover the smaller of both
     extractFile.write('if((diff < 0) result=result1 result=result2) "npn"\n')
 
-    extractFile.write('fprintf(out_delay "%.5e\\n" result)\n')
+    # Old extraction delay logic
+    #extractFile.write('fprintf(out_delay "%.5e\\n" result)\n')
+
+    # Nex extraction delay information: Rising, Falling, Worst Case
+    extractFile.write('fprintf(out_delay "%.5e;%.5e;%.5e \\n" result1 result2 result)\n')
 
     #extractFile.write('result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "./' + firstNetlist + '"), ?value1 '+ vddList[0] +', ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "./' + currentNetlist + '"), ?value2 '+ vddList[count] +', ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)\\n\n')
     count = count+1
