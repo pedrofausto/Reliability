@@ -198,9 +198,9 @@ for delayNumber in range(1,lineQuant):
   command = "tail -n 1 delays_" + args.netlist + "_tabela" + str(delayNumber) + ".csv"
   resultList.append(commands.getoutput(command))
 
-tableFile.write(''.join((str(profileHeader).translate(None,"[']")).split()).replace(",","\t") + '\n')
+tableFile.write(''.join((str(profileHeader).translate(None,"[']")).split()).replace(",",";") + 'DelayRising;DelayFalling;WorstCase\n')
 for index in range(0,lineQuant-1):
-  tableFile.write(''.join((str(tempProfileList[index]).translate(None,"[]") + str(vddProfileList[index]).translate(None,"[]")).split()).replace(".","\t") +str(resultList[index])+'\n')
+  tableFile.write(''.join((str(tempProfileList[index]).translate(None,"[]") + str(vddProfileList[index]).translate(None,"[]")).split()).replace(".",";") +str(resultList[index])+'\n')
 
 
 finalDate = time.strftime("%a %b %d %H:%M:%S %Z %Y")
