@@ -17,10 +17,10 @@ print "Start simulation at: " + initialDate
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument("inputFile", help="input file with profiling environment conditions. Must be a CSV formatd file")
-parser.add_argument("outputFile", help="Provide the base name used to create the output files. Table file as a CSV formated file.")
-parser.add_argument("outputDir", help="Provide the base name used to create the output directory.")
-parser.add_argument("netlist", help="Provide the netlist to be analyzed.")
+parser.add_argument("inputFile", help="input file with profiling environment conditions. Must be a CSV formatd file. Ex.: table_random_points.csv")
+parser.add_argument("outputFile", help="Provide the base name used to create the output files. Table file as a CSV formated file. Ex.: tableGateXPTO")
+parser.add_argument("outputDir", help="Provide the base name used to create the output directory. Ex.: resultsGateXPTO")
+parser.add_argument("netlist", help="Provide the netlist to be analyzed. Ex.: inv100")
 
 
 args = parser.parse_args()
@@ -198,7 +198,7 @@ for delayNumber in range(1,lineQuant):
   command = "tail -n 1 delays_" + args.netlist + "_tabela" + str(delayNumber) + ".csv"
   resultList.append(commands.getoutput(command))
 
-tableFile.write(''.join((str(profileHeader).translate(None,"[']")).split()).replace(",",";") + 'DelayRising;DelayFalling;WorstCase\n')
+tableFile.write(''.join((str(profileHeader).translate(None,"[']")).split()).replace(",",";") + ';DelayRising;DelayFalling;WorstCase\n')
 for index in range(0,lineQuant-1):
   tableFile.write(''.join((str(tempProfileList[index]).translate(None,"[]") + str(vddProfileList[index]).translate(None,"[]")).split()).replace(".",";") +str(resultList[index])+'\n')
 
