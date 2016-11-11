@@ -195,8 +195,8 @@ for net in netlists:
 
     #getting the difference
     extractFile.write('diff = result1 - result2\n')
-    # testing to discover the smaller of both
-    extractFile.write('if((diff < 0) result=result1 result=result2) "npn"\n')
+    # testing to discover the greater of both
+    extractFile.write('if((diff > 0) result=result1 result=result2) "npn"\n')
 
     # Old extraction delay logic
     #extractFile.write('fprintf(out_delay "%.5e\\n" result)\n')
