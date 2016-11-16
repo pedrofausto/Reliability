@@ -19,8 +19,6 @@ def netlistCopy(vdd, temp, act, period, age, netlist_name):
 
   print "Copying default netlist file to " + netlist_name
   bashCommand="cp "+args.netlist+" " + netlist_name
-  #print bashCommand
-  #os.system(bashCommand)
   result = os.system(bashCommand)
   if (result != 0):
     print "Exiting..."
@@ -29,8 +27,6 @@ def netlistCopy(vdd, temp, act, period, age, netlist_name):
 
   #print "Changing Vdd for circuit aging simulation"
   bashCommand="sed -i s/dc\=0\.0/dc\="+ vdd +"/g "+ netlist_name
-  #print bashCommand
-  os.system(bashCommand)
   result = os.system(bashCommand)
   if (result != 0):
     print "Exiting..."
@@ -38,8 +34,6 @@ def netlistCopy(vdd, temp, act, period, age, netlist_name):
 
   #print "Changing temperature"
   bashCommand="sed -i s/temp\=0/temp="+temp+"/g "+ netlist_name
-  #print bashCommand
-  os.system(bashCommand)
   result = os.system(bashCommand)
   if (result != 0):
     print "Exiting..."
@@ -49,8 +43,6 @@ def netlistCopy(vdd, temp, act, period, age, netlist_name):
   unit = (period.translate(None, '1234567890'))
   percent = (float(act)/100.0)  * float((period.translate(None, 'usnmpf')))
   bashCommand="sed -i s/width\=0us/width\="+ str(percent) + unit +"/g "+ netlist_name
-  #print bashCommand
-  os.system(bashCommand)
   result = os.system(bashCommand)
   if (result != 0):
     print "Exiting..."
@@ -58,8 +50,6 @@ def netlistCopy(vdd, temp, act, period, age, netlist_name):
 
   #print "Changing input signal period"
   bashCommand="sed -i s/period\=0us/period\="+ period + "/g "+ netlist_name
-  #print bashCommand
-  os.system(bashCommand)
   result = os.system(bashCommand)
   if (result != 0):
     print "Exiting..."
@@ -67,8 +57,6 @@ def netlistCopy(vdd, temp, act, period, age, netlist_name):
 
   #print "Changing aging period"
   bashCommand="sed -i s/age\ 0h/age\ "+ age + "h/g "+ netlist_name
-  #print bashCommand
-  os.system(bashCommand)
   result = os.system(bashCommand)
   if (result != 0):
     print "Exiting..."
@@ -82,10 +70,6 @@ parser.add_argument("netlist", help="Name of the default netlist file to be aged
 parser.add_argument("--directory", "-d", help="Output directory. All results will reside within this directory.")
 parser.add_argument("--profileNumber", "-p", help="Profile numbering. The default profile name will be 'profile<profileNumber>'.")
 
-
-# group = parser.add_mutually_exclusive_group()
-# group.add_argument("-a", "--age", action="store_true", help="Aging flow. Extract aging values")
-# group.add_argument("-r", "--run", action="store_true", help="Run a simulation with aged values")
 
 args = parser.parse_args()
 
@@ -145,10 +129,11 @@ with open(args.inputFile, 'rb') as csvfile:
     print "Error"
     sys.exit('Error on file %s, line %d: %s' % (args.inputFile, reader.line_num, e))
 
-
+# Routine to create the profile files used by rxprofile
 print "Creating default profile file 'profile.cfg'"
 profileFile = open('profile'+str(profileNumber)+'.cfg','w')
 profileFile.write('.netlist_type spectre\n')
+
 # The below option tries to force the saving of only 3 steps: The first, the last and the step #1 (which doesn't matter)
 profileFile.write('.save_tempfile step=1\n')
 profileFile.write('.profile_names ')
@@ -179,6 +164,8 @@ count = 1;
 extractFile.write('out_delay=outfile("./delays_' + args.netlist + '_' + args.inputFile + '", "a")\n')
 extractFile.write(';Extract script file for ' + netlist_name +'\n')
 extractFile.write('fprintf(out_delay "Vdd;Temp;DelayRising;DelayFalling;WorstCase\\n")\n')
+
+index = 0
 for net in netlists:
   if flag == True:
     firstNetlist = net
@@ -186,26 +173,28 @@ for net in netlists:
   else:
     currentNetlist = net
 
-    #initial value for result manipulation
-    extractFile.write('result=0\n')
+    if (index == (len(netlists) - 1)):
+      #initial value for result manipulation
+      extractFile.write('result=0\n')
 
-    #finding the rising and falling delay
-    extractFile.write('result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "' + currentDir + '/'+ outputDirectory + '/'+ firstNetlist + '.raw"), ?value1 '+ str(float(vddList[0])/2) +', ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "' + currentDir + '/'+ outputDirectory + '/'+ currentNetlist + '.raw"), ?value2 '+ str(float(vddList[count])/2) +', ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)\n')
-    extractFile.write('result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "' + currentDir + '/'+ outputDirectory + '/'+ firstNetlist + '.raw"), ?value1 '+ str(float(vddList[0])/2) +', ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "' + currentDir + '/'+ outputDirectory + '/'+ currentNetlist + '.raw"), ?value2 '+ str(float(vddList[count])/2) +', ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)\n')
+      #finding the rising and falling delay
+      extractFile.write('result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "' + currentDir + '/'+ outputDirectory + '/'+ firstNetlist + '.raw"), ?value1 '+ str(float(vddList[0])/2) +', ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "' + currentDir + '/'+ outputDirectory + '/'+ currentNetlist + '.raw"), ?value2 '+ str(float(vddList[count])/2) +', ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)\n')
+      extractFile.write('result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "' + currentDir + '/'+ outputDirectory + '/'+ firstNetlist + '.raw"), ?value1 '+ str(float(vddList[0])/2) +', ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "' + currentDir + '/'+ outputDirectory + '/'+ currentNetlist + '.raw"), ?value2 '+ str(float(vddList[count])/2) +', ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)\n')
 
-    #getting the difference
-    extractFile.write('diff = result1 - result2\n')
-    # testing to discover the greater of both
-    extractFile.write('if((diff > 0) result=result1 result=result2) "npn"\n')
+      #getting the difference
+      extractFile.write('diff = result1 - result2\n')
+      # testing to discover the greater of both
+      extractFile.write('if((diff > 0) result=result1 result=result2) "npn"\n')
 
-    # Old extraction delay logic
-    #extractFile.write('fprintf(out_delay "%.5e\\n" result)\n')
+      # Old extraction delay logic
+      #extractFile.write('fprintf(out_delay "%.5e\\n" result)\n')
 
-    # Nex extraction delay information: Rising, Falling, Worst Case
-    extractFile.write('fprintf(out_delay "%.5e;%.5e;%.5e \\n" result1 result2 result)\n')
+      # Nex extraction delay information: Rising, Falling, Worst Case
+      extractFile.write('fprintf(out_delay "%.5e;%.5e;%.5e \\n" result1 result2 result)\n')
 
-    #extractFile.write('result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "./' + firstNetlist + '"), ?value1 '+ vddList[0] +', ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "./' + currentNetlist + '"), ?value2 '+ vddList[count] +', ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)\\n\n')
-    count = count+1
+      #extractFile.write('result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "./' + firstNetlist + '"), ?value1 '+ vddList[0] +', ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "./' + currentNetlist + '"), ?value2 '+ vddList[count] +', ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)\\n\n')
+      count = count+1
+  index = index + 1
 flag = True
 
 
@@ -215,7 +204,7 @@ extractFile.write('close(out_delay)\n')
 extractFile.close()
 
 print "Running Ocean extraction script"
-bashCommand="ocean < extractDelay.ocn"
+bashCommand="ocean -nograph < extractDelay.ocn"
 result = os.system(bashCommand)
 if (result != 0):
  print "Failed to execute ocean script. Quiting..."
@@ -241,30 +230,6 @@ with open(args.inputFile, 'rb') as csvfile:
   except csv.Error as err:
       sys.exit('Error on file %s, line %d: %s' % (args.inputFile, reader.line_num, e))
 
-'''
-Avoiding create another delay table.
-'''
-
-
-# delaysList = []
-# delayExtract = []
-#
-# #with open('./delays_inv100.csv') as f:
-# file = './delays_' + args.netlist + '_' + args.inputFile +''
-# with open(file, 'rb') as f:
-#   delayExtract = f.readlines()
-#   for delay in range(len(delayExtract)):
-#     if delay != 0 :
-#       delaysList.append(delayExtract)
-#
-#
-# delayFile = open('delayTable_' + str(args.netlist) + '_' + str(args.inputFile) +'' ,'w')
-
-# count = 0
-# for vdd, temp, act, aging, delay in map(None, vddList, tempList, actList, agingList, delaysList):
-#   if (count >= 1):
-#     delayFile.write('' + str(vdd) + ';' + str(temp) + ';' + str(act) + ';' + str(aging) +  ';' + str(delay[count-1]) )
-#   count = count + 1
 
 finalDate = time.strftime("%a %b %d %H:%M:%S %Z %Y")
 
