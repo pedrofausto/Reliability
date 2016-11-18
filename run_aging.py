@@ -200,7 +200,7 @@ flag = True
 
 extractFile.write('drain(out_delay)\n')
 extractFile.write('close(out_delay)\n')
-extractFile.write('exit)\n')
+extractFile.write('exit\n')
 
 extractFile.close()
 
