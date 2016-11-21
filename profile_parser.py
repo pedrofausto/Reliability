@@ -133,6 +133,8 @@ for temp in tempParameters:
 
 steps = len(vddValues)/lines
 
+print steps
+
 '''
 Agora, percorrer os N registros.
 A cada 100 registros, uma tabela para o run_aging.py, que ira construir o
@@ -193,7 +195,7 @@ Creating output table
 resultList = []
 tableFile = open(args.outputFile+'_delays.csv','w')
 for delayNumber in range(1,lineQuant):
-  command = "tail -n 1 delays_" + args.netlist + "_" + args.inputFile + str(delayNumber) + ".csv"
+  command = "tail -n 1 delays_" + args.netlist + "_" + args.outputFile + str(delayNumber) + ".csv"
   resultList.append(commands.getoutput(command))
 
 tableFile.write(''.join((str(profileHeader).translate(None,"[']")).split()).replace(",",";") + ';DelayRising;DelayFalling;WorstCase\n')
