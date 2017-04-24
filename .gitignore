@@ -42,3 +42,13 @@ Network Trash Folder
 Temporary Items
 .apdisk
 tempResult*
+
+\.cadence/
+
+INCA_libs/
+
+\.relxpert_tmp/
+rc\.cmd*
+w\_*
+worst*
+
