@@ -160,7 +160,7 @@ bashCommandList = []
 
 for step, vdds, temps in map(None,range(1,numberSteps+1), vddValues, tempValues):
   if flag == True:
-    table = open(args.outputFile+str(files)+'.csv','w')
+    table = open(args.outputFile+ "_" + str(files)+'.csv','w')
     table.write('vdd,temp,act,period,age\n')
     table.write(''+ str(vdd)+','+ str(initialTemp)+ ','+ str(initialActivity)+',40us,' + str(initialAge) +'\n')
     flag = False
@@ -173,14 +173,14 @@ for step, vdds, temps in map(None,range(1,numberSteps+1), vddValues, tempValues)
       age = age + ageStep
       table.write(''+ str(vdd)+','+ str(initialTemp)+ ','+ str(initialActivity)+',40us,' + str("{0:.2f}".format(age)) +'\n')
       table.close()
-      bashCommandList.append("./run_aging.py -d " + str(args.outputDir)+str(files) + " " + str(args.outputFile+str(files)+'.csv') + " " + str(args.netlist) + " -p " + str(files))
+      bashCommandList.append("./run_aging.py -d " + str(args.outputDir)+str(files) + " " + str(args.outputFile+"_"+str(files)+'.csv') + " " + str(args.netlist) + " -p " + str(files))
       files = files + 1
       flag = True
     elif ((fileSteps%numberSteps == 0) and (fileSteps > numberSteps)):
       age = age + ageStep
       table.write(''+ str(vdd)+','+ str(initialTemp)+ ','+ str(initialActivity)+',40us,' + str("{0:.2f}".format(age)) +'\n')
       table.close()
-      bashCommandList.append("./run_aging.py -d " + str(args.outputDir)+str(files) + " " + str(args.outputFile+str(files)+'.csv') + " " + str(args.netlist) + " -p " + str(files))
+      bashCommandList.append("./run_aging.py -d " + str(args.outputDir)+str(files) + " " + str(args.outputFile+"_"+str(files)+'.csv') + " " + str(args.netlist) + " -p " + str(files))
       files = files + 1
       flag = True
   fileSteps = fileSteps + 1
@@ -195,7 +195,7 @@ Creating output table
 resultList = []
 tableFile = open(args.outputFile+'_delays.csv','w')
 for delayNumber in range(1,lineQuant):
-  command = "tail -n 1 delays_" + args.netlist + "_" + args.outputFile + str(delayNumber) + ".csv"
+  command = "tail -n 1 delays_" + args.netlist + "_" + args.outputFile + "_" + str(delayNumber) + ".csv"
   resultList.append(commands.getoutput(command))
 
 tableFile.write(''.join((str(profileHeader).translate(None,"[']")).split()).replace(",",";") + ';DelayRising;DelayFalling;WorstCase\n')

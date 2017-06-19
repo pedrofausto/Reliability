@@ -178,8 +178,8 @@ for net in netlists:
       extractFile.write('result=0\n')
 
       #finding the rising and falling delay
-      extractFile.write('result1=delay(?wf1 v("Y" ?result "tran" ?resultsDir "' + currentDir + '/'+ outputDirectory + '/'+ firstNetlist + '.raw"), ?value1 '+ str(float(vddList[0])/2) +', ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "' + currentDir + '/'+ outputDirectory + '/'+ currentNetlist + '.raw"), ?value2 '+ str(float(vddList[count])/2) +', ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)\n')
-      extractFile.write('result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "' + currentDir + '/'+ outputDirectory + '/'+ firstNetlist + '.raw"), ?value1 '+ str(float(vddList[0])/2) +', ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "' + currentDir + '/'+ outputDirectory + '/'+ currentNetlist + '.raw"), ?value2 '+ str(float(vddList[count])/2) +', ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)\n')
+      extractFile.write('result1=delay(?wf1 v("od11" ?result "tran" ?resultsDir "' + currentDir + '/'+ outputDirectory + '/'+ firstNetlist + '.raw"), ?value1 '+ str(float(vddList[0])/2) +', ?edge1 "rising", ?nth1 1, ?td1 0.0, ?wf2 v("od11" ?result "tran" ?resultsDir "' + currentDir + '/'+ outputDirectory + '/'+ currentNetlist + '.raw"), ?value2 '+ str(float(vddList[count])/2) +', ?edge2 "rising", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)\n')
+      extractFile.write('result2=delay(?wf1 v("od11" ?result "tran" ?resultsDir "' + currentDir + '/'+ outputDirectory + '/'+ firstNetlist + '.raw"), ?value1 '+ str(float(vddList[0])/2) +', ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("od11" ?result "tran" ?resultsDir "' + currentDir + '/'+ outputDirectory + '/'+ currentNetlist + '.raw"), ?value2 '+ str(float(vddList[count])/2) +', ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)\n')
 
       #getting the difference
       extractFile.write('diff = result1 - result2\n')
@@ -192,20 +192,20 @@ for net in netlists:
       # Nex extraction delay information: Rising, Falling, Worst Case
       extractFile.write('fprintf(out_delay "%.5e;%.5e;%.5e \\n" result1 result2 result)\n')
 
-      #extractFile.write('result2=delay(?wf1 v("Y" ?result "tran" ?resultsDir "./' + firstNetlist + '"), ?value1 '+ vddList[0] +', ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("Y" ?result "tran" ?resultsDir "./' + currentNetlist + '"), ?value2 '+ vddList[count] +', ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)\\n\n')
+      #extractFile.write('result2=delay(?wf1 v("od11" ?result "tran" ?resultsDir "./' + firstNetlist + '"), ?value1 '+ vddList[0] +', ?edge1 "falling", ?nth1 1, ?td1 0.0, ?wf2 v("od11" ?result "tran" ?resultsDir "./' + currentNetlist + '"), ?value2 '+ vddList[count] +', ?edge2 "falling", ?nth2 1,  ?td2 0.0 , ?stop nil, ?multiple nil)\\n\n')
       count = count+1
   index = index + 1
 flag = True
-
 
 extractFile.write('drain(out_delay)\n')
 extractFile.write('close(out_delay)\n')
 extractFile.write('exit\n')
 
+
 extractFile.close()
 
 print "Running Ocean extraction script"
-bashCommand="ocean -nograph < extractDelay.ocn"
+bashCommand="ocean < extractDelay.ocn"
 result = os.system(bashCommand)
 if (result != 0):
  print "Failed to execute ocean script. Quiting..."
@@ -232,7 +232,7 @@ with open(args.inputFile, 'rb') as csvfile:
       sys.exit('Error on file %s, line %d: %s' % (args.inputFile, reader.line_num, e))
 
 
-finalDate = time.strftime("%a %b %d %H:%M:%S %Z %Y")
+finalDate = time.strftime("%a %b %d %H:%M:%S %Z %od11")
 
 print "Start simulation time & date: " + initialDate
 print "End simulation time & date: " + finalDate
