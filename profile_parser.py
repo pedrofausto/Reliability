@@ -7,6 +7,7 @@ import csv
 import time
 import numpy as np
 import commands
+import pdb
 
 tempProfileStep = []
 vddProfileStep = []
@@ -99,6 +100,7 @@ size = 0
 
 vddValues = []
 tempValues = []
+conj = 5
 
 
 #print "vdd " + str(len(vddParameters))
@@ -108,7 +110,7 @@ for vdd in vddParameters:
   for i in range(0,size):
     vddValues.append(vddProfileStep[count])
   count = count + 1
-  if count == 5:
+  if count == conj:
     count = 0
 
 # print vddProfileStep
@@ -123,7 +125,7 @@ for temp in tempParameters:
   for j in range(0,size):
     tempValues.append(tempProfileStep[count])
   count = count + 1
-  if count == 5:
+  if count == conj:
     count = 0
 
 # print tempProfileStep
@@ -133,7 +135,7 @@ for temp in tempParameters:
 
 steps = len(vddValues)/lines
 
-print steps
+#print steps
 
 '''
 Agora, percorrer os N registros.
@@ -143,7 +145,7 @@ profile.cfg
 
 vdd = 1.1
 flag = True
-numberSteps = steps
+numberEntries = steps
 initialAge = 24
 initialTemp = 27
 initialActivity = 80
@@ -154,36 +156,47 @@ activityStep = 101.0/steps
 
 
 files = 1
-fileSteps = 1
 bashCommandList = []
+stepNumber = 1
 
-
-for step, vdds, temps in map(None,range(1,numberSteps+1), vddValues, tempValues):
+for vdds, temps in map(None, vddValues, tempValues):
   if flag == True:
-    table = open(args.outputFile+ "_" + str(files)+'.csv','w')
-    table.write('vdd,temp,act,period,age\n')
-    table.write(''+ str(vdd)+','+ str(initialTemp)+ ','+ str(initialActivity)+',40us,' + str(initialAge) +'\n')
-    flag = False
-    age = initialAge + ageStep
-    table.write('' + str(vdds)+','+ str(temps)+ ','+ str(initialActivity)+',40us,' + str("{0:.2f}".format(age)) +'\n')
+      if numberEntries == 1:
+          table = open(args.outputFile+ "_" + str(files)+'.csv','w')
+          table.write('vdd,temp,act,period,age\n')
+          table.write(''+ str(vdd)+','+ str(initialTemp)+ ','+ str(initialActivity)+',40us,' + str(initialAge) +'\n')
+          stepNumber = stepNumber + 1
+          age = initialAge + ageStep
+          table.write('' + str(vdds)+','+ str(temps)+ ','+ str(initialActivity)+',40us,' + str("{0:.2f}".format(age)) +'\n')
+          age = age + initialAge
+          table.write('' + str(vdd) + ',' + str(initialTemp) + ',' + str(initialActivity) + ',40us,' + str("{0:.2f}".format(age)) + '\n')
+          table.close()
+          bashCommandList.append("./run_aging.py -d " + str(args.outputDir) + str(files) + " " + str(args.outputFile + "_" + str(files) + '.csv') + " " + str(args.netlist) + " -p " + str(files))
+          stepNumber = 1
+          flag = True
+          files = files + 1
+      else:
+          table = open(args.outputFile + "_" + str(files) + '.csv', 'w')
+          table.write('vdd,temp,act,period,age\n')
+          table.write('' + str(vdd) + ',' + str(initialTemp) + ',' + str(initialActivity) + ',40us,' + str(initialAge) + '\n')
+          flag = False
+          stepNumber = stepNumber + 1
+          age = initialAge + ageStep
   else:
-    age = age + ageStep
     table.write('' + str(vdds)+','+ str(temps)+ ','+ str(initialActivity)+',40us,' + str("{0:.2f}".format(age)) +'\n')
-    if (fileSteps == numberSteps):
-      age = age + ageStep
-      table.write(''+ str(vdd)+','+ str(initialTemp)+ ','+ str(initialActivity)+',40us,' + str("{0:.2f}".format(age)) +'\n')
-      table.close()
-      bashCommandList.append("./run_aging.py -d " + str(args.outputDir)+str(files) + " " + str(args.outputFile+"_"+str(files)+'.csv') + " " + str(args.netlist) + " -p " + str(files))
-      files = files + 1
-      flag = True
-    elif ((fileSteps%numberSteps == 0) and (fileSteps > numberSteps)):
-      age = age + ageStep
-      table.write(''+ str(vdd)+','+ str(initialTemp)+ ','+ str(initialActivity)+',40us,' + str("{0:.2f}".format(age)) +'\n')
-      table.close()
-      bashCommandList.append("./run_aging.py -d " + str(args.outputDir)+str(files) + " " + str(args.outputFile+"_"+str(files)+'.csv') + " " + str(args.netlist) + " -p " + str(files))
-      files = files + 1
-      flag = True
-  fileSteps = fileSteps + 1
+    if stepNumber == numberEntries:
+        age = age + ageStep
+        table.write('' + str(vdds) + ',' + str(temps) + ',' + str(initialActivity) + ',40us,' + str("{0:.2f}".format(age)) + '\n')
+        age = age + initialAge
+        table.write('' + str(vdd) + ',' + str(initialTemp) + ',' + str(initialActivity) + ',40us,' + str("{0:.2f}".format(age)) + '\n')
+        table.close()
+        bashCommandList.append("./run_aging.py -d " + str(args.outputDir) + str(files) + " " + str(args.outputFile + "_" + str(files) + '.csv') + " " + str(args.netlist) + " -p " + str(files))
+        stepNumber = 1
+        flag = True
+        files = files + 1
+    else:
+        age = age + ageStep
+        stepNumber = stepNumber + 1
 
 for command in bashCommandList:
   print command
@@ -198,7 +211,7 @@ for delayNumber in range(1,lineQuant):
   command = "tail -n 1 delays_" + args.netlist + "_" + args.outputFile + "_" + str(delayNumber) + ".csv"
   resultList.append(commands.getoutput(command))
 
-tableFile.write(''.join((str(profileHeader).translate(None,"[']")).split()).replace(",",";") + ';DelayRising;DelayFalling;WorstCase\n')
+tableFile.write(''.join((str(profileHeader).translate(None,"[']")).split()).replace(",",";") + ';WorstCase\n')
 for index in range(0,lineQuant-1):
   tableFile.write(''.join((str(tempProfileList[index]).translate(None,"[]") + str(vddProfileList[index]).translate(None,"[]")).split()).replace(".",";") +str(resultList[index])+'\n')
 
