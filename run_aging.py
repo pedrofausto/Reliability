@@ -232,7 +232,7 @@ with open(args.inputFile, 'rb') as csvfile:
       sys.exit('Error on file %s, line %d: %s' % (args.inputFile, reader.line_num, e))
 
 
-finalDate = time.strftime("%a %b %d %H:%M:%S %Z %od11")
+finalDate = time.strftime("%a %b %d %H:%M:%S %Z %Y")
 
 print "Start simulation time & date: " + initialDate
 print "End simulation time & date: " + finalDate
