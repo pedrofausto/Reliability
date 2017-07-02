@@ -1,4 +1,4 @@
-# Reliability flow
+# Reliability Flow for circuit aging and degradation
 Master thesis scripts and data on microeletronics reliability.
 
 "Tables" - directory containing aging profile databases, input profiles, metrics and results from simulation.
