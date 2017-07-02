@@ -1,0 +1,87 @@
+\subsection{4-Bit Ripple-carry Adder}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Combined defects}
+
+\begin{tabular}{l l}
+
+ Defect classes selected: & \tabitem Dislocation \\
+ 	& \tabitem Dopant \\
+ 	& \tabitem Interstitial \\
+ 	& \tabitem Vacancy  \\ \\
+ 	
+Probability settings: &
+$1/{NC}$ \\ \\
+Where: & \\
+
+\multicolumn{2}{ l }{N: Number of cells} \\
+\multicolumn{2}{ l }{C: Number of defect classes selected} \\
+
+\end{tabular}
+
+\begin{table}[h]
+\begin{center}
+\caption{Error-free percent for 4-Bit Ripple-carry adder under combined defects}
+\begin{tabular}{|c|c|c|}
+\hline
+ & Error-free (\%) & Iterations counter \\
+\hline
+ RCA1 & 72.27 & 299 \\
+\hline
+ RCA2 & 64.93 & 223 \\
+\hline
+ RCA3 & 80.53 & 230 \\
+\hline
+
+\end{tabular}
+\end{center}
+\end{table}
+
+\pagebreak
+\subsubsubsection{Heat maps}
+
+\flushleft
+
+\begin{figure}[h!]
+\center
+\subfloat[RCA1 under combined defects.\label{figure:RCA_mod1_t1}]{\includegraphics[width=0.85\textwidth]{images/SR_FC_87_RCA_REG_TEST1}
+}
+\linebreak
+\subfloat[RCA3 under combined defects.\label{figure:RCA_mod1_t1}]{\includegraphics[width=0.85\textwidth]{images/SR_FC_88_RCA_MOD_TEST1}
+}
+\linebreak
+\subfloat[RCA2 under combined defects.\label{figure:RCA_mod2_t1}]{\includegraphics[width=0.3\textwidth]{images/SR_FC_88B_RCA_MOD_TEST1}
+}
+\linebreak
+{\includegraphics[width=0.8\textwidth]{images/LEGENDA}
+}
+\caption{RCA1, RCA2 and RCA3 under combined defects}
+\label{figure:RCA_t1}
+\end{figure}
+
+\pagebreak
+\subsubsubsection{Error-free percent x Iterations}
+
+\begin{figure}[h!]
+\center
+\includegraphics[width=0.58\textwidth]{images/G_H1}
+\caption{Error-free percent x Iterations for RCA1 under combined defects}
+\label{figure:RCA_reg_gt1}
+\end{figure}
+
+\begin{figure}[h!]
+\center
+\includegraphics[width=0.58\textwidth]{images/G_H3}
+\caption{Error-free percent x Iterations for RCA2 under combined defects}
+\label{figure:RCA_mod2_gt1}
+\end{figure}
+
+\begin{figure}[h!]
+\center
+\includegraphics[width=0.58\textwidth]{images/G_H2}
+\caption{Error-free percent x Iterations for RCA3 under combined defects}
+\label{figure:RCA_mod1_gt1}
+\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

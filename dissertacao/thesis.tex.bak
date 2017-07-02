@@ -1,0 +1,534 @@
+%% abtex2-modelo-trabalho-academico.tex, v-1.9.5 laurocesar
+%% Copyright 2012-2015 by abnTeX2 group at http://www.abntex.net.br/ 
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is the abnTeX2 team, led
+%% by Lauro César Araujo. Further information are available on 
+%% http://www.abntex.net.br/
+%%
+%% This work consists of the files abntex2-modelo-trabalho-academico.tex,
+%% abntex2-modelo-include-comandos and abntex2-modelo-references.bib
+%%
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% abnTeX2: Modelo de Trabalho Academico (tese de doutorado, dissertacao de
+% mestrado e trabalhos monograficos em geral) em conformidade com 
+% ABNT NBR 14724:2011: Informacao e documentacao - Trabalhos academicos -
+% Apresentacao
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	%openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	twoside,			% para impressão em verso e anverso. Oposto a oneside
+	a4paper,			% tamanho do papel. 
+	% -- opções da classe abntex2 --
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	%pagestart=firstchapter,
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	french,				% idioma adicional para hifenização
+	spanish,			% idioma adicional para hifenização
+	brazil				% o último idioma é o principal do documento
+	]{abntex2}
+
+% ---
+% Pacotes básicos 
+% ---
+\usepackage{subfig}          % figuras lado a lado
+\usepackage{lmodern}			% Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8x]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
+
+\usepackage{float}
+\usepackage{gensymb}
+
+\usepackage{booktabs}
+  \usepackage{multirow}
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+\usepackage{amsfonts}
+\usepackage[final]{pdfpages}
+
+% Legendas de equacoes
+\usepackage{array,tabularx}
+\newenvironment{conditions*}
+  {\par\vspace{\abovedisplayskip}\noindent
+   \tabularx{\columnwidth}{>{$}l<{$} @{\ : } >{\raggedright\arraybackslash}X}}
+  {\endtabularx\par\vspace{\belowdisplayskip}}
+  \usepackage{amsmath}
+% ---
+		
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+% ---
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+%\usepackage[num]{abntex2cite}	% Citações padrão ABNT
+\usepackage[num,nbr14724-2011]{abntex2cite}
+\bibliographystyle{abntex2-num}
+%\bibliographystyle{ieeetran}
+
+% --- 
+% CONFIGURAÇÕES DE PACOTES
+% --- 
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Sem citações no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}%
+% ---
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\titulo{An\'{a}lise, Confiabilidade e Envelhecimento em sistemas micro e nanoeletr\^{o}nicos}
+\autor{Pedro Fausto Rodrigues Leite Junior}
+\local{Brasil}
+\data{Abril 20, 2017}
+\orientador{Prof. Frank Sill Torres}
+%\coorientador
+\instituicao{%
+  Universidade Federal de Minas Gerais
+  \par
+  Programa de P\'{o}s-Graduação em Engenharia Elétrica}
+\tipotrabalho{Dissertação de Mestrado}
+% O preambulo deve conter o tipo do trabalho, o objetivo, 
+% o nome da instituição e a área de concentração 
+\preambulo{Dissertação apresentada ao programa de Pós-Graduação}
+
+% ---
+
+% ---
+% Configurações de aparência do PDF final
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={Confiabilidade}{CMOS}{HCI}{TDDB}{BTI}, 
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=black,          	% color of internal links
+    	citecolor=black,        		% color of links to bibliography
+    	filecolor=black,      		% color of file links
+		urlcolor=black,
+		bookmarksdepth=4
+}
+\makeatother
+% --- 
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+%Colchete
+\citebrackets[]
+
+% ----
+% Início do documento
+% ----
+\begin{document}
+
+% Seleciona o idioma do documento (conforme pacotes do babel)
+%\selectlanguage{english}
+\selectlanguage{brazil}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+% \pretextual
+
+%\renewcommand{\imprimircapa}{%
+%\begin{capa}%
+%    \center
+%    \ABNTEXchapterfont\large\imprimirautor
+%
+%    \vfill
+%    \begin{center}
+%    \ABNTEXchapterfont\bfseries\LARGE\ An\'{a}lise e Estrat\'{e}gias para Aumento da Robustez em Estruturas com Aut\^{o}matos Celulares de Pontos Qu\^{a}nticos
+%    \end{center}
+%    \vfill
+%    
+%    \large\ Brasil
+%
+%    \large\ 25 de fevereiro de 2016
+%    
+%    \vspace*{1cm}
+%  \end{capa}
+%}
+
+% ---
+% Capa
+% ---
+%\imprimircapa
+
+% --
+% DESCOMENTAR
+%\includepdf[pages={1}]{capa.pdf}
+%\renewcommand{\imprimircapa}{%
+%\begin{capa}%
+%    \center
+%    \ABNTEXchapterfont\large\imprimirautor
+%
+%    \vfill
+%    \begin{center}
+%    \ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo
+%    \end{center}
+%    \vfill
+%    
+%    \large\imprimirlocal
+%
+%    \large\imprimirdata
+%    
+%    \vspace*{1cm}
+%  \end{capa}
+%}
+
+% ---
+% Capa
+% ---
+%\imprimircapa
+
+% ---
+
+
+% ---
+% Folha de rosto
+% (o * indica que haverá a ficha bibliográfica)
+% ---
+%\imprimirfolhaderosto*
+% DESCOMENTAR
+%\includepdf[pages={1}]{folha_de_rosto.pdf}
+% ---
+
+% ---
+% Inserir a ficha bibliografica
+% ---
+
+% Isto é um exemplo de Ficha Catalográfica, ou ``Dados internacionais de
+% catalogação-na-publicação''. Você pode utilizar este modelo como referência. 
+% Porém, provavelmente a biblioteca da sua universidade lhe fornecerá um PDF
+% com a ficha catalográfica definitiva após a defesa do trabalho. Quando estiver
+% com o documento, salve-o como PDF no diretório do seu projeto e substitua todo
+% o conteúdo de implementação deste arquivo pelo comando abaixo:
+%
+%DESCOMENTAR
+%\begin{fichacatalografica}
+%     \includepdf{ficha_catalografica.pdf}
+%\end{fichacatalografica}
+
+\begin{fichacatalografica}
+\sffamily
+\vspace*{\fill}					% Posição vertical
+\begin{center}					% Minipage Centralizado
+\fbox{\begin{minipage}[c][8cm]{13.5cm}		% Largura
+\small
+\imprimirautor
+%Sobrenome, Nome do autor
+
+\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
+\imprimirlocal, \imprimirdata-
+
+\hspace{0.5cm} \pageref{LastPage} p. : il. (algumas color.) ; 30 cm.\\
+
+\hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
+
+\hspace{0.5cm}
+\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
+\imprimirdata.}\\
+
+\hspace{0.5cm}
+	1. Reliability.
+	2. Robustness.
+	2. Remaning Useful Lifetime.
+	I. Frank Sill Torres.
+	II. Universidade Federal de Minas Gerais.
+	III. Programa de P\'{o}s-Gradua\c{c}\~{a}o em Engenharia El\'{e}trica.
+	IV. Análise, Confiabilidade e Envelhecimento em sistemas micro e nanoeletrônicos
+	
+\end{minipage}}
+\end{center}
+\end{fichacatalografica}
+---
+
+% ---
+% ---
+% Inserir folha de aprovação
+% ---
+
+% Isto é um exemplo de Folha de aprovação, elemento obrigatório da NBR
+% 14724/2011 (seção 4.2.1.3). Você pode utilizar este modelo até a aprovação
+% do trabalho. Após isso, substitua todo o conteúdo deste arquivo por uma
+% imagem da página assinada pela banca com o comando abaixo:
+%
+
+%
+%\includegraphics[page=1]{folha_aprovacao.pdf}
+%\includepdf[pages={1}]{folha_aprovacao.pdf}
+%
+% ---
+% Capa
+% ---
+\renewcommand{\imprimircapa}{%
+\begin{capa}%
+    \center
+    \ABNTEXchapterfont\large\imprimirautor
+
+    \vfill
+    \begin{center}
+    \ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo
+    \end{center}
+    \vfill
+    
+    \large\imprimirlocal
+
+    \large\imprimirdata
+    
+    \vspace*{1cm}
+  \end{capa}
+}
+
+\imprimircapa
+
+% ---
+% Dedicatória
+% ---
+%DESCOMENTAR
+%\begin{dedicatoria}
+%   \vspace*{\fill}
+%   \centering
+%   \noindent
+%   \textit{ To Thiago Fernandes Le\~{a}o and Nicolas Reis Cotrim,\\
+%   I hope somehow to inspire you, as your smiles inspire me to try my best every day.} \vspace*{\fill}
+%\end{dedicatoria}
+% ---
+
+% ---
+% Agradecimentos
+% ---
+
+\include{acknowledgments}
+
+% ---
+
+% ---
+% RESUMOS
+% ---
+\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
+% resumo em português
+\include{resumo}
+
+% resumo em inglês
+%DESCOMENTAR
+%\include{abstract}
+% ---
+
+% ---
+% inserir lista de ilustrações
+% ---
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de tabelas
+% ---
+%DESCOMENTAR
+% \pdfbookmark[0]{\listtablename}{lot}
+% \listoftables*
+% \cleardoublepage
+% ---
+
+% ---
+% inserir lista de abreviaturas e siglas
+% ---
+\begin{siglas}
+  \item[CMOS]Complementary Metal-Oxide Semiconductor
+  \item[RUL] Remaining Useful Lifetime
+  \item[BTI] Bias Temperature Instability
+  \item[TDDB] Time-Dependent Dielectric Breakdown
+  \item[CHE] Channel hot electron
+  \item[SHE] Substrate hot electron
+  \item[DAHC] Drain avalanche hot carrier
+  \item[SGHE] Secondary generated hot electron
+  \item[HBD] Hard breakdown
+  \item[SBD] Soft breakdown
+  \item[PLS] Partial Least Squares
+  \item[PCA] Principal Component Analysis
+  \item[GLM] General Linear Model
+\end{siglas}
+% ---
+
+% ---
+% inserir o sumario
+% ---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+% ---
+
+
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+\pagenumbering{arabic}
+% ----------------------------------------------------------
+% Introduction
+% ----------------------------------------------------------
+\include{introduction}
+% ----------------------------------------------------------
+% Background
+% ----------------------------------------------------------
+\include{background}
+% ----------------------------------------------------------
+% Related Works
+% ----------------------------------------------------------
+% Não mais necessário
+% \include{related_works}
+% ----------------------------------------------------------
+% Aging Models
+% ----------------------------------------------------------
+\include{models}
+% ----------------------------------------------------------
+% Methodologies used on this work
+% ----------------------------------------------------------
+\include{methodology}
+% ----------------------------------------------------------
+% Results
+% ----------------------------------------------------------
+\include{results}
+% ----------------------------------------------------------
+% Conclusions
+% ----------------------------------------------------------
+\include{conclusions}
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+% ----------------------------------------------------------
+
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\bibliography{bibliografia}
+
+
+% ----------------------------------------------------------
+% Glossário
+% ----------------------------------------------------------
+%
+% Consulte o manual da classe abntex2 para orientações sobre o glossário.
+%
+%\glossary
+
+% ----------------------------------------------------------
+% Apêndices
+% ----------------------------------------------------------
+
+% ---
+% Inicia os apêndices
+% ---
+% \begin{apendicesenv}
+% 
+% % Imprime uma página indicando o início dos apêndices
+% \partapendices
+% 
+% % ----------------------------------------------------------
+% \chapter{Analyzed QCA Structures}
+% \label{Appendix_Analyzed_QCA_Structures}
+% \include{QCASTRUCT}
+% 
+% 
+% \chapter{Simulation Results - Structural Defects}
+% \label{Appendix_Simulation_Results}
+% 
+% \include{SEQ}
+% 
+% \include{UNIF_WIRE}
+% \include{UNIF_BENTWIRE}
+% \include{UNIF_FANOUT2}
+% \include{UNIF_FANOUT3}
+% \include{UNIF_INVERTER}
+% \include{UNIF_MAJORITY}
+% \include{UNIF_FULLADDER}
+% \include{UNIF_RCA}
+% 
+% % ----------------------------------------------------------
+% \chapter{Simulation Results - Phase-Shifted Clock Signals}
+% \label{Appendix_Simulation_Results2}
+% % ----------------------------------------------------------
+% \include{R2WIRE}
+% \include{R2BENTWIRE}
+% \include{R2FANOUT2}
+% \include{R2FANOUT3}
+% 
+% \end{apendicesenv}
+% % ---
+
+%---------------------------------------------------------------------
+% INDICE REMISSIVO
+%---------------------------------------------------------------------
+\phantompart
+\printindex
+%---------------------------------------------------------------------
+
+\end{document}

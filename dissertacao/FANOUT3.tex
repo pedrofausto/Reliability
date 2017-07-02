@@ -1,0 +1,342 @@
+\section{Fanout3}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\flushleft
+\center
+\begin{tabular}[l]{c c}
+  Fanout3 - Regular & Fanout3 - Modified\\
+  \includegraphics[width=0.45\textwidth]{images/SR_FC_37_FANOUT3_REG_BW}&
+  \includegraphics[width=0.45\textwidth]{images/SR_FC_38_FANOUT3_MOD_BW}\\
+    
+  Number of cells: 20&
+  Number of cells: 35 \\
+  
+  Latency: 1 &
+  Latency: 1\\
+
+\end{tabular}
+\flushleft
+\subsection{Combined defects}
+
+\begin{tabular}{l l}
+
+ Defect classes selected: & \tabitem Dislocation \\
+ 	& \tabitem Dopant \\
+ 	& \tabitem Interstitial \\
+ 	& \tabitem Vacancy  \\ \\
+ 	
+Probability settings: &
+$1/{NC}$ \\ \\
+Where: & \\
+
+\multicolumn{2}{ l }{N: Number of cells} \\
+\multicolumn{2}{ l }{C: Number of defect classes selected} \\
+
+\end{tabular}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+ & Error-free (\%) & Iterations counter \\
+\hline
+ Regular & 78.06 & 360 \\
+\hline
+ Modified & 88.24 & 323 \\
+\hline
+
+\end{tabular}
+\caption{Error-free percent x Iterations for fanout3 under combined defects}
+\end{center}
+\end{table}
+
+\pagebreak
+\subsubsection{Heat maps}
+
+\begin{figure}[h]
+\center
+\subfloat[Regular fanout3 under combined defects.\label{figure:fanout3_reg_t1}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_39_FANOUT3_REG_TEST1}
+}
+\hfill
+\subfloat[Modified fanout3 under combined defects.\label{figure:fanout3_mod_t1}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_40_FANOUT3_MOD_TEST1}
+}
+\linebreak
+{\includegraphics[width=0.8\textwidth]{images/LEGENDA}
+}
+\caption{Regular and modified fanout3 under combined defects}
+\label{figure:fanout3_t1}
+\end{figure}
+
+\subsubsection{Error-free percent x Iterations}
+
+\begin{figure}[h!]
+\center
+\includegraphics[width=0.6\textwidth]{images/G_C1}
+\caption{Error-free percent x Iterations for regular fanout3 under combined defects}
+\label{figure:fanout3_reg_gt1}
+\end{figure}
+
+\begin{figure}[h!]
+\center
+\includegraphics[width=0.6\textwidth]{images/G_C2}
+\caption{Error-free percent x Iterations for regular fanout3 under combined defects}
+\label{figure:fanout3_mod_gt1}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Dislocation defects}
+\flushleft
+
+\begin{tabular}{l l}
+ Defect classes selected: & \tabitem Dislocation \\
+ 	
+Probability settings: &
+$1/{NC}$ \\ \\
+Where: & \\
+
+\multicolumn{2}{ l }{N: Number of cells} \\
+\multicolumn{2}{ l }{C: Number of defect classes selected} \\
+
+\end{tabular}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+ & Error-free (\%) & Iterations counter \\
+\hline
+ Regular & 81.87 & 331 \\
+\hline
+ Modified & 92.62 & 298 \\
+\hline
+
+\end{tabular}
+\caption{Error-free percent x Iterations for fanout3 under dislocation defects}
+\end{center}
+\end{table}
+
+\subsubsection{Heat maps}
+
+\begin{figure}[h]
+\center
+\subfloat[Regular fanout3 under dislocation defects.\label{figure:fanout3_reg_t2}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_41_FANOUT3_REG_TEST2}
+}
+\hfill
+\subfloat[Modified fanout3 under dislocation defects.\label{figure:fanout3_mod_t2}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_42_FANOUT3_MOD_TEST2}
+}
+\linebreak
+{\includegraphics[width=0.8\textwidth]{images/LEGENDA}
+}
+\caption{Regular and modified fanout3 under dislocation defects}
+\label{figure:fanout3_t2}
+\end{figure}
+
+\pagebreak
+\subsubsection{Error-free percent x Iterations}
+
+\begin{figure}[h!]
+\center
+\includegraphics[width=0.6\textwidth]{images/G_C3}
+\caption{Error-free percent x Iterations for regular fanout3 under dislocation defects}
+\label{figure:fanout3_reg_gt2}
+\end{figure}
+
+\begin{figure}[h!]
+\center
+\includegraphics[width=0.6\textwidth]{images/G_C4}
+\caption{Error-free percent x Iterations for regular fanout3 under dislocation defects}
+\label{figure:fanout3_mod_gt2}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Dopant defects}
+\flushleft
+
+\begin{tabular}{l l}
+ Defect classes selected: & \tabitem Dopant \\
+ 	
+Probability settings: &
+$1/{NC}$ \\ \\
+Where: & \\
+
+\multicolumn{2}{ l }{N: Number of cells} \\
+\multicolumn{2}{ l }{C: Number of defect classes selected} \\
+
+\end{tabular}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+ & Error-free (\%) & Iterations counter \\
+\hline
+ Regular & 54.91 & 468 \\
+\hline
+ Modified & 68.51 & 397 \\
+\hline
+
+\end{tabular}
+\caption{Error-free percent x Iterations for fanout3 under dopant defects}
+\end{center}
+\end{table}
+
+\pagebreak
+\subsubsection{Heat maps}
+
+\begin{figure}[h]
+\center
+\subfloat[Regular fanout3 under dopant defects.\label{figure:fanout3_reg_t3}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_43_FANOUT3_REG_TEST3}
+}
+\hfill
+\subfloat[Modified fanout3 under dopant defects.\label{figure:fanout3_mod_t3}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_44_FANOUT3_MOD_TEST3}
+}
+\linebreak
+{\includegraphics[width=0.8\textwidth]{images/LEGENDA}
+}
+\caption{Regular and modified fanout3 under dopant defects}
+\label{figure:fanout3_t3}
+\end{figure}
+
+\subsubsection{Error-free percent x Iterations}
+
+\begin{figure}[h!]
+\center
+\includegraphics[width=0.6\textwidth]{images/G_C5}
+\caption{Error-free percent x Iterations for regular fanout3 under dopant defects}
+\label{figure:fanout3_reg_gt3}
+\end{figure}
+
+\begin{figure}[h!]
+\center
+\includegraphics[width=0.6\textwidth]{images/G_C6}
+\caption{Error-free percent x Iterations for regular fanout3 under dopant defects}
+\label{figure:fanout3_mod_gt3}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\subsection{Interstitial defects}
+\flushleft
+
+\begin{tabular}{l l}
+ Defect classes selected: & \tabitem Interstitial \\
+ 	
+Probability settings: &
+$1/{NC}$ \\ \\
+Where: & \\
+
+\multicolumn{2}{ l }{N: Number of cells} \\
+\multicolumn{2}{ l }{C: Number of defect classes selected} \\
+
+\end{tabular}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+ & Error-free (\%) & Iterations counter \\
+\hline
+ Regular & 91.96 & 286 \\
+\hline
+ Modified & 100.00 & 101 \\
+\hline
+
+\end{tabular}
+\caption{Error-free percent x Iterations for fanout3 under interstitial defects}
+\end{center}
+\end{table}
+
+\subsubsection{Heat maps}
+
+\begin{figure}[h]
+\center
+\subfloat[Regular fanout3 under interstitial defects.\label{figure:fanout3_reg_t4}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_45_FANOUT3_REG_TEST4}
+}
+\hfill
+\subfloat[Modified fanout3 under interstitial defects.\label{figure:fanout3_mod_t4}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_46_FANOUT3_MOD_TEST4}
+}
+\linebreak
+{\includegraphics[width=0.8\textwidth]{images/LEGENDA}
+}
+\caption{Regular and modified fanout3 under interstitial defects}
+\label{figure:fanout3_t4}
+\end{figure}
+
+\pagebreak
+\subsubsection{Error-free percent x Iterations}
+
+\begin{figure}[h!]
+\center
+\includegraphics[width=0.6\textwidth]{images/G_C7}
+\caption{Error-free percent x Iterations for regular fanout3 under interstitial defects}
+\label{figure:fanout3_reg_gt4}
+\end{figure}
+
+\begin{figure}[h!]
+\center
+\includegraphics[width=0.6\textwidth]{images/G_C8}
+\caption{Error-free percent x Iterations for regular fanout3 under interstitial defects}
+\label{figure:fanout3_mod_gt4}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Vacancy defects}
+\flushleft
+
+\begin{tabular}{l l}
+ Defect classes selected: & \tabitem Vacancy \\
+ 	
+Probability settings: &
+$1/{NC}$ \\ \\
+Where: & \\
+
+\multicolumn{2}{ l }{N: Number of cells} \\
+\multicolumn{2}{ l }{C: Number of defect classes selected} \\
+
+\end{tabular}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+ & Error-free (\%) & Iterations counter \\
+\hline
+ Regular & 81.14 & 350 \\
+\hline
+ Modified & 98.91 & 184 \\
+\hline
+
+\end{tabular}
+\caption{Error-free percent x Iterations for fanout3 under vacancy defects}
+\end{center}
+\end{table}
+
+\pagebreak
+\subsubsection{Heat maps}
+
+\begin{figure}[h]
+\center
+\subfloat[Regular fanout3 under vacancy defects.\label{figure:fanout3_reg_t5}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_47_FANOUT3_REG_TEST5}
+}
+\hfill
+\subfloat[Modified fanout3 under vacancy defects.\label{figure:fanout3_mod_t5}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_48_FANOUT3_MOD_TEST5}
+}
+\linebreak
+{\includegraphics[width=0.8\textwidth]{images/LEGENDA}
+}
+\caption{Regular and modified fanout3 under vacancy defects}
+\label{figure:fanout3_t5}
+\end{figure}
+
+\subsubsection{Error-free percent x Iterations}
+
+\begin{figure}[h!]
+\center
+\includegraphics[width=0.6\textwidth]{images/G_C9}
+\caption{Error-free percent x Iterations for regular fanout3 under vacancy defects}
+\label{figure:fanout3_reg_gt5}
+\end{figure}
+
+\begin{figure}[h!]
+\center
+\includegraphics[width=0.6\textwidth]{images/G_C10}
+\caption{Error-free percent x Iterations for regular fanout3 under vacancy defects}
+\label{figure:fanout3_mod_gt5}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak

@@ -1,0 +1,76 @@
+\BOOKMARK [1][-]{section.1}{Escopo}{}% 1
+\BOOKMARK [1][-]{section.2}{Considera\347\365es iniciais}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Introdu\347\343o}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Hist\363rico do projeto}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{O que o abnTeX2 traz de novo em rela\347\343o ao abnTeX1?}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Compatibilidade entre as vers\365es 1 e 2 do abnTeX}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.5}{Licen\347a de uso e customiza\347\365es para universidades e outras institui\347\365es}{section.2}% 7
+\BOOKMARK [1][-]{section.3}{Estrutura geral de documentos t\351cnicos e cient\355ficos brasileiros}{}% 8
+\BOOKMARK [1][-]{section.4}{Configura\347\365es gerais}{}% 9
+\BOOKMARK [2][-]{subsection.4.1}{Codifica\347\343o dos arquivos: UTF8}{section.4}% 10
+\BOOKMARK [2][-]{subsection.4.2}{A classe abntex2 como extens\343o de memoir}{section.4}% 11
+\BOOKMARK [3][-]{subsubsection.4.2.1}{O tamanho do papel}{subsection.4.2}% 12
+\BOOKMARK [3][-]{subsubsection.4.2.2}{Impress\343o em anverso e verso}{subsection.4.2}% 13
+\BOOKMARK [3][-]{subsubsection.4.2.3}{Op\347\343o article}{subsection.4.2}% 14
+\BOOKMARK [3][-]{subsubsection.4.2.4}{As op\347\365es de tamanho de fonte e o tamanho ``menor e uniforme''}{subsection.4.2}% 15
+\BOOKMARK [3][-]{subsubsection.4.2.5}{Op\347\365es espec\355ficas da classe abntex2: t\355tulos de divis\365es em letras mai\372sculas}{subsection.4.2}% 16
+\BOOKMARK [3][-]{subsubsection.4.2.6}{Op\347\365es espec\355ficas da classe abntex2: alternativas de sum\341rio}{subsection.4.2}% 17
+\BOOKMARK [2][-]{subsection.4.3}{Espa\347amentos entre par\341grafos e linhas}{section.4}% 18
+\BOOKMARK [3][-]{subsubsection.4.3.1}{Tamanho do par\341grafo}{subsection.4.3}% 19
+\BOOKMARK [3][-]{subsubsection.4.3.2}{Tamanho do primeiro par\341grafo}{subsection.4.3}% 20
+\BOOKMARK [3][-]{subsubsection.4.3.3}{Espa\347amento entre par\341grafos}{subsection.4.3}% 21
+\BOOKMARK [3][-]{subsubsection.4.3.4}{Espa\347amento entre linhas}{subsection.4.3}% 22
+\BOOKMARK [2][-]{subsection.4.4}{Margens}{section.4}% 23
+\BOOKMARK [2][-]{subsection.4.5}{Numera\347\343o cont\355nua de figuras e tabelas}{section.4}% 24
+\BOOKMARK [2][-]{subsection.4.6}{\315ndice do PDF com pacote bookmark}{section.4}% 25
+\BOOKMARK [2][-]{subsection.4.7}{Fontes de texto}{section.4}% 26
+\BOOKMARK [3][-]{subsubsection.4.7.1}{Fontes com XeLaTeX}{subsection.4.7}% 27
+\BOOKMARK [2][-]{subsection.4.8}{Internacionaliza\347\343o}{section.4}% 28
+\BOOKMARK [3][-]{subsubsection.4.8.1}{Hifeniza\347\343o e diferentes idiomas}{subsection.4.8}% 29
+\BOOKMARK [3][-]{subsubsection.4.8.2}{Altera\347\365es de nomes padronizados por babel}{subsection.4.8}% 30
+\BOOKMARK [3][-]{subsubsection.4.8.3}{Documentos em diferentes idiomas}{subsection.4.8}% 31
+\BOOKMARK [2][-]{subsection.4.9}{Macros de dados do documento}{section.4}% 32
+\BOOKMARK [3][-]{subsubsection.4.9.1}{T\355tulo}{subsection.4.9}% 33
+\BOOKMARK [3][-]{subsubsection.4.9.2}{Autor}{subsection.4.9}% 34
+\BOOKMARK [3][-]{subsubsection.4.9.3}{Data}{subsection.4.9}% 35
+\BOOKMARK [3][-]{subsubsection.4.9.4}{Institui\347\343o}{subsection.4.9}% 36
+\BOOKMARK [3][-]{subsubsection.4.9.5}{Localidade}{subsection.4.9}% 37
+\BOOKMARK [3][-]{subsubsection.4.9.6}{Pre\342mbulo}{subsection.4.9}% 38
+\BOOKMARK [3][-]{subsubsection.4.9.7}{Tipo de trabalho}{subsection.4.9}% 39
+\BOOKMARK [3][-]{subsubsection.4.9.8}{Orientador}{subsection.4.9}% 40
+\BOOKMARK [3][-]{subsubsection.4.9.9}{Coorientador}{subsection.4.9}% 41
+\BOOKMARK [3][-]{subsubsection.4.9.10}{Exemplo de uso hyperref com dados do documento}{subsection.4.9}% 42
+\BOOKMARK [2][-]{subsection.4.10}{Configura\347\365es para remiss\365es internas com autoref}{section.4}% 43
+\BOOKMARK [2][-]{subsection.4.11}{Finaliza\347\343o de partes com phantompart}{section.4}% 44
+\BOOKMARK [1][-]{section.5}{Elementos pr\351-textuais e Parte externa}{}% 45
+\BOOKMARK [2][-]{subsection.5.1}{Capa \(obrigat\363rio\)}{section.5}% 46
+\BOOKMARK [2][-]{subsection.5.2}{Folha de rosto \(obrigat\363rio\)}{section.5}% 47
+\BOOKMARK [2][-]{subsection.5.3}{Ficha Catalogr\341fica \(Dados de cataloga\347\343o-na-publica\347\343o\) \(obrigat\363rio\)}{section.5}% 48
+\BOOKMARK [2][-]{subsection.5.4}{Errata \(opcional\)}{section.5}% 49
+\BOOKMARK [2][-]{subsection.5.5}{Folha de aprova\347\343o \(obrigat\363rio\)}{section.5}% 50
+\BOOKMARK [2][-]{subsection.5.6}{Dedicat\363ria \(opcional\)}{section.5}% 51
+\BOOKMARK [2][-]{subsection.5.7}{Agradecimentos \(opcional\)}{section.5}% 52
+\BOOKMARK [2][-]{subsection.5.8}{Ep\355grafe \(opcional\)}{section.5}% 53
+\BOOKMARK [2][-]{subsection.5.9}{Resumos em l\355ngua vern\341cula e estrangeira \(obrigat\363rio\)}{section.5}% 54
+\BOOKMARK [2][-]{subsection.5.10}{Lista de ilustra\347\365es \(opcional\)}{section.5}% 55
+\BOOKMARK [2][-]{subsection.5.11}{Lista de tabelas \(opcional\)}{section.5}% 56
+\BOOKMARK [2][-]{subsection.5.12}{Lista de abreviaturas e siglas \(opcional\)}{section.5}% 57
+\BOOKMARK [2][-]{subsection.5.13}{Lista de s\355mbolos \(opcional\)}{section.5}% 58
+\BOOKMARK [2][-]{subsection.5.14}{Sum\341rio \(obrigat\363rio\)}{section.5}% 59
+\BOOKMARK [1][-]{section.6}{Elementos textuais}{}% 60
+\BOOKMARK [2][-]{subsection.6.1}{Formata\347\343o dos t\355tulos: partes, cap\355tulos, se\347\365es, subse\347\365es e subsubse\347\365es}{section.6}% 61
+\BOOKMARK [3][-]{subsubsection.6.1.1}{Estilos adicionais de cap\355tulos}{subsection.6.1}% 62
+\BOOKMARK [3][-]{subsubsection.6.1.2}{Cabe\347alhos de cap\355tulos com *}{subsection.6.1}% 63
+\BOOKMARK [3][-]{subsubsection.6.1.3}{Espa\347amento entre os cap\355tulos e o texto}{subsection.6.1}% 64
+\BOOKMARK [2][-]{subsection.6.2}{Cita\347\365es diretas com mais de tr\352s linhas}{section.6}% 65
+\BOOKMARK [2][-]{subsection.6.3}{Al\355neas e Subal\355neas}{section.6}% 66
+\BOOKMARK [2][-]{subsection.6.4}{R\363tulos e legendas}{section.6}% 67
+\BOOKMARK [2][-]{subsection.6.5}{Tabelas em conformidade com padr\365es do IBGE}{section.6}% 68
+\BOOKMARK [1][-]{section.7}{Elementos p\363s-textuais}{}% 69
+\BOOKMARK [2][-]{subsection.7.1}{Refer\352ncias \(obrigat\363rio\)}{section.7}% 70
+\BOOKMARK [2][-]{subsection.7.2}{Gloss\341rio \(opcional\)}{section.7}% 71
+\BOOKMARK [2][-]{subsection.7.3}{Ap\352ndices \(opcional\)}{section.7}% 72
+\BOOKMARK [2][-]{subsection.7.4}{Anexos \(opcional\)}{section.7}% 73
+\BOOKMARK [2][-]{subsection.7.5}{\315ndice \(opcional\)}{section.7}% 74
+\BOOKMARK [1][-]{section.8}{Mais informa\347\365es}{}% 75
+\BOOKMARK [1][-]{section.8}{Refer\352ncias}{}% 76

@@ -1,0 +1,186 @@
+
+\section{Wire}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\flushleft
+\begin{tabular}[l]{c c}
+  WIR1 - Regular & WIR2 - Modified\\
+  \includegraphics[width=0.45\textwidth]{images/SR_FC_01_WIRE_REG_BW}&
+  \includegraphics[width=0.45\textwidth]{images/SR_FC_02_WIRE_MOD_BW}\\
+   
+  Number of cells: 12&
+  Number of cells: 18 \\
+  
+  Latency: 1 &
+  Latency: 1\\
+
+\end{tabular}
+
+\section{Bend Wire}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\flushleft
+\center
+\begin{tabular}[l]{c c}
+  BWI1 - Regular & BWI2 - Modified\\
+  \includegraphics[width=0.3\textwidth]{images/SR_FC_13_BENTWIRE_REG_BW}&
+  \includegraphics[width=0.3\textwidth]{images/SR_FC_14_BENTWIRE_MOD_BW}\\
+   
+  Number of cells: 12&
+  Number of cells: 18 \\
+  
+  Latency: 1 &
+  Latency: 1\\
+
+\end{tabular}
+
+\flushleft
+\pagebreak
+\section{Fanout of 2}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\flushleft
+\center
+\begin{tabular}[l]{c c}
+  FO21 - Regular & FO22 - Modified\\
+  \includegraphics[width=0.25\textwidth]{images/SR_FC_25_FANOUT2_REG_BW}&
+  \includegraphics[width=0.25\textwidth]{images/SR_FC_26_FANOUT2_MOD_BW}\\
+    
+  Number of cells: 16&
+  Number of cells: 24 \\
+  
+  Latency: 1 &
+  Latency: 1\\
+
+\end{tabular}
+
+\flushleft
+\section{Fanout of 3}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\center
+\begin{tabular}[l]{c c}
+  FO31 - Regular & FO32 - Modified\\
+  \includegraphics[width=0.45\textwidth]{images/SR_FC_37_FANOUT3_REG_BW}&
+  \includegraphics[width=0.45\textwidth]{images/SR_FC_38_FANOUT3_MOD_BW}\\
+    
+  Number of cells: 20&
+  Number of cells: 35 \\
+  
+  Latency: 1 &
+  Latency: 1\\
+
+\end{tabular}
+
+\flushleft
+\pagebreak
+\section{Inverter}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\flushleft
+\begin{tabular}[l]{c c}
+  INV1 - Regular & INV2 - Beard \\
+  \includegraphics[width=0.45\textwidth]{images/SR_FC_49_INVERTER_REG_BW}&
+  \includegraphics[width=0.45\textwidth]{images/SR_FC_50B_INVERTER_MOD_BW}\\
+    
+  Number of cells: 8&
+  Number of cells: 12 \\
+  
+  Latency: 0 &
+  Latency: 0\\
+
+\end{tabular}
+
+\center
+\begin{tabular}[l]{c}
+  INV3 - Modified \\
+  \includegraphics[width=0.45\textwidth]{images/SR_FC_50_INVERTER_MOD_BW}\\
+    
+  Number of cells: 16 \\
+  
+  Latency: 0\\
+
+\end{tabular}
+
+\flushleft
+\pagebreak
+\section{3-input Majority gate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tabular}[l]{c c}
+  MAJ1 - Regular & MAJ2 - Fijany et al\\
+  \includegraphics[width=0.45\textwidth]{images/SR_FC_61_MAJORITY_REG_BW}&
+  \includegraphics[width=0.45\textwidth]{images/SR_FC_62B_MAJORITY_MOD_BW}\\
+    
+  Number of cells: 14&
+  Number of cells: 89 \\
+  
+  Latency: 0 &
+  Latency: 0\\
+
+\end{tabular}
+
+\center
+\begin{tabular}[l]{c}
+  MAJ3 - Modified \\
+  \includegraphics[width=0.45\textwidth]{images/SR_FC_62_MAJORITY_MOD_BW}\\
+    
+  Number of cells: 39 \\
+  
+  Latency: 0\\
+
+\end{tabular}
+
+\flushleft
+\pagebreak
+\section{Full Adder}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\flushleft
+\begin{tabular}[l]{c c}
+  ADD1 - Regular & ADD2 - Roohi et al \\
+  \includegraphics[width=0.45\textwidth]{images/SR_FC_73_FULL_REG_BW}&
+  \includegraphics[width=0.45\textwidth]{images/SR_FC_74B_FULL_MOD_BW}\\
+    
+  Number of cells: 108&
+  Number of cells: 23 \\
+  
+  Latency: 2 &
+  Latency: 0\\
+
+\end{tabular}
+\center
+\begin{tabular}[l]{c}
+  ADD3 - Modified \\
+  \includegraphics[width=0.8\textwidth]{images/SR_FC_74_FULL_MOD_BW}\\
+    
+  Number of cells: 205 \\
+  
+  Latency: 2\\
+
+\end{tabular}
+\flushleft
+
+\pagebreak
+\section{4-Bit Ripple-carry Adders}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\flushleft
+\center
+\begin{tabular}[h]{c}
+  RCA1 - Regular \\
+  \includegraphics[width=0.9\textwidth]{images/SR_FC_85_RCA_REG_BW}\\
+    Number of cells: 519\\
+  	Latency: 4 \\
+\end{tabular}
+\linebreak
+
+\begin{tabular}[h]{c}
+  RCA3 - Modified \\
+  \includegraphics[width=0.9\textwidth]{images/SR_FC_86_RCA_MOD_BW}\\
+  Number of cells: 909 \\ 
+  Latency: 4\\
+\end{tabular}
+
+\pagebreak
+\begin{tabular}[h]{c}
+  RCA2 - Roohi et al \\
+  \includegraphics[width=0.75\textwidth]{images/SR_FC_86B_RCA_MOD_BW}\\
+  Number of cells: 169 \\ 
+  Latency: 2\\
+\end{tabular}
+
+\flushleft

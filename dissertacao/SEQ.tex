@@ -1,0 +1,348 @@
+\section{Sequential Probability Model Tests}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Individual Defect Classes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\flushleft
+
+\begin{tabular}{l l l}
+
+ Number of iterations: & \tabitem Dislocation: 	& 4\\
+ 					   & \tabitem Dopant: 		& 4\\
+ 					   & \tabitem Interstitial: & 4\\
+ 					   & \tabitem Vacancy:      & 1\\ \\
+ 	
+Number of simulations: &
+$I \times C$ \\ \\
+Where: & \\
+
+\multicolumn{2}{ l }{I: Number of iterations} \\
+\multicolumn{2}{ l }{C: Number of cells} \\
+
+\end{tabular}
+
+\subsubsection{Error-free Simulations Rates}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\flushleft
+
+\begin{table}[h]
+\begin{center}
+\caption{Error-free Simulations Rates - Individual Defect Classes}
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+ & Dislocation & Dopant & Interstitial & Vacancy \\
+\hline
+ WIR1        & 83.33 & 39.58 & 95.83  & 66.67  \\
+\hline
+ BWI1        & 81.25 & 35.42 & 100.00 & 66.67 \\
+\hline
+ FO21        & 89.06 & 31.25 & 92.19  & 68.75 \\
+\hline
+ FO31        & 78.75 & 12.50 & 93.75  & 65.00 \\
+\hline
+
+\end{tabular}
+\end{center}
+\end{table}
+
+\pagebreak
+\subsubsection{Heat Maps}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\flushleft
+%% Wire %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[h]
+\center
+\subfloat[WIR1 under dislocation defects.\label{figure:wire_reg_t2}]{\includegraphics[width=0.4\textwidth]{images/SR_FC_05_WIRE_REG_TEST2}
+}
+\hfill
+\subfloat[WIR1 under dopant defects.\label{figure:wire_reg_t3}]{\includegraphics[width=0.4\textwidth]{images/SR_FC_06_WIRE_REG_TEST3}
+}
+\linebreak
+\subfloat[WIR1 under interstitial defects.\label{figure:wire_reg_t4}]{\includegraphics[width=0.4\textwidth]{images/SR_FC_07_WIRE_REG_TEST4}
+}
+\hfill
+\subfloat[WIR1 under vacancy defects.\label{figure:wire_reg_t5}]{\includegraphics[width=0.4\textwidth]{images/SR_FC_08_WIRE_REG_TEST5}
+}
+\caption{WIR1 under individual defect classes}
+\label{figure:wire}
+\end{figure}
+
+
+
+%% Bent-Wire %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[h]
+\center
+\subfloat[BWI1 under dislocation defects.\label{figure:bentwire_reg_t2}]{\includegraphics[width=0.25\textwidth]{images/SR_FC_17_BENTWIRE_REG_TEST2}
+}
+\hfill
+\subfloat[BWI1 under dopant defects.\label{figure:bentwire_reg_t3}]{\includegraphics[width=0.25\textwidth]{images/SR_FC_18_BENTWIRE_REG_TEST3}
+}
+\linebreak
+\subfloat[BWI1 under interstitial defects.\label{figure:bentwire_reg_t4}]{\includegraphics[width=0.25\textwidth]{images/SR_FC_19_BENTWIRE_REG_TEST4}
+}
+\hfill
+\subfloat[BWI1 under vacancy defects.\label{figure:bentwire_reg_t5}]{\includegraphics[width=0.25\textwidth]{images/SR_FC_20_BENTWIRE_REG_TEST5}
+}
+\linebreak
+{\includegraphics[width=0.8\textwidth]{images/LEGENDA}
+}
+\caption{BWI1 under individual defect classes}
+\label{figure:bentwire}
+\end{figure}
+
+
+
+\pagebreak
+%% Fanout2 %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[h]
+\center
+\subfloat[FO21 under dislocation defects.\label{figure:fanout2_reg_t2}]{\includegraphics[width=0.25\textwidth]{images/SR_FC_29_FANOUT2_REG_TEST2}
+}
+\hfill
+\subfloat[FO21 under dopant defects.\label{figure:fanout2_reg_t3}]{\includegraphics[width=0.25\textwidth]{images/SR_FC_30_FANOUT2_REG_TEST3}
+}
+\linebreak
+\subfloat[FO21 under interstitial defects.\label{figure:fanout2_reg_t4}]{\includegraphics[width=0.25\textwidth]{images/SR_FC_31_FANOUT2_REG_TEST4}
+}
+\hfill
+\subfloat[FO21 under vacancy defects.\label{figure:fanout2_reg_t5}]{\includegraphics[width=0.25\textwidth]{images/SR_FC_32_FANOUT2_REG_TEST5}
+}
+\linebreak
+{\includegraphics[width=0.8\textwidth]{images/LEGENDA}
+}
+\caption{FO21 under individual defect classes}
+\label{figure:fanout2}
+\end{figure}
+
+
+
+
+
+
+\pagebreak
+%% Fanout3  %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[h]
+\center
+\subfloat[FO31 under dislocation defects.\label{figure:fanout3_reg_t2}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_41_FANOUT3_REG_TEST2}
+}
+\hfill
+\subfloat[FO31 under dopant defects.\label{figure:fanout3_reg_t3}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_42_FANOUT3_REG_TEST3}
+}
+\linebreak
+\subfloat[FO31 under interstitial defects.\label{figure:fanout3_reg_t4}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_43_FANOUT3_REG_TEST4}
+}
+\hfill
+\subfloat[FO31 under vacancy defects.\label{figure:fanout3_reg_t5}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_44_FANOUT3_REG_TEST5}
+}
+\linebreak
+{\includegraphics[width=0.8\textwidth]{images/LEGENDA}
+}
+\caption{FO31 under individual defect classes}
+\label{figure:fanout3}
+\end{figure}
+
+
+
+
+
+
+\pagebreak
+\subsection{Combined Defect Classes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\flushleft
+
+\begin{tabular}{l l l}
+
+ Number of iterations: & \tabitem Wire: 	               & 16\\
+ 					   & \tabitem Bend wire:               & 16\\
+ 					   & \tabitem Fanout of 2:             & 16\\
+ 					   & \tabitem Fanout of 3:             & 16\\
+ 					   & \tabitem Inverter:                & 4\\
+ 					   & \tabitem 3-input Majority gate :  & 4\\
+ 					   & \tabitem Full Adder:              & 4\\ \\
+ 	
+Number of simulations: &
+$I \times C$ \\ \\
+Where: & \\
+
+\multicolumn{2}{ l }{I: Number of iterations} \\
+\multicolumn{2}{ l }{C: Number of cells} \\
+
+\end{tabular}
+
+\subsubsection{Error-free Simulations Rates}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\flushleft
+
+\begin{table}[h]
+\begin{center}
+\caption{Error-free Simulations Rates - Combined Defect Classes}
+\begin{tabular}{|l|c|c|c|} 
+\hline
+ 					   & Regular & Robust${^\ast}$ & Modified \\
+\hline
+ Wire                  & 72.40   & -     		   & 86.46 \\
+\hline
+ Bend wire             & 70.83   & -               & 87.85 \\
+\hline
+ Fanout of 2           & 72.27   & -               & 85.16 \\
+\hline
+ Fanout of 3           & 64.38   & -               & 88.75 \\
+\hline
+ Inverter              & 65.63   & 89.58           & 90.63 \\
+\hline
+ 3-input Majority gate & 55.36   & 92.98           & 74.36 \\
+\hline
+ Full adder            & 66.20   & 46.74           & 68.34 \\
+\hline
+
+\end{tabular}
+\end{center}
+
+\begin{tabular}{l l l}
+ & & \\
+ & $\ast$ Inverter:              & INV2 \cite{beard06}  \\
+ & $\ast$ 3-input Majority gate: & MAJ2 \cite{fijany01} \\
+ & $\ast$ Full adder:            & ADD2 \cite{roohi15}  \\
+ 
+\end{tabular}
+\end{table}
+
+
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Heat Maps}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\flushleft
+
+%%% Wire
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[h]
+\center
+\subfloat[WIR1 under combined defects.\label{figure:wire_reg_t1}]{\includegraphics[width=0.5\textwidth]{images/SR_FC_03_WIRE_REG_TEST1}
+}
+\hfill
+\subfloat[WIR2 under combined defects.\label{figure:wire_mod_t1}]{\includegraphics[width=0.5\textwidth]{images/SR_FC_04_WIRE_MOD_TEST1}
+}
+\linebreak
+{\includegraphics[width=0.8\textwidth]{images/LEGENDA}
+}
+\caption{WIR1 and WIR2 under combined defects}
+\label{figure:wire_t1}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Bent-Wire
+
+\begin{figure}[h]
+\center
+\subfloat[BWI1 under combined defects.\label{figure:bentwire_reg_t1}]{\includegraphics[width=0.3\textwidth]{images/SR_FC_15_BENTWIRE_REG_TEST1}
+}
+\hfill
+\subfloat[BWI2 under combined defects.\label{figure:bentwire_mod_t1}]{\includegraphics[width=0.3\textwidth]{images/SR_FC_16_BENTWIRE_MOD_TEST1}
+}
+\linebreak
+{\includegraphics[width=0.8\textwidth]{images/LEGENDA}
+}
+\caption{BWI1 and BWI2 under combined defects}
+\label{figure:bentwire_t1}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Fanout2
+
+\begin{figure}[h]
+\center
+\subfloat[FO21 under combined defects.\label{figure:fanout2_reg_t1}]{\includegraphics[width=0.25\textwidth]{images/SR_FC_27_FANOUT2_REG_TEST1}
+}
+\hfill
+\subfloat[FO22 under combined defects.\label{figure:fanout2_mod_t1}]{\includegraphics[width=0.25\textwidth]{images/SR_FC_28_FANOUT2_MOD_TEST1}
+}
+\linebreak
+{\includegraphics[width=0.8\textwidth]{images/LEGENDA}
+}
+\caption{FO21 and FO22 under combined defects}
+\label{figure:fanout2_t1}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Fanout3
+
+\begin{figure}[h]
+\center
+\subfloat[FO31 under combined defects.\label{figure:fanout3_reg_t1}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_39_FANOUT3_REG_TEST1}
+}
+\hfill
+\subfloat[FO32 under combined defects.\label{figure:fanout3_mod_t1}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_40_FANOUT3_MOD_TEST1}
+}
+\linebreak
+{\includegraphics[width=0.8\textwidth]{images/LEGENDA}
+}
+\caption{FO31 and FO32 under combined defects}
+\label{figure:fanout3_t1}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Inverter
+
+\begin{figure}[h]
+\center
+\subfloat[INV1 under combined defects.\label{figure:inverter_reg_t1}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_51_INVERTER_REG_TEST1}
+}
+\hfill
+\subfloat[INV2 under combined defects.\label{figure:inverter_mod1_t1}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_53_INVERTER_MOD2_TEST1}
+}
+\linebreak
+\hfill
+\subfloat[INV3 under combined defects.\label{figure:inverter_mod2_t1}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_52_INVERTER_MOD_TEST1}
+}
+\linebreak
+{\includegraphics[width=0.8\textwidth]{images/LEGENDA}
+}
+\caption{INV1, INV2 and INV3 under combined defects}
+\label{figure:inverter_t1}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Majority
+
+\begin{figure}[h]
+\center
+\subfloat[MAJ1 under combined defects.\label{figure:majority_reg_t1}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_63_MAJORITY_REG_TEST1}
+}
+\hfill
+\subfloat[MAJ2 under combined defects.\label{figure:majority_mod_t1}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_65_MAJORITY_MOD2_TEST1}
+}
+\linebreak
+\hfill
+\subfloat[MAJ3 under combined defects.\label{figure:inverter_mod2_t1}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_64_MAJORITY_MOD_TEST1}
+}
+\linebreak
+{\includegraphics[width=0.8\textwidth]{images/LEGENDA}
+}
+\caption{MAJ1, MAJ2 and MAJ3 under combined defects}
+\label{figure:majority_t1}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Full Adder
+
+\flushleft
+
+\begin{figure}[h!]
+\center
+\subfloat[ADD1 under combined defects.\label{figure:full_mod1_t1}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_75_FULL_REG_TEST1}
+}
+\hfill
+\subfloat[ADD2 under combined defects.\label{figure:full_mod2_t1}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_77_FULL_MOD2_TEST1}
+}
+\hfill
+\subfloat[ADD3 under combined defects.\label{figure:full_mod2_t1}]{\includegraphics[width=0.8\textwidth]{images/SR_FC_76_FULL_MOD_TEST1}
+}
+\linebreak
+{\includegraphics[width=0.8\textwidth]{images/LEGENDA}
+}
+\caption{ADD1, ADD2 and ADD3 under combined defects}
+\label{figure:full_t1}
+\end{figure}

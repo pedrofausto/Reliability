@@ -1,0 +1,346 @@
+\section{Wire}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\flushleft
+\begin{tabular}[l]{c c}
+  Wire - Regular & Wire - Modified\\
+  \includegraphics[width=0.45\textwidth]{images/SR_FC_01_WIRE_REG_BW}&
+  \includegraphics[width=0.45\textwidth]{images/SR_FC_02_WIRE_MOD_BW}\\
+   
+  Number of cells: 12&
+  Number of cells: 18 \\
+  
+  Latency: 1 &
+  Latency: 1\\
+
+\end{tabular}
+
+
+\subsection{Combined defects}
+\flushleft
+\begin{tabular}{l l}
+
+ Defect classes selected: & \tabitem Dislocation \\
+ 	& \tabitem Dopant \\
+ 	& \tabitem Interstitial \\
+ 	& \tabitem Vacancy  \\ \\
+ 	
+Probability settings: & 1/NC \\ \\
+
+Where: & \\
+
+\multicolumn{2}{ l }{N: Number of cells} \\
+\multicolumn{2}{ l }{C: Number of defect classes selected} \\
+
+\end{tabular}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+ & Error-free (\%) & Iterations counter \\
+\hline
+ Regular & 78.93 & 356 \\
+\hline
+ Modified & 87.65 & 324 \\
+\hline
+
+\end{tabular}
+\caption{Error-free percent x Iterations for wire under combined defects}
+\end{center}
+\end{table}
+
+\pagebreak
+\subsubsection{Heat maps}
+
+\begin{figure}[h]
+\center
+\subfloat[Regular wire under combined defects.\label{figure:wire_reg_t1}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_03_WIRE_REG_TEST1}
+}
+\hfill
+\subfloat[Modified wire under combined defects.\label{figure:wire_mod_t1}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_04_WIRE_MOD_TEST1}
+}
+\linebreak
+{\includegraphics[width=0.8\textwidth]{images/LEGENDA}
+}
+\caption{Regular and modified wire under combined defects}
+\label{figure:wire_t1}
+\end{figure}
+
+\flushleft
+\subsubsection{Error-free percent x Iterations}
+
+\begin{figure}[h!]
+\center
+\includegraphics[width=0.6\textwidth]{images/G_A1}
+\caption{Error-free percent x Iterations for regular wire under combined defects}
+\label{figure:wire_reg_gt1}
+\end{figure}
+
+\begin{figure}[h!]
+\center
+\includegraphics[width=0.6\textwidth]{images/G_A2}
+\caption{Error-free percent x Iterations for modified wire under combined defects}
+\label{figure:wire_mod_gt1}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\subsection{Dislocation defects}
+\flushleft
+
+\begin{tabular}{l l}
+ Defect classes selected: & \tabitem Dislocation \\
+ Probability settings: & 1/NC \\ \\
+
+Where: & \\
+
+\multicolumn{2}{ l }{N: Number of cells} \\
+\multicolumn{2}{ l }{C: Number of defect classes selected} \\
+
+\end{tabular}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+ & Error-free (\%) & Iterations counter \\
+\hline
+ Regular & 87.27 & 322 \\
+\hline
+ Modified & 94.12 & 306 \\
+\hline
+
+\end{tabular}
+\caption{Error-free percent x Iterations for wire under dislocation defects}
+\end{center}
+\end{table}
+
+\pagebreak
+\subsubsection{Heat maps}
+
+\begin{figure}[h]
+\center
+\subfloat[Regular wire under dislocation defects.\label{figure:wire_reg_t2}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_05_WIRE_REG_TEST2}
+}
+\hfill
+\subfloat[Modified wire under dislocation defects.\label{figure:wire_mod_t2}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_06_WIRE_MOD_TEST2}
+}
+\linebreak
+{\includegraphics[width=0.8\textwidth]{images/LEGENDA}
+}
+\caption{Regular and modified wire under dislocation defects}
+\label{figure:wire_t2}
+\end{figure}
+
+\subsubsection{Error-free percent x Iterations}
+
+\begin{figure}[h!]
+\center
+\includegraphics[width=0.6\textwidth]{images/G_A3}
+\caption{Error-free percent x Iterations for regular wire under dislocation defects}
+\label{figure:wire_reg_gt2}
+\end{figure}
+
+
+\begin{figure}[h!]
+\center
+\includegraphics[width=0.6\textwidth]{images/G_A4}
+\caption{Error-free percent x Iterations for modified wire under dislocation defects}
+\label{figure:wire_mod_gt2}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\subsection{Dopant defects}
+\flushleft
+
+\begin{tabular}{l l}
+ Defect classes selected: & \tabitem Dopant \\
+ 	
+Probability settings: &
+$1/{NC}$ \\ \\
+Where: & \\
+
+\multicolumn{2}{ l }{N: Number of cells} \\
+\multicolumn{2}{ l }{C: Number of defect classes selected} \\
+
+\end{tabular}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+ & Error-free (\%) & Iterations counter \\
+\hline
+ Regular & 59.48 & 427 \\
+\hline
+ Modified & 66.32 & 389 \\
+\hline
+
+\end{tabular}
+\caption{Error-free percent x Iterations for wire under dopant defects}
+\end{center}
+\end{table}
+
+\pagebreak
+\subsubsection{Heat maps}
+
+\begin{figure}[h]
+\center
+\subfloat[Regular wire under dopant defects.\label{figure:wire_reg_t3}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_07_WIRE_REG_TEST3}
+}
+\hfill
+\subfloat[Modified wire under dopant defects.\label{figure:wire_mod_t3}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_08_WIRE_MOD_TEST3}
+}
+\linebreak
+{\includegraphics[width=0.8\textwidth]{images/LEGENDA}
+}
+\caption{Regular and modified wire under dopant defects}
+\label{figure:wire_t3}
+\end{figure}
+
+\subsubsection{Error-free percent x Iterations}
+
+\begin{figure}[h!]
+\center
+\includegraphics[width=0.6\textwidth]{images/G_A5}
+\caption{Error-free percent x Iterations for regular wire under dopant defects}
+\label{figure:wire_reg_gt3}
+\end{figure}
+
+\begin{figure}[h!]
+\center
+\includegraphics[width=0.6\textwidth]{images/G_A6}
+\caption{Error-free percent x Iterations for modified wire under dopant defects}
+\label{figure:wire_mod_gt3}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\subsection{Interstitial defects}
+\flushleft
+
+\begin{tabular}{l l}
+ Defect classes selected: & \tabitem Interstitial \\
+ 	
+Probability settings: &
+$1/{NC}$ \\ \\
+Where: & \\
+
+\multicolumn{2}{ l }{N: Number of cells} \\
+\multicolumn{2}{ l }{C: Number of defect classes selected} \\
+
+\end{tabular}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+ & Error-free (\%) & Iterations counter \\
+\hline
+ Regular & 98.53 & 273 \\
+\hline
+ Modified & 100.00 & 101 \\
+\hline
+
+\end{tabular}
+\caption{Error-free percent x Iterations for wire under interstitial defects}
+\end{center}
+\end{table}
+
+\pagebreak
+\subsubsection{Heat maps}
+
+\begin{figure}[h]
+\center
+\subfloat[Regular wire under interstitial defects.\label{figure:wire_reg_t4}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_09_WIRE_REG_TEST4}
+}
+\hfill
+\subfloat[Modified wire under interstitial defects.\label{figure:wire_mod_t4}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_10_WIRE_MOD_TEST4}
+}
+\linebreak
+{\includegraphics[width=0.8\textwidth]{images/LEGENDA}
+}
+\caption{Regular and modified wire under interstitial defects}
+\label{figure:wire_t4}
+\end{figure}
+
+\subsubsection{Error-free percent x Iterations}
+
+\begin{figure}[h!]
+\center
+\includegraphics[width=0.6\textwidth]{images/G_A7}
+\caption{Error-free percent x Iterations for regular wire under interstitial defects}
+\label{figure:wire_reg_gt4}
+\end{figure}
+
+\begin{figure}[h!]
+\center
+\includegraphics[width=0.6\textwidth]{images/G_A8}
+\caption{Error-free percent x Iterations for modified wire under interstitial defects}
+\label{figure:wire_mod_gt4}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\subsection{Vacancy defects}
+\flushleft
+
+\begin{tabular}{l l}
+ Defect classes selected: & \tabitem Vacancy \\
+ 	
+Probability settings: &
+$1/{NC}$ \\ \\
+Where: & \\
+
+\multicolumn{2}{ l }{N: Number of cells} \\
+\multicolumn{2}{ l }{C: Number of defect classes selected} \\
+
+\end{tabular}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+ & Error-free (\%) & Iterations counter \\
+\hline
+ Regular & 76.19 & 357 \\
+\hline
+ Modified & 90.37 & 322 \\
+\hline
+
+\end{tabular}
+\caption{Error-free percent x Iterations for wire under vacancy defects}
+\end{center}
+\end{table}
+
+\pagebreak
+\subsubsection{Heat maps}
+
+\begin{figure}[h]
+\center
+\subfloat[Regular wire under vacancy defects.\label{figure:wire_reg_t5}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_11_WIRE_REG_TEST5}
+}
+\hfill
+\subfloat[Modified wire under vacancy defects.\label{figure:wire_mod_t5}]{\includegraphics[width=0.45\textwidth]{images/SR_FC_12_WIRE_MOD_TEST5}
+}
+\linebreak
+{\includegraphics[width=0.8\textwidth]{images/LEGENDA}
+}
+\caption{Regular and modified wire under interstitial defects}
+\label{figure:wire_t5}
+\end{figure}
+
+\subsubsection{Error-free percent x Iterations}
+
+\begin{figure}[h!]
+\center
+\includegraphics[width=0.6\textwidth]{images/G_A9}
+\caption{Error-free percent x Iterations for regular wire under vacancy defects}
+\label{figure:wire_reg_gt5}
+\end{figure}
+
+\begin{figure}[h!]
+\center
+\includegraphics[width=0.6\textwidth]{images/G_A10}
+\caption{Error-free percent x Iterations for regular wire under vacancy defects}
+\label{figure:wire_mod_gt5}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak

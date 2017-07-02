@@ -1,0 +1,91 @@
+\chapter{Metodologia}
+\section{Simulação de circuitos envelhecidos}
+\label{section_simulacoes}
+\textcolor{red}{REESCREVER}
+Um dos pontos mais importantes para a simulação e obtenção de dados que deem apoio às futuras pesquisas e projetos é a decisão de qual metodologia, das disponíveis, será utilizada para obter resultados coerentes com experimentos reais. Este será um ponto crucial deste trabalho pois os dados obtidos e o comportamento observado deverão dar apoio à tomada de decisões de sistemas de recuperação de falhas.
+
+Para garantir esta fidelidade, foi escolhida a ferramenta Relxpert. Este simulador é desenvolvido especialmente para cálculo de envelhecimento de circuitos integrados e considera efeitos como HCI, TDDB e NBTI/PBTI. Dada à experiência e proximidade da Cadence com o mercado de semicondutores, temos disponível uma ferramenta confiável para simulação e extração de resultados. Outro fator importante é o uso de parâmetros de envelhecimento coerentes com os dispositivos reais. Ao evitar a modelagem destes parâmetros poderemos trabalhar com modelos mais realísticos.
+
+Para isso, teremos que contar com parâmetros disponibilizados pelas próprias \textit{foundries} de dispositivos semicondutores. Para nossa conveniência, usaremos os parâmetros disponibilizados pela própria Cadence em seus arquivos de demonstração da ferramenta Relxpert.
+
+\subsection{Fluxo de envelhecimento e predição de tempo de vida restante}
+\label{subsection_RUL}
+\textcolor{red}{ATUALIZAR}
+O RelXpert possui dois modos principais de atuação: \textit{Aged device models} e \textit{Agemos}.
+Para este trabalho de pesquisa será utilizado o método \textit{Agemos}, considerado mais rápido e mais preciso. Neste método, o próprio modelo do dispositivo virgem (não envelhecido) possui os parâmetros de envelhecimento e envelhece estes parâmetros ao longo da análise transiente.
+Através da análise dos exemplos fornecidos pela ferramenta possuímos as seguintes entradas e saídas para este método.
+Entrada:
+
+\begin{enumerate}
+\item A netlist que será envelhecida;
+\item Os arquivos de modelos para os dispositivos do tipo nmos e pmos (fornecidos pelas foundries) que contém:
+  \begin{enumerate}
+    \item Parâmetros elétricos;
+    \item Parâmetros de envelhecimento;
+    \item Efeitos considerados para o envelhecimento HCI, NBTI, PBTI.
+  \end{enumerate}
+\end{enumerate}
+
+Então teremos a primeira ''rodada'' de cálculos.
+\begin{figure}[H]
+\center
+\label{figure:primeira_rodada}{\includegraphics[width=0.5\textwidth]{images/primeira_rodada}
+}
+\caption{Primeira rodada de envelhecimento.}
+\end{figure}
+A netlist e os parâmetros de robustez são a entrada para uma ferramenta chamada de \textit{prebert} que é responsável pelo pré-processamento. Ele filtra a linha de comando e guarda as informações relevantes de simulação de robustez em um arquivo temporário, depois armazena elementos dos dispositivos em outros arquivos temporários para serem utilizados posteriormente no pré-processamento.
+
+O \textit{SPICE} é executado e gera formas de onda de corrente e voltagem para o circuito descrito. Em seguida é utilizada a ferramenta de pós-processamento conhecida como \textit{postbert}. Ela lê os parâmetros dos modelos, informação dos dispositivos e opções de simulação extraídas pelo prebert e \textit{SPICE}.
+Esta primeira etapa obtém resultados para degradação por HCI e NBTI e/ou PBTI e constrói uma tabela com estas informações.
+
+Saída:
+\begin{enumerate}
+  \item A netlist que terá os parâmetros de envelhecimento inseridos na mesma;
+  \item Arquivos que possuem tabelas de resultados e parâmetros de NBTI/PBTI e HCI.
+\end{enumerate}
+
+Uma segunda ''rodada'' é executada para simular o circuito já com transistores degradados:
+\begin{figure}[H]
+\center
+\label{figure:segunda_rodada}{\includegraphics[width=0.5\textwidth]{images/segunda_rodada}
+}
+\caption{Segunda rodada de envelhecimento.}
+\end{figure}
+A netlist gerada pela segunda rodada do \textit{prebert} é atualizada com cada parâmetro de envelhecimento que será usado na simulação envelhecida. Em seguida será estimulada e simulada através do \textit{Spectre}.
+
+\subsection{Preparação de células lógicas}
+\label{subsection_celulas}
+Este trabalho irá gerar e coletor amostras intencionais de diferentes condições de operações de diferentes circuitos integrados. Serão realizadas simulações de portas lógicas básicas (Inversores, NAND's, OR's e AND's), que servirão de exemplo em diferentes condições de operação. 
+Serão variados os parâmetros de alimentação das portas lógicas ($V_{DD}$), temperatura de operação e tempo de envelhecimento.
+
+Eles irão compor diferentes vetores de entrada para o problema em questão. Estes vetores serão inseridos em um conjunto de scripts que tratarão estas informações e enviá-las às ferramentas de envelhecimento. Para este trabalho, inicialmente, serão escolhidos vetores significativos que permitam avaliar como estes parâmetros afetam o envelhecimento.
+
+Após, será obtido como resultado destas simulações o atraso (\textit{delay}) relativo entre a saída calculada em uma porta envelhecida e a calculada em uma porta não envelhecida, um para cada vetor de entrada. De mãos destas amostras será realizada uma análise dos mesmos e inferir um comportamento que possibilite a detecção e/ou previsão de futuras falhas decorrentes de envelhecimento.
+
+Um novo universo de dados será gerado. De posse destas novas informações, serão considerados novos vetores de entrada. De mão destes novos resultados, serão propostos modelos que podem prever o comportamento de circuitos envelhecidos para diferentes condições de operação.
+Esse comportamento poderá ser utilizado por sistemas de detecção e recuperação de falhas como entrada para a tomada de decisões em futuros trabalhos e pesquisas.
+
+\subsection{Preparação de perfis de envelhecimento}
+\label{subsection_perfis}
+O circuitos integrados atuais trabalham sobre condições de operação que oscilam constantemente. Podemos abordar estas variações de inúmeras maneiras. Esse trabalho considera inicialmente duas abordagens:
+\begin{itemize}
+  \item Um perfil de operação que considera a média das tensões aplicadas no dispositivo ao longo do seu funcionamento em N anos de vida e a média das temperaturas às quais o dispositivo esteve submetido ao longo desse tempo analisado;
+  \item Um conjunto de perfis que representam faixas de operação para o dispositivo. Este conjunto considera variações na temperatura e na tensão ao longo de um período de análise predeterminado. Ao variar a quantidade de tempo a qual o circuito permanece em cada elemento deste conjunto, obtemos uma  tabela que  que possui uma variabilidade de condições ambientais de operação.
+\end{itemize}
+Em ambos os casos teremos uma tabela que associa temperatura e tensão a um atraso calculado em uma saída desejada.
+\subsection{Estimativa de atrasos e tempo de vida restante}
+\label{subsection_estimativas_atrasos}
+Utilizando ferramentas de simulação e envelhecimento de circuitos, aliados a esta abordagem de perfis é possível estimar o tempo de vida restante de um sistema conhecido. Sendo assim, é necessário determinar a relação entre os parâmetros de entrada desta tabela e o atraso do circuito, e consequentemente o tempo de vida restante.
+Estas informações podem ser usadas em métodos de estimativa para determinar, aproximadamente, em qual estado o circuito está e o que acontecerá se ele continuar a operar nestas condições.
+\section{Métodos de estimativa}
+\label{section_estimativas_atrasos}
+Inicialmente foi utilizado um modelo linear generalizado para estimar a relação entre o atraso de saída e as temperaturas e tensões de entrada.  Além disso, esta relação linear foi estimada para uma célula padrão e extrapolada para circuitos maiores. A contribuição no atraso de um circuito devido a um inversor era considerado como linear em uma cadeia de inversores. Esta aproximação é posteriormente testada e averiguada quanto ao erro obtido na estimativa do atraso.
+Para uma tabela de perfis a estimativa da relação linear se mostrou, inicialmente, inviável. Estes casos teriam dez entradas, a princípio independentes, para uma saída desejada (atraso).  Ao invés disso foram testados mais dois métodos de estimativa: distância euclidiana e correlação.
+\subsection{Modelo Linear Generalizado}
+\label{subsection_estimativas_GLM}
+
+\subsection{Distância Euclidiana}
+\label{subsection_estimativas_euclidiana}
+
+\subsection{Correlação}
+\label{subsection_estimativas_correlacao}

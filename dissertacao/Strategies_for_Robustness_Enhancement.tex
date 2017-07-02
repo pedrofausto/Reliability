@@ -1,0 +1,285 @@
+\chapter{Strategies for Robustness Enhancement}
+\label{section:Strategies_for_Robustness_Enhancement}
+
+This chapter presents the strategies for robustness enhancement of QCA structures explored in this work. They consist of the use of redundant devices, as well as structural modifications aiming at strengthen the regions of weak polarization within the structures. Furthermore, the chapter describes the use of the QCA Defects Simulator proposed in this work (Chapter \ref{QCA_Defects_Simulator}) in order to identify the weak polarization regions within the structures and to verify how effective are the strengthen strategies when applied to those specific regions in order to enhance the structures' robustness. Such analysis is carried out for four basic structures \textemdash a regular wire (WIR1), a bend wire (BWI1), a fanout of 2 (FO21) and a fanout of 3 (FO31).
+
+The aforementioned analysis lead to the proposal of new robustness enhanced QCA structures, though, the modified wire (WIR2), bend wire (BWI2), fanout of 2 (FO22) and fanout of 3 (FO32), which may be used to implement more complex components, circuits and systems (Chapter \ref{section:Results}).
+
+Furthermore, the last part of the chapter introduces the use of asynchronous clock signals as a solution to enhance the robustness of clocking circuits against clock phase shifts. Some results obtained from tests using the proposed QCA Defects Simulator are also presented. They certify the efficiency of the solution proposed for the basic structures WIR1, BWI1, FO21 and FO31.
+
+\section{QCA Fundamental Components under Structural Defects}
+
+This section describes the tests performed with some QCA fundamental components under structural defects testing framework. The aim of such tests was to devise new strategies for robustness enhancement of the components. The testing procedure, as well as the results analysis and solutions proposed are explained in the following sub sections (\ref{subsection:Components_Selection} to \ref{subsection:Comparison_Between_Robustness_Levels}).
+
+\subsection{Components Selection}
+\label{subsection:Components_Selection}
+
+QCA circuits and systems are often implemented through some basic logical components, such as logic gates, interconnected by fundamental components such as regular and bent wires, fanouts and wire crossings. According to \citeonline{wang10}, it is predicted that interconnects will consume the bulk of chip area in future nanotechnologies such as QCA. Furthermore, even the most basic QCA logical components may host interconnect elements embedded within their structures. The NOT gate introduced in \cite{lent93} is a typical example of such referred feature. It has an fanout of 2 built-in immediately after its input cell, which serves as the polarization strengthen element before the logical state inversion that occurs by means of a diagonal-positioned cell. For the reasons presented, it is very important to test the QCA fundamental components against structural defects.
+
+Four fundamental components were selected to be submitted to the QCA Defects Simulator developed in this work, as depicted in Figure \ref{figure:fundamental_components}. The choice of such fundamental components was based on the fact that they are used in almost every QCA structure implemented, as stated in some previous works that also investigated the effect of structural defects to their expected behaviors \cite{yang12} and \cite{karim09}. Both types of wires chosen, \textit{i.e.} the regular and the bend ones (Figs. \ref{figure:regular_wire} and \ref{figure:regular_bendwire}), are used to transmit information within QCA structures. While the regular wire performs information transport between aligned structures, the bend wire is usually used to construct the turning when not aligned components need to be interconnected within the structure. Moreover, the fanouts are responsible for the signal distribution task, by ensuring the logic state propagation through different aisles. The fanout of 2 (Fig. \ref{figure:regular_fanoutof2}) distributes a single signal into other two directions, while the fanout of 3 (Fig. \ref{figure:regular_fanoutof3}) propagates it into three distinct paths within the structure.
+
+\begin{figure}[!ht]
+\center
+\subfloat[A regular wire.\label{figure:regular_wire}]{\includegraphics[scale=0.27]{images/CK_WIRE}}
+\hfill
+\subfloat[A regular bent wire.\label{figure:regular_bendwire}]{\includegraphics[scale=0.27]{images/CK_BENDWIRE}}
+\linebreak
+\subfloat[A regular fanout of 2.\label{figure:regular_fanoutof2}]{\includegraphics[scale=0.45]{images/CK_FANOUT2}}
+\hfill
+\subfloat[A regular fanout of 3.\label{figure:regular_fanoutof3}]{\includegraphics[scale=0.45]{images/CK_FANOUT3}}
+\linebreak
+{\includegraphics[width=0.8\textwidth]{images/CK_LEGENDA}
+}
+\caption{The four fundamental components selected for undergo defects testing.}
+\label{figure:fundamental_components}
+\end{figure}
+
+\subsection{Testing Settings}
+\label{Testing_Settings}
+
+After the choice of the four fundamental components to undergo structural defects testing, the QCA Defects Simulator parameters must be set according to the desired testing conditions. The goal here is to design a robustness enhanced structure that is able to perform reliable under all sort of defect classes comprised in the proposed methodology. In order to do so, for each component, four rounds of tests are performed, each one of them considering a single class of defects at a time. Thus, at the end of the whole testing process, it is possible to have four distinct heat maps that, when analyzed together, allow the identification of critical regions in the structures.
+
+After the defect class selection, the probability model parameter was set. In order to ensure that all the cells of the component would equally host defective cells, the sequential model was used. As previous exposed in Section \ref{QCA_Defects_Simulator}, such model considers one defective cell per simulation. Once all devices of a structure were made defective, one characterization round is complete.
+
+In the first set of tests for each component, the parameter `Number of Iterations' was adjusted either to 4 (in the tests when the dislocation, dopant and interstitial defect classes are defined) or to 1 (when the vacancy defect class is defined). Thus, for tests with dislocation, dopant and interstitial defects, it was possible to ensure that each cell hosted four variations of the same defect class along one characterization round.
+
+In the second set of tests for each component, the parameter `Number of Iterations' was adjusted to 16, since all the defect classes were defined at the same time. Thus, each cell was likely to host sixteen variations of four combined defect classes along one characterization round.
+
+The parameters `Stable iterations' and `Maximum Number of Iterations' were equally set. For the first set of tests, their configured values were the number of cells of each component times 4. Similarly, for the second set of tests, their configured values were the number of cells of each component times 16. The multipliers 4 and 16 aim to determine how many variations among the defined defect classes each cell is likely to host along one characterization round.
+
+Finally, the sampling interval is set to 10 \% and the threshold for which a signal is interpreted as logic zero or one is 80 \% of the standard polarization level limits (-1 and +1).
+
+Once the aforementioned conditions were adjusted, the heat maps created in the end of each testing round were submitted to a qualitative analysis in order to identify possible critical regions of cells that, when defective, might induce the structure to propagate erroneous signals to the outputs. The method by which such analysis was carried out is described in the next subsection (\ref{Qualitative_Analysis_of_Heat_maps}).
+
+\subsection{Qualitative Analysis of Heat maps}
+\label{Qualitative_Analysis_of_Heat_maps}
+
+The heat maps created in the previous step of the methodology are now analyzed in order to identify possible critical areas that, when defective, might lead the structure to an erroneous polarization behavior. The heat maps for each component tested were put together in order to identify possible pitfall points in common to every defect class. Such process is named as qualitative analysis. Figure \ref{figure:reg_wire_uniform} depicts the heat maps of the regular wire, when possible critical points were identified and highlighted by means of gray shadows.
+
+%WIRE
+\begin{figure}[!ht]
+\center
+\subfloat[A regular wire tested under sequential dislocation defects.\label{figure:reg_wire_t2}]{\includegraphics[width=0.45\textwidth]{images/reg_wire_t2}}
+\hfill
+\subfloat[A regular wire tested under sequential dopant defects.\label{figure:reg_wire_t3}]{\includegraphics[width=0.45\textwidth]{images/reg_wire_t3}}
+\hfill
+\subfloat[A regular wire tested under sequential interstitial defects.\label{figure:reg_wire_t4}]{\includegraphics[width=0.45\textwidth]{images/reg_wire_t4}}
+\hfill
+\subfloat[A regular wire tested under sequential vacancy defects.\label{figure:reg_wire_t5}]{\includegraphics[width=0.45\textwidth]{images/reg_wire_t5}}
+\linebreak
+{\includegraphics[width=0.8\textwidth]{images/LEGENDA}
+}
+\caption{The heat maps for the regular wire submitted to every four classes of defects in the sequential structural defects testing. The gray shadows highlight the weakest polarization regions of the structure. }
+\label{figure:reg_wire_uniform}
+\end{figure}
+
+As may be noticed through the analysis of the colors distribution in the heat maps, defective cells at the input and output of a regular wire often lead to the erroneous behavior of the system. In terms of quantities, a defective cell at the input resulted in errors in more than 50 \% of the simulations for the dislocation and vacancy defect classes. Likewise,  a defective cell at the output region, which comprises the final two consecutive cells before the OUT label in Fig. \ref{figure:reg_wire_uniform}, resulted in errors in more than 50 \% of the simulations for 3 out of 4 defect classes. Thus, the regions to be strengthen in the regular wire, in order to enhance its robustness, should comprise mostly the inputs and outputs.
+
+The same analysis reasoning was applied to the heat maps of the bend wire, as illustrated in Figure \ref{figure:reg_bentwire_uniform}.
+
+%BENT WIRE
+\begin{figure}[!ht]
+\center
+\subfloat[A regular bend wire tested under sequential dislocation defects.\label{figure:reg_bentwire_t2}]{\includegraphics[scale=0.24]{images/reg_bentwire_t2}}
+\hfill
+\subfloat[A regular bend wire tested under sequential dopant defects.\label{figure:reg_bentwire_t3}]{\includegraphics[scale=0.24]{images/reg_bentwire_t3}}
+\hfill
+\subfloat[A regular bend wire tested under sequential interstitial defects.\label{figure:reg_bentwire_t4}]{\includegraphics[scale=0.24]{images/reg_bentwire_t4}}
+\hfill
+\subfloat[A regular bend wire tested under sequential vacancy defects.\label{figure:reg_bentwire_t5}]{\includegraphics[scale=0.24]{images/reg_bentwire_t5}}
+\linebreak
+{\includegraphics[width=0.8\textwidth]{images/LEGENDA}
+}
+\caption{The heat maps for the bend wire submitted to every four classes of defects in the sequential structural defects testing. The gray shadows highlight the weakest polarization regions of the structure.}
+\label{figure:reg_bentwire_uniform}
+\end{figure}
+
+The analysis of the colors distribution in the heat maps indicate that defective cells at the output and the turning proximities of a bend wire often lead to the erroneous behavior of the system. In terms of quantities, a defective cell at the output resulted in errors in more than 50 \% of the simulations for 3 out of 4 defect classes (dislocation, dopant and vacancy). Likewise, a defective cell at the turning region, which comprises three consecutive cells disposed in `L' shape at the bend corner, resulted in errors in more than 50 \% of the simulations for 2 out of 4 defect classes (dopant and vacancy). Thus, the regions to be strengthen in the bend wire, in order to enhance its robustness, should comprise mostly the outputs and turnings.
+
+Finally, the fanouts (fanout of 2 and fanout of 3) were also tested against structural defects in order to identify their weakest polarization points. As the results found are similar for both structures, only the fanout of 3 heat maps are depicted in this subsection (Figure \ref{figure:reg_fanout3_uniform}). The heat maps of the fanout of 2, created from the structural defects testing, may be found in the Appendix \ref{Appendix_Simulation_Results}.
+
+%FANOUT OF 3
+\begin{figure}[!ht]
+\center
+\subfloat[A regular fanout of 3 tested under sequential dislocation defects.\label{figure:reg_fanout3_t2}]{\includegraphics[scale=0.35]{images/reg_fanout3_t2}}
+\hfill
+\subfloat[A regular fanout of 3 tested under sequential dopant defects.\label{figure:reg_fanout3_t3}]{\includegraphics[scale=0.35]{images/reg_fanout3_t3}}
+\hfill
+\subfloat[A regular fanout of 3 tested under sequential interstitial defects.\label{figure:reg_fanout3_t4}]{\includegraphics[scale=0.35]{images/reg_fanout3_t4}}
+\hfill
+\subfloat[A regular fanout of 3 tested under sequential vacancy defects.\label{figure:reg_fanout3_t5}]{\includegraphics[scale=0.35]{images/reg_fanout3_t5}}
+\linebreak
+{\includegraphics[width=0.8\textwidth]{images/LEGENDA}
+}
+\caption{The heat maps for the fanout of 3 submitted to every four classes of defects in the sequential structural defects testing. The gray shadows highlight the weakest polarization regions of the structure.}
+\label{figure:reg_fanout3_uniform}
+\end{figure}
+
+Through the analysis of the heat maps presented, which might be conducted analogously for those created from the fanout of 2 defects testing, it is possible to conclude that defective cells at the input, outputs and the turning proximities of a bend wire often lead to the erroneous behavior of the system. In terms of quantities, a defective cell at the input and nearby resulted in errors in more than 50 \% of the simulations for 2 out of 4 defect classes (dislocation and dopant). Likewise, a defective cell at 2 out of 3 outputs and nearby resulted in errors in more than 50 \% of the simulations for the dislocation, dopant and vacancy defect classes. Finally, a defective cell at the turning region, which comprises the five adjacent cells arranged in a cross-shaped disposition in the structures' middle, resulted in errors in more than 99 \% of the simulations for 2 out of 4 defect classes (dopant and vacancy). Thus, the regions to be strengthen in the fanouts, in order to enhance their robustness, should comprise mostly the input, outputs and turnings.
+
+In summary, for all the fundamental components analyzed, the inputs, outputs and turnings became as the critical points of the QCA structures to be strengthen. However, some of the heat maps obtained from the structural defects testing, such as those depicted in Figures \ref{figure:reg_wire_t3},  \ref{figure:reg_wire_t5} and \ref{figure:reg_bentwire_t3}, revealed a lack of uniformity in the results. The presence of defects in some cells that, at first, may be considered as non-critical due to their positioning \textemdash nor at the inputs, outputs and turnings \textemdash have been pointed out as strongly related to the occurrence of errors. Furthermore, some components that are built as structures with a high level of organization among its devices, as fanout of 2 and fanout of 3, has not demonstrated a regular distribution of critical cells between the symmetrical parts (Figures \ref{figure:reg_fanout3_t3} and \ref{figure:reg_fanout3_t4}).
+
+The aforementioned unexpected results may be attributed to both the low number of simulations performed and to the infinite possibilities for the defect values (displacement, misalignment and rotation), which are randomly chosen among a continuous range. More details about the choose of the defect values at the QCA Defects Simulator introduced in this work may be found in Section \ref{subsection_intermediate_procedures}. A high variability of the defect values may be seen as a positive characteristic of the simulator, since it enables the investigation of the components' behavior under a wide range of defects in a broad spectrum of values, likewise the situation that is supposed to happen in a real manufacturing process of QCA structures. On the other hand, the wider the range of the defect values, the higher the number of simulations required in order to obtain accurate results, otherwise is not possible to ensure a similar distribution for the defect values in each cell. Consequently, some results may be inaccurate.
+
+In order to avoid different distributions for the defect values into the cells in a same structure, thus, the unexpected results \textemdash as those shown in the Figures \ref{figure:reg_wire_t3},  \ref{figure:reg_wire_t5}, \ref{figure:reg_bentwire_t3}, \ref{figure:reg_fanout3_t3} and \ref{figure:reg_fanout3_t4} \textemdash a possible solution may be adopt four or five fixed discrete values within a pre-established range. Although this solution is suggested, it requires a deep investigation in a further work. Another option to ensure a better distribution of the defect values is to perform a significant higher number of simulations, in the order of thousands, for each cell in the structure. The exact number of simulations may be defined according to both the structure size and the precision desired in the tests. However, as highlighted by \citeonline{liu13}, the high computational cost of a simulation through the Coherence Vector model available in the QCADesigner makes the performance of a high number of simulations impracticable by conventional computational resources. The use of distributed systems may be seen as an option in this case, since they allow the execution of multiple tasks, thus, the conclusion of all necessary characterization rounds as proposed in this work in a timely manner. Such option proposed needs computational resources not available for the research group at the time of this work. Hence, the option is presented here as an opportunity for further research.
+
+The strategies for strengthening the polarization level at the critical regions of the QCA structures are presented in the next subsection \ref{Strengthen_Strategies}.
+
+\subsection{Strengthen Strategies}
+\label{Strengthen_Strategies}
+
+The most common techniques used to enable polarization strengthening within a QCA structure are related to the creation of redundant paths in order to ensure the signal routing within the QCA structure even in the presence of defective devices. Different levels of redundancy may be used in order to enhance the robustness of a QCA structure. For instance, it is possible to design a highly robust component by surrounding all its extremities by numerous redundant devices, \textit{i.e.} an approach similar to that described by \citeonline{timothy09} for creating n-wide thick wires. The cells addition strategy creates redundant mechanisms that are responsible not only for intensifying the polarization levels to be transmitted ahead within the structure, but for providing alternative paths to the signal propagation in case of structural defects. The more cells added within a component, the more safe it becomes regarding to error events caused by defects \cite{timothy09}.
+
+Despite the use of the redundancy techniques enables the creation of highly robust structures, a high level of redundancy often results in oversized structures, that require greater efforts in area and high simulation times due to the large number of devices within the structure. Thus, in this work, polarization strengthening strategies based on redundancy and structural modifications were applied only to the critical regions of the selected components, which were identified by means of the qualitative analysis process described in the subsection \ref{Qualitative_Analysis_of_Heat_maps}.
+
+On the other hand, oversized QCA structures are undesirable since they require more area. Besides, a high increment in the computational cost is likely to occur for circuit simulation in state-of-art simulators like QCADesigner. Thus, this work does not intend to apply oversized blocks in order to devise redundancy strategies. Instead, the goal here is to determine a good trade-off between efforts in area and enhancement of robustness.
+
+In order of create efficient redundant mechanisms for the critical areas, the input and output cells of the fundamental components analyzed was surrounded by three new cells \textemdash one at the horizontal and the other two at the vertical axes. Moreover, a structural modification in the turnings of the bend wires and fanouts has been carried out. Such modification comprises the use of successive inversions of the polarization level, a technique based on already reported experiences with inverter chains \cite{gupta07}, \cite{padgett10}. This strategy has been applied to the turning regions since it allows the creation of new robust structures that use one cell less than the original components. The decreasing in the number of cells occurs since whether one cell is added to the upright of the corner of the critical point, another two devices at the horizontal and vertical adjacencies are removed. Fig. \ref{figure:turnings} illustrates the concept of the structural modifications in a `L' shaped turning region.
+
+\begin{figure}[!ht]
+\center
+\subfloat[A regular 5-cell `L-shaped' turning. The arrow in blue represents the only one possible path for signal routing within the structure. \label{figure:Turning1}]{\includegraphics[width=0.35\textwidth]{images/Turning1}}
+\hfill
+\subfloat[A modified 4-cell `L-shaped' turning. The two arrows in blue represent the redundant paths for signal routing within the structure. Note that the path 1 is based on successive inversions of the logic state promoted by three diagonally-positioned cells placed in row. \label{figure:Turning1}]{\includegraphics[width=0.6\textwidth]{images/Turning2}}
+
+\caption{The structural modifications in a `L' shaped turning region.}
+\label{figure:turnings}
+\end{figure}
+
+The strengthened inputs and outputs, alongside the modified turnings demonstrate excellent potential to propagate the correct signal even in the presence of defects of combined defect classes, as demonstrated in the simulation results presented in the next subsection \ref{subsection:Comparison_Between_Robustness_Levels}.
+
+Figure \ref{figure:modified_fundamental_components} depicts the modified QCA fundamental components designed from the use of the aforementioned robustness enhancement strategies.
+
+\begin{figure}[!ht]
+\center
+\subfloat[A modified wire.\label{figure:modified_wire}]{\includegraphics[scale=0.28]{images/CK_WIRE_MOD}}
+\hfill
+\subfloat[A modified bend wire.\label{figure:modified_bentwire}]{\includegraphics[scale=0.28]{images/CK_BENDWIRE_MOD}}
+\linebreak
+\subfloat[A modified fanout of 2.\label{figure:modified_fanoutof2}]{\includegraphics[scale=0.28]{images/CK_FANOUT2_MOD}}
+\hfill
+\subfloat[A modified fanout of 3.\label{figure:modified_fanoutof3}]{\includegraphics[scale=0.3]{images/CK_FANOUT3_MOD}}
+\linebreak
+{\includegraphics[width=0.8\textwidth]{images/CK_LEGENDA}
+}
+\caption{The four modified fundamental components.}
+\label{figure:modified_fundamental_components}
+\end{figure}
+
+\subsection{Regular $\times$ Modified Components}
+\label{subsection:Comparison_Between_Robustness_Levels}
+
+Once the modified components were designed, they were also submitted to structural defects testing through the QCA Defects Simulator, under the very same conditions as the original structures, as mentioned in subsection \ref{Testing_Settings}. Table \ref{table:fundamental_components_comparison} depicts the error-free simulations rate for both types of fundamental components (original/modified). The heat maps for all tests performed, either for original or modified structures, may be found in the Appendix (section \ref{Appendix_Simulation_Results}).
+
+\begin{table}[H]
+\centering
+\caption{Comparison between error-free simulations rate for regular and modified fundamental components.}
+\label{table:fundamental_components_comparison}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\multirow{2}{*}{}    & \multicolumn{3}{c|}{\textbf{Error-free simulations rate (\%)}}                     \\ \cline{2-4} 
+                     & \textbf{Regular Component} & \textbf{Modified Component} & \textbf{Rate Variation} \\ \hline
+\textbf{Wire}        & 72.40 \%                    & 86.46 \%                     & +14.06 \%                 \\ \hline
+\textbf{Bend Wire}   & 70.83 \%                    & 87.85 \%                     & +17.02 \%                \\ \hline
+\textbf{Fanout of 2} & 72.27 \%                    & 85.16 \%                     & +12.89 \%                 \\ \hline
+\textbf{Fanout of 3} & 64.38 \%                    & 88.75 \%                     & +24.37 \%                \\ \hline
+\end{tabular}
+\end{table}
+
+From the data presented in Table \ref{table:fundamental_components_comparison}, it is possible to note that the error-free simulations rate of all modified structures had a sharp increment. Such observation may be attributed to the robustness enhancing strategies applied for the implementation of the proposed components. The modified fanout of 3 performed the best \textemdash the structure has reached an error-free simulations rate of 88.75 \% against the 64.38 \% of its regular counterpart, under the very same test conditions. It represents an increase of 24.37 \% in the referred error-free simulations rate.
+
+Such positive result reported for all fundamental components testify the efficiency of the robustness enhancing strategies applied in this work. The superior performance of the modified fundamental components, which was demonstrated by the results summarized in Table \ref{table:fundamental_components_comparison}, leads to a further step of this work, described in Chapter \ref{section:Results}. This step comprises the use of the modified structures to implement more complex circuits, \textit{i.e.} logical components, circuits and systems. The modified circuits are expected to be more robust than their regular counterparts.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\section{Robustness Enhancement of QCA Clocking Circuits}
+%
+%\subsection{Asynchronous QCA Clock Signals}
+
+\section{QCA Fundamental Components under Phase-Shifted Clock Signals}
+
+This section describes the tests performed with the same QCA fundamental components presented in the sub section \ref{subsection:Components_Selection} under phase-deviated clock signals testing framework. The aim of such tests was to devise a new strategy for robustness enhancement of such components under the referred unusual conditions. The testing settings and procedure, as well as the results analysis and the solution proposed are explained in the following sub sections (\ref{subsection:Clock_Testing_Settings} to \ref{subsection:Qualitative_Analysis_of_Waveforms}).
+
+\subsection{Testing Settings}
+\label{subsection:Clock_Testing_Settings}
+
+Similar to the reported for structural defects testing, phase-deviated clock testing requires that the QCA Defects Simulator parameters is set according to the testing conditions desired. The goal here is to propose a clocking scheme that is able to perform reliable under phase deviations within the range of 0 to 45 $\degree$, which is the shifts interval already studied in the previous works \cite{ottavi07} and \cite{karim09}. However, since the solution proposed is new, a wider range for the phase shifts is selected, \textit{i.e.} 0 to 90 $\degree$, in order to measure its impact when the system is submitted to greater clock phase shifts.
+
+For each component, twenty-four rounds of tests are performed, each one of them considering an equal division of the entire ninety degrees range. Thus, the testing procedure considers a step of 3.75 $\degree$ between successive sub ranges. Deviations are randomly added to the shifts of each one of the four clock signals for each range sub division, by an uniform probability. The testing stop criteria requires that the error-free rate variation does not surpass the value of 1 \% along at least 100 iterations. Whether this criteria is not achieved within 1000 iterations, the testing process is interrupted. Such condition is not desirable, since it potentially indicates a divergent result. Finally, the sampling interval is set to 10~\% and the threshold for which a signal is interpreted as logic zero or one is 80 \% of the standard polarization level limits (-1 and +1).
+
+Once the aforementioned conditions were adjusted, the error-free rates obtained allow the identification of possible critical sub ranges and conditions that are likely to lead the system to behave as unusual or erroneous. The method by which such analysis was carried out is described in the next sub section (\ref{subsection:Qualitative_Analysis_of_Waveforms}).
+
+\subsection{Qualitative Analysis of Waveforms}
+\label{subsection:Qualitative_Analysis_of_Waveforms}
+
+The simulation results, \textit{i.e.} waveform graphs, obtained from the previous step are now analyzed in order to identify patterns for the synchronization problems that are likely to lead a structure to propagate forward an erroneous signal. Hence, it is important to highlight that the purpose of the qualitative analysis described in this subsection is strictly related to the identification of such patterns. Therefore, at this moment, the analysis of how often a phase-shifted clock signal lead to errors due synchronization problems is not take into account. Such analysis is carried on in the subsection \ref{subsection:Synchronous_Asynchronous_Clocking_Schemes}.
+
+Figure \ref{figure:Analysis_of_Waveforms} depicts one random example of waveform graphs where is possible to identify defective patterns that are likely to lead the wire to propagate a wrong logic level to the output. In Figure \ref{figure:clockphases1}, the phases of the clock signals corresponding to the clock signals of the zones 0 and 1 are phase-shifted in $-42 \degree$ and $+45 \degree$, respectively. The red square in the graph is used to highlight a lack of synchronization defective pattern which occurred between the clock signals 0 and 1. The clock signal that controls the inter-dot barriers in the zone 1 was at its switch phase, at the same time that the zone 0 was early depolarizing, with its respective clock signal at the release phase. Such defective pattern caused by the phase shifts in both clock signals is likely to cause that the signal value previously stored during the hold clock phase of zone 0 is not propagated to the next zone, resulting in error.
+
+\begin{figure}[!ht]
+\center
+\includegraphics[width=0.6\textwidth]{images/waveform_analysis_1}
+\caption{A wire where 2 out of 4 clock signals phases were shifted. The shifts were within the range of 41.25 to 45.0 $\degree$.}
+\label{figure:Analysis_of_Waveforms}
+\end{figure}
+
+From the analysis of the phase-shifted clock waveforms, as well as from previous researches regarding the same problem \cite{ottavi07} and \cite{karim09}, it is possible to conclude that the phase-shifted clock signals negatively interfere to the proper operation of the components analyzed.
+
+As already discussed in section \ref{subsection:QCA_Clocking}, the emerging nanotechnology QCA is highly sensitive to the phase sequencing along the four clock zones. Thus, it is essential that the information propagated to the zone on the switch phase does not fade away while such zone is on hold phase. The information stored on hold phase is transmitted to the next zone, which at this moment is already in switch phase. A phase shift deviation may cause a premature depolarization of the cell if the release clock phase occurs at the time it is supposed that such clock zone is still in hold phase. Such unusual condition might cause severe problems in the transmission of information in a QCA structure, leading the system to operate with errors.
+
+As explained, several errors due to lack of synchronization in QCA structures are likely to occur in case of the information is not stored into the cell for the whole hold clock phase duration. Thus, the solution proposed in this work consists of a new QCA clocking scheme that uses different times for the four clock phases \textemdash Switch, hold, release, relax. The new approach proposed has been named asynchronous clocking scheme. The solution is described in the next subsection (\ref{Asynchronous_Clocking_Scheme}).
+
+\subsection{Asynchronous Clocking Scheme}
+\label{Asynchronous_Clocking_Scheme}
+
+The asynchronous clocking scheme, introduced for the first time in the $2^{nd}$ Nanocomputing Workshop \cite{reis15}, is presented in this work as an alternative method for robustness enhancing of QCA structures in the presence of phase-shifted clock signals. In such approach, the period (T) and the duration of the switch and release phases of the clock signals remain unaltered. Nevertheless, the time of the hold and relax phases ($T_{hold}$ and $T_{relax}$) are changed according to  the equations \ref{equation:thold} and \ref{equation:trelax}.
+
+\begin{equation}
+T_{hold} = (1+\alpha)\cdot90 \degree
+\label{equation:thold}
+\end{equation}
+
+\begin{equation}
+T_{relax} = (1-\alpha)\cdot90 \degree
+\label{equation:trelax}
+\end{equation}
+Where:
+\begin{conditions*}
+\alpha  &  Asynchrony parameter ($0 \leq \alpha < 1$)\\
+\end{conditions*}
+
+The asynchrony parameter ($\alpha$) is used to determine a percentage of increase/decrease to the duration of the hold/relax clock phases in the asynchronous clocking scheme. According to the equations \ref{equation:thold} and \ref{equation:trelax}, this parameter is added to/subtracted from the value 1, which represents the rate of 100 \%, in order to create a multiplier for the standard duration of the hold/relax clock phases. For instance, if an $\alpha$ of 0.2, which corresponds to 20 \%, is applied to the hold/relax clock phases that last 1 ns in the synchronous clocking scheme (standard approach), the durations of the phases in the asynchronous clocking scheme may be calculated using the equations \ref{equation:thold} and \ref{equation:trelax} as 1.2 ns and 0.8 ns, respectively.
+
+Since the duration of $T_{hold}$ is increased, it is expected that the information propagated to the clock zone in the switch phase remains stored for a longer instant of time before the depolarization process begins, in release phase. This way, the next clock zone is more likely to propagate such remaining information even in the presence of phase-shifted clock signals.
+
+The last clock phase, relax, will only ensure that the cells are free of eventual undesirable residual polarization. Thus, decreasing $T_{relax}$ should not imply in additional impediments to the properly operation of the component, as long as a minimum time for polarization relax is guaranteed.
+
+The definition of values for the asynchrony parameter occurs by means of a `trial and error' approach, once the behavior of different structures in the presence of different $\alpha$ values may not considered as a pattern. For the tests performed in this work, four asynchrony values were selected: 10 \%, 20 \%, 30 \% and 40 \%. A $\alpha =$ 0 \% means that the traditional clocking scheme (synchronous) is being used. An asynchrony of 10 \%, in turn, indicates that the hold phase is increased by 10 \%. On the other hand, the relax time is decreased to 90 \% of its original duration.
+
+The next sub section (\ref{subsection:Synchronous_Asynchronous_Clocking_Schemes}) presents the results of the four selected fundamental components (wire, bent wire, fanout of 2 and fanout of 3) submitted to clock phase shifts deviations where both synchronous and asynchronous clocking schemes were used.
+
+\subsection{Synchronous $\times$ Asynchronous Clocking Schemes}
+\label{subsection:Synchronous_Asynchronous_Clocking_Schemes}
+
+The four fundamental components depicted in Figure \ref{figure:fundamental_components} (wire, bent wire, fanout of 2 and fanout of 3) were submitted to clock phase shifts deviations for both synchronous and asynchronous clocking schemes. Four values were used for $\alpha$, in order to determine its impact on the feasibility of the proposed. Table \ref{table:clocking_scheme_results} summarizes the results found for all $\alpha$ values. The data regarding the individual tests for shift-deviated clock signals separated per distinct value of $\alpha$ may be found in the Appendix (section \ref{Appendix_Simulation_Results2}).
+
+\begin{table}[H]
+\centering
+\caption{Average error-free simulations rate for QCA fundamental components under synchronous and asynchronous clocking schemes}
+\label{table:clocking_scheme_results}
+\begin{tabular}{c|c|c|c|c|c|c|}
+\cline{2-7}
+                                         & \multicolumn{3}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Shifts Range\\ (Synchronous Clock)\end{tabular}}} & \multicolumn{3}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Shifts Range\\ (Asynchronous Clock)\end{tabular}}} \\ \hline
+\multicolumn{1}{|c|}{\textbf{Component}} & \textbf{0 to 45$\degree$}                         & \textbf{45 to 90$\degree$}                         & \textbf{0 to 90 $\degree$}                        & \textbf{0 to 45 $\degree$}                          & \textbf{45 to 90 $\degree$}                         & \textbf{0 to 90 $\degree$}                         \\ \hline
+\multicolumn{1}{|c|}{\textbf{WIR1}}      & 92.4 \%                                   & 72.3 \%                                    & 84.4\%                                   & 99.9 \%                                    & 71.7 \%                                    & 85.8 \%                                   \\ \hline
+\multicolumn{1}{|c|}{\textbf{BWI1}}      & 96.8 \%                                   & 50.2 \%                                    & 73.5 \%                                  & 99.9 \%                                    & 44.76 \%                                   & 72.34 \%                                  \\ \hline
+\multicolumn{1}{|c|}{\textbf{FO21}}      & 96.1 \%                                   & 50.0 \%                                    & 73.0\%                                   & 94.9 \%                                    & 48.7 \%                                    & 72.0 \%                                   \\ \hline
+\multicolumn{1}{|c|}{\textbf{FO31}}      & 95.6 \%                                   & 50.5 \%                                    & 73.1 \%                                  & 93.9 \%                                    & 50.6 \%                                    & 72.2 \%                                   \\ \hline
+\end{tabular}
+\end{table}
+
+The data presented in the Table \ref{table:clocking_scheme_results} allow to conclude that the regular and the bend wires yield higher error-free simulation rates for asynchronous clocking strategy, within clock phase shifts within the range of 0 to 45 $\degree$, regardless of the value of the asynchrony parameter adopted. The error-free simulation rate increase is 7.5 \% for WIR1 and 3.1 \% for BWI1. Nonetheless, the results for FO21 and FO31 indicate an error-free simulation rate decreasing of 1.2 \% and 1.7 \% respectively. Further analysis need to be done in order to determine the reason for such decreasing. However, from the analysis of the expanded data found in the Appendix \ref{Appendix_Simulation_Results2}) is possible to verify that high values of the asynchrony parameter ($\alpha = 30  \%$ and $\alpha = 40  \%$) lead the FO21 and FO31 to perform poorly in the presence of clock phase shifts. Thus, such resulting low values for the error-free simulations rate contribute to the decreasing of the average value for all values of $\alpha$, which is depicted in Table \ref{table:clocking_scheme_results}.
+
+As already explained in the section \ref{QCA_Clocking_Phases_Shifts_Modeling}, clock phase shifts higher than 45 $\degree$ are unlikely in reality. Thus, the values of the error-free simulations rates for the comprehensive range (0 to 90 $\degree$), as well as the latter subrange (45 to 90 $\degree$) are not analyzed here, since such tests were performed only for demonstrate that the asynchronous clocking scheme does not lead the system to an undefined behavior in the presence of higher clock phases shifts. Once the two analyzed clocking schemes (asynchronous and synchronous) performed similar in those clock phase shift ranges, no more commentaries are necessary.
+
+Finally, it is possible to conclude that the asynchronous clocking scheme demonstrated good potential as enhancing robustness strategy for phase-shifted clock signals in the tests with the structures WIR1 and BWI1. However, the influence of $\alpha$ \textemdash the asynchrony parameter \textemdash in the efficiency of the robustness enhancing strategy needs to be further investigated. Once the high sensitivity of the asynchronous clocking scheme to the value of $\alpha$ is proved, other further work regards to the creation of an efficient solution for the setting of such parameter.
