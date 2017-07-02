@@ -1,0 +1,69 @@
+// Generated for: spectre
+// Generated on: Nov  8 15:44:33 2016
+// Design library name: AgingBib
+// Design cell name: tb_xnor2
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!
+parameters p5vonly=0 phires=0
+include "model/nmos.scs"
+include "model/pmos.scs"
+
+V0 (vdd! 0) vsource dc=0.0 type=dc
+
+VInput1   (A            0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=20us period=40us
+VInput2   (B            0)    vsource type=pulse val0=0 val1=1.1 delay=100ns rise=1ps fall=1ps width=20us period=40us
+
+C0 (Y 0) capacitor c=10.0f
+
+// Library name: AgingBib
+// Cell name: XNOR2
+// View name: schematic
+subckt XNOR2 A B Z 0 vdd!
+    M0A (net76 A 0 0) nfet l=180.0n w=560.0n nf=1 m=1 par=1 \
+        ad=2.2e-13 as=2.2e-13 pd=1.86u ps=1.86u nrd=0.52 nrs=0.52 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    M0Z (Z net76 net75 0) nfet l=180.0n w=560.0n nf=1 m=1 par=1 \
+        ad=2.2e-13 as=2.2e-13 pd=1.86u ps=1.86u nrd=0.52 nrs=0.52 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    M0B (net75 B 0 0) nfet l=180.0n w=560.0n nf=1 m=1 par=1 \
+        ad=2.2e-13 as=2.2e-13 pd=1.86u ps=1.86u nrd=0.52 nrs=0.52 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    M0NB (Z net75 net76 0) nfet l=180.0n w=560.0n nf=1 m=1 par=1 \
+        ad=2.2e-13 as=2.2e-13 pd=1.86u ps=1.86u nrd=0.52 nrs=0.52 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    M1A (net76 A vdd! vdd!) pfet l=180.0n w=1.04u nf=1 m=1 par=1 \
+        ad=4.2e-13 as=4.2e-13 pd=2.82u ps=2.82u nrd=0.2653 nrs=0.2653 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    M1B (Z B net76 vdd!) pfet l=180.0n w=1.04u nf=1 m=1 par=1 \
+        ad=4.2e-13 as=4.2e-13 pd=2.82u ps=2.82u nrd=0.2653 nrs=0.2653 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    M1Z (Z net76 net61 vdd!) pfet l=180.0n w=1.04u nf=1 m=1 par=1 \
+        ad=4.2e-13 as=4.2e-13 pd=2.82u ps=2.82u nrd=0.2653 nrs=0.2653 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    M1NB (net75 B vdd! vdd!) pfet l=180.0n w=1.04u nf=1 m=1 par=1 \
+        ad=4.2e-13 as=4.2e-13 pd=2.82u ps=2.82u nrd=0.2653 nrs=0.2653 \
+        gcon=1 rf=0 rsx=50 dtemp=0
+    M1VDD (net61 net75 vdd! vdd!) pfet l=180.0n w=1.04u nf=1 m=1 \
+        par=1 ad=4.2e-13 as=4.2e-13 pd=2.82u ps=2.82u nrd=0.2653 \
+        nrs=0.2653 gcon=1 rf=0 rsx=50 dtemp=0
+ends XNOR2
+// End of subcircuit definition.
+
+// Library name: AgingBib
+// Cell name: tb_xnor2
+// View name: schematic
+I5 (A B Y 0 vdd!) XNOR2
+
+
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts  where=rawfile
+saveOptions options save=allpub

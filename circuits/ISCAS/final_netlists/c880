@@ -1,0 +1,551 @@
+// Generated for: spectre
+// Generated on: Apr 17 05:56:15 2014
+// Design library name: AgingBib
+// Design cell name: c880
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!
+parameters p5vonly=0 phires=0
+include "model/pmos.scs"
+include "model/nmos.scs"
+
+V0 (vdd! 0) vsource dc=0.0 type=dc
+
+VInput1   (X_1gat            0)    vsource type=pulse val0=0 val1=1.1 delay=0us rise=1ps fall=1ps width=20us period=40us
+VInput2   (X_8gat            0)    vsource type=pulse val0=0 val1=1.1 delay=1us rise=1ps fall=1ps width=20us period=40us
+VInput3   (X_13gat            0)    vsource type=pulse val0=0 val1=1.1 delay=2us rise=1ps fall=1ps width=20us period=40us
+VInput4   (X_17gat            0)    vsource type=pulse val0=0 val1=1.1 delay=3us rise=1ps fall=1ps width=20us period=40us
+VInput5   (X_26gat            0)    vsource type=pulse val0=0 val1=1.1 delay=4us rise=1ps fall=1ps width=20us period=40us
+VInput6   (X_29gat            0)    vsource type=pulse val0=0 val1=1.1 delay=5us rise=1ps fall=1ps width=20us period=40us
+VInput7   (X_36gat            0)    vsource type=pulse val0=0 val1=1.1 delay=6us rise=1ps fall=1ps width=20us period=40us
+VInput8   (X_42gat            0)    vsource type=pulse val0=0 val1=1.1 delay=7us rise=1ps fall=1ps width=20us period=40us
+
+VInput9   (X_51gat            0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=20us period=40us
+VInput10   (X_55gat            0)    vsource type=pulse val0=0 val1=1.1 delay=1us rise=1ps fall=1ps width=20us period=40us
+VInput11   (X_59gat            0)    vsource type=pulse val0=0 val1=1.1 delay=2us rise=1ps fall=1ps width=20us period=40us
+VInput12   (X_68gat            0)    vsource type=pulse val0=0 val1=1.1 delay=1us rise=1ps fall=1ps width=20us period=40us
+VInput13   (X_72gat            0)    vsource type=pulse val0=0 val1=1.1 delay=3us rise=1ps fall=1ps width=20us period=40us
+VInput14   (X_73gat            0)    vsource type=pulse val0=0 val1=1.1 delay=1us rise=1ps fall=1ps width=20us period=40us
+VInput15   (X_74gat            0)    vsource type=pulse val0=0 val1=1.1 delay=2us rise=1ps fall=1ps width=20us period=40us
+VInput16   (X_75gat            0)    vsource type=pulse val0=0 val1=1.1 delay=1us rise=1ps fall=1ps width=20us period=40us
+VInput17   (X_80gat            0)    vsource type=pulse val0=0 val1=1.1 delay=4us rise=1ps fall=1ps width=20us period=40us
+VInput18   (X_85gat            0)    vsource type=pulse val0=0 val1=1.1 delay=1us rise=1ps fall=1ps width=20us period=40us
+VInput19   (X_86gat           0)    vsource type=pulse val0=0 val1=1.1 delay=2us rise=1ps fall=1ps width=20us period=40us
+VInput20   (X_87gat           0)    vsource type=pulse val0=0 val1=1.1 delay=1us rise=1ps fall=1ps width=20us period=40us
+VInput21   (X_88gat           0)    vsource type=pulse val0=0 val1=1.1 delay=1us rise=1ps fall=1ps width=20us period=40us
+VInput22   (X_89gat           0)    vsource type=pulse val0=0 val1=1.1 delay=1us rise=1ps fall=1ps width=20us period=40us
+VInput23   (X_90gat           0)    vsource type=pulse val0=0 val1=1.1 delay=2us rise=1ps fall=1ps width=20us period=40us
+VInput24   (X_91gat           0)    vsource type=pulse val0=0 val1=1.1 delay=3us rise=1ps fall=1ps width=20us period=40us
+VInput25   (X_96gat           0)    vsource type=pulse val0=0 val1=1.1 delay=1us rise=1ps fall=1ps width=20us period=40us
+VInput26   (X_101gat           0)    vsource type=pulse val0=0 val1=1.1 delay=2us rise=1ps fall=1ps width=20us period=40us
+VInput27   (X_106gat           0)    vsource type=pulse val0=0 val1=1.1 delay=1us rise=1ps fall=1ps width=20us period=40us
+VInput28   (X_111gat           0)    vsource type=pulse val0=0 val1=1.1 delay=1us rise=1ps fall=1ps width=20us period=40us
+VInput29   (X_116gat           0)    vsource type=pulse val0=0 val1=1.1 delay=3us rise=1ps fall=1ps width=20us period=40us
+VInput30   (X_121gat           0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=20us period=40us
+VInput31   (X_126gat           0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=20us period=40us
+VInput32   (X_130gat           0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=20us period=40us
+VInput33   (X_135gat           0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=20us period=40us
+VInput34   (X_138gat           0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=20us period=40us
+VInput35   (X_143gat           0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=20us period=40us
+VInput36   (X_146gat           0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=20us period=40us
+VInput37   (X_149gat           0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=20us period=40us
+VInput38   (X_152gat           0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=20us period=40us
+VInput39   (X_153gat           0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=20us period=40us
+VInput40   (X_156gat           0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=20us period=40us
+VInput41   (X_159gat           0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=20us period=40us
+VInput42   (X_165gat           0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=20us period=40us
+VInput43   (X_171gat           0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=20us period=40us
+VInput44   (X_177gat           0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=20us period=40us
+VInput45   (X_183gat           0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=20us period=40us
+VInput46   (X_189gat           0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=20us period=40us
+VInput47   (X_195gat           0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=20us period=40us
+VInput48   (X_201gat           0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=20us period=40us
+VInput49   (X_207gat           0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=20us period=40us
+VInput50   (X_210gat           0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=20us period=40us
+VInput51   (X_219gat           0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=20us period=40us
+VInput52   (X_228gat           0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=20us period=40us
+VInput53   (X_237gat           0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=20us period=40us
+VInput54   (X_246gat           0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=20us period=40us
+VInput55   (X_255gat           0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=20us period=40us
+VInput56   (X_259gat           0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=20us period=40us
+VInput57   (X_260gat              0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=500ns period=40us
+VInput58   (X_261gat              0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=500ns period=40us
+VInput59   (X_267gat              0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=500ns period=40us
+VInput60   (X_268gat              0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=500ns period=40us
+
+// Library name: AgingBib
+// Cell name: NAND2_A
+// View name: schematic
+subckt NAND2_A A B Z gnd vdd
+    TNA (Z A net20 gnd) nch w=1.0u l=45n
+    TNB (net20 B gnd gnd) nch w=1.0u l=45n
+    TPA (Z A vdd vdd) pch w=2.0u l=45n
+    TPB (Z B vdd vdd) pch w=2.0u l=45n
+ends NAND2_A
+// End of subcircuit definition.
+
+// Library name: AgingBib
+// Cell name: AND2_A
+// View name: schematic
+subckt AND2_A A B Z gnd vdd
+    TNA (net29 A net34 gnd) nch w=1.0u l=45n
+    TNB (net34 B gnd gnd) nch w=1.0u l=45n
+    TNZ (Z net29 gnd gnd) nch w=1.0u l=45n
+    TPB (net29 B vdd vdd) pch w=2.0u l=45n
+    TPA (net29 A vdd vdd) pch w=2.0u l=45n
+    TPZ (Z net29 vdd vdd) pch w=2.0u l=45n
+ends AND2_A
+// End of subcircuit definition.
+
+// Library name: AgingBib
+// Cell name: INVERT_I
+// View name: schematic
+subckt INVERT_I A Z gnd vdd
+    TNAM2 (Z A gnd gnd) nch w=1.0u l=45n
+    TNAM1 (Z A gnd gnd) nch w=1.0u l=45n
+    TPAM1 (Z A vdd vdd) pch w=2.0u l=45n
+    TPAM2 (Z A vdd vdd) pch w=2.0u l=45n
+ends INVERT_I
+// End of subcircuit definition.
+
+// Library name: AgingBib
+// Cell name: OR2_A
+// View name: schematic
+subckt OR2_A A B Z gnd vdd
+    TNZ (Z net28 gnd gnd) nch w=1.0u l=45n
+    TNB (net28 B gnd gnd) nch w=1.0u l=45n
+    TNA (net28 A gnd gnd) nch w=1.0u l=45n
+    TPZ (Z net28 vdd vdd) pch w=2.0u l=45n
+    TPA (net28 A net34 vdd) pch w=2.0u l=45n
+    TPB (net34 B vdd vdd) pch w=2.0u l=45n
+ends OR2_A
+// End of subcircuit definition.
+
+// Library name: AgingBib
+// Cell name: NOR2_A
+// View name: schematic
+subckt NOR2_A A B Z gnd vdd
+    TNA (Z A gnd gnd) nch w=1.0u l=45n
+    TNB (Z B gnd gnd) nch w=1.0u l=45n
+    TPA (Z A net18 vdd) pch w=2.0u l=45n
+    TPB (net18 B vdd vdd) pch w=2.0u l=45n
+ends NOR2_A
+// End of subcircuit definition.
+
+// Library name: AgingBib
+// Cell name: c880
+// View name: schematic
+U3145 (n_193 n_192 n_103 0 vdd!) NAND2_A
+U2778 (n_419 n_418 X_767gat 0 vdd!) NAND2_A
+U3066 (n_191 n_103 n_419 0 vdd!) NAND2_A
+U3142 (n_190 n_189 n_102 0 vdd!) NAND2_A
+U3067 (n_194 n_102 n_418 0 vdd!) NAND2_A
+U3139 (n_205 n_204 n_104 0 vdd!) NAND2_A
+U3065 (n_203 n_104 n_196 0 vdd!) NAND2_A
+U3136 (n_202 n_201 n_105 0 vdd!) NAND2_A
+U3064 (n_206 n_105 n_195 0 vdd!) NAND2_A
+U3133 (n_211 n_210 n_106 0 vdd!) NAND2_A
+U3063 (n_209 n_106 n_199 0 vdd!) NAND2_A
+U3130 (n_208 n_207 n_107 0 vdd!) NAND2_A
+U3062 (n_212 n_107 n_198 0 vdd!) NAND2_A
+U2945 (X_126gat n_175 n_401 0 vdd!) NAND2_A
+U2946 (X_153gat n_170 n_326 0 vdd!) NAND2_A
+U2993 (X_143gat n_413 n_298 0 vdd!) NAND2_A
+U2942 (X_143gat n_170 n_324 0 vdd!) NAND2_A
+U2935 (n_413 X_153gat n_322 0 vdd!) NAND2_A
+U2936 (X_138gat X_152gat n_321 0 vdd!) NAND2_A
+U2937 (X_106gat n_175 n_378 0 vdd!) NAND2_A
+U3042 (n_241 n_117 n_118 0 vdd!) NAND2_A
+U3106 (n_119 n_387 n_117 0 vdd!) NAND2_A
+U2760 (n_445 n_444 X_863gat 0 vdd!) NAND2_A
+U3047 (n_118 n_184 n_264 0 vdd!) NAND2_A
+U3105 (X_237gat X_183gat n_240 0 vdd!) NAND2_A
+U3097 (X_237gat n_185 n_242 0 vdd!) NAND2_A
+U3046 (X_183gat n_115 n_267 0 vdd!) NAND2_A
+U3044 (n_343 n_116 n_115 0 vdd!) NAND2_A
+U3043 (n_386 n_119 n_116 0 vdd!) NAND2_A
+U3045 (n_269 n_166 n_266 0 vdd!) NAND2_A
+U3104 (n_86 n_87 n_268 0 vdd!) NAND2_A
+U3032 (n_243 n_123 n_124 0 vdd!) NAND2_A
+U2956 (X_189gat n_167 n_381 0 vdd!) NAND2_A
+U3037 (X_189gat n_124 n_272 0 vdd!) NAND2_A
+U3030 (X_219gat n_168 n_126 0 vdd!) NAND2_A
+U3031 (n_344 n_126 n_125 0 vdd!) NAND2_A
+U3098 (n_394 n_125 n_123 0 vdd!) NAND2_A
+U2938 (X_111gat n_175 n_384 0 vdd!) NAND2_A
+U3039 (X_210gat X_111gat n_271 0 vdd!) NAND2_A
+U3038 (X_259gat X_255gat n_270 0 vdd!) NAND2_A
+U3048 (X_210gat X_106gat n_265 0 vdd!) NAND2_A
+U2761 (n_443 n_442 X_864gat 0 vdd!) NAND2_A
+U2960 (n_386 n_165 n_374 0 vdd!) NAND2_A
+U3041 (n_344 n_120 n_119 0 vdd!) NAND2_A
+U3040 (X_219gat n_383 n_120 0 vdd!) NAND2_A
+U3127 (n_218 n_217 n_109 0 vdd!) NAND2_A
+U2777 (n_421 n_420 X_768gat 0 vdd!) NAND2_A
+U3060 (n_216 n_109 n_421 0 vdd!) NAND2_A
+U3124 (n_215 n_214 n_108 0 vdd!) NAND2_A
+U3061 (n_219 n_108 n_420 0 vdd!) NAND2_A
+U3121 (n_230 n_229 n_110 0 vdd!) NAND2_A
+U3059 (n_228 n_110 n_221 0 vdd!) NAND2_A
+U3118 (n_227 n_226 n_111 0 vdd!) NAND2_A
+U3058 (n_231 n_111 n_220 0 vdd!) NAND2_A
+U3115 (n_236 n_235 n_112 0 vdd!) NAND2_A
+U3057 (n_234 n_112 n_224 0 vdd!) NAND2_A
+U3112 (n_233 n_232 n_113 0 vdd!) NAND2_A
+U3056 (n_237 n_113 n_223 0 vdd!) NAND2_A
+U3101 (n_88 n_89 n_276 0 vdd!) NAND2_A
+U3033 (n_125 n_391 n_122 0 vdd!) NAND2_A
+U3034 (n_340 n_122 n_121 0 vdd!) NAND2_A
+U3036 (n_121 n_185 n_275 0 vdd!) NAND2_A
+U3035 (n_277 n_390 n_274 0 vdd!) NAND2_A
+U2952 (n_169 n_347 n_388 0 vdd!) NAND2_A
+U3025 (n_285 n_187 n_282 0 vdd!) NAND2_A
+U3096 (n_90 n_91 n_284 0 vdd!) NAND2_A
+U3023 (n_131 n_347 n_128 0 vdd!) NAND2_A
+U3024 (n_340 n_128 n_127 0 vdd!) NAND2_A
+U3026 (n_127 n_186 n_283 0 vdd!) NAND2_A
+U2762 (n_441 n_440 X_865gat 0 vdd!) NAND2_A
+U3027 (X_195gat n_130 n_280 0 vdd!) NAND2_A
+U3022 (n_245 n_129 n_130 0 vdd!) NAND2_A
+U3093 (n_400 n_131 n_129 0 vdd!) NAND2_A
+U3092 (X_237gat n_186 n_244 0 vdd!) NAND2_A
+U3053 (n_341 X_237gat n_254 0 vdd!) NAND2_A
+U3028 (X_255gat X_260gat n_278 0 vdd!) NAND2_A
+U3051 (X_267gat X_255gat n_259 0 vdd!) NAND2_A
+U3029 (X_210gat X_116gat n_279 0 vdd!) NAND2_A
+U3054 (X_210gat X_121gat n_256 0 vdd!) NAND2_A
+U2943 (X_116gat n_175 n_392 0 vdd!) NAND2_A
+U2949 (X_121gat n_175 n_398 0 vdd!) NAND2_A
+U3021 (n_344 n_132 n_131 0 vdd!) NAND2_A
+U3020 (X_219gat n_397 n_132 0 vdd!) NAND2_A
+U2759 (n_447 n_446 X_850gat 0 vdd!) NAND2_A
+U3049 (X_219gat n_114 n_447 0 vdd!) NAND2_A
+U3107 (X_261gat n_346 n_85 0 vdd!) NAND2_A
+U3109 (n_84 n_85 n_114 0 vdd!) NAND2_A
+U2944 (X_146gat n_170 n_325 0 vdd!) NAND2_A
+U2934 (X_149gat n_413 n_318 0 vdd!) NAND2_A
+U2950 (X_149gat n_170 n_328 0 vdd!) NAND2_A
+U2977 (X_146gat n_413 n_307 0 vdd!) NAND2_A
+U2948 (X_261gat n_345 n_396 0 vdd!) NAND2_A
+U2817 (n_395 n_345 n_346 0 vdd!) NAND2_A
+U3091 (n_380 n_138 n_136 0 vdd!) NAND2_A
+U3015 (X_177gat n_137 n_286 0 vdd!) NAND2_A
+U3090 (X_237gat n_183 n_246 0 vdd!) NAND2_A
+U3010 (n_247 n_136 n_137 0 vdd!) NAND2_A
+U2763 (n_439 n_438 X_874gat 0 vdd!) NAND2_A
+U3016 (X_210gat X_101gat n_287 0 vdd!) NAND2_A
+U2931 (X_101gat n_175 n_370 0 vdd!) NAND2_A
+U3014 (n_134 n_183 n_289 0 vdd!) NAND2_A
+U3013 (n_291 n_376 n_288 0 vdd!) NAND2_A
+U3011 (n_138 n_377 n_135 0 vdd!) NAND2_A
+U2971 (n_340 n_157 n_156 0 vdd!) NAND2_A
+U3012 (n_340 n_135 n_134 0 vdd!) NAND2_A
+U3089 (n_92 n_93 n_290 0 vdd!) NAND2_A
+U2972 (n_316 n_162 n_312 0 vdd!) NAND2_A
+U3074 (n_98 n_99 n_315 0 vdd!) NAND2_A
+U2970 (n_160 n_372 n_157 0 vdd!) NAND2_A
+U2973 (n_156 n_182 n_313 0 vdd!) NAND2_A
+U3076 (n_371 n_160 n_158 0 vdd!) NAND2_A
+U3075 (X_237gat n_182 n_252 0 vdd!) NAND2_A
+U2974 (X_171gat n_159 n_310 0 vdd!) NAND2_A
+U2969 (n_253 n_158 n_159 0 vdd!) NAND2_A
+U2766 (n_433 n_432 X_880gat 0 vdd!) NAND2_A
+U2994 (X_8gat X_138gat n_299 0 vdd!) NAND2_A
+U2992 (X_91gat n_175 n_352 0 vdd!) NAND2_A
+U2991 (X_91gat X_210gat n_302 0 vdd!) NAND2_A
+U3086 (n_353 n_144 n_142 0 vdd!) NAND2_A
+U2976 (X_96gat n_175 n_360 0 vdd!) NAND2_A
+U2975 (X_210gat X_96gat n_311 0 vdd!) NAND2_A
+U2978 (X_138gat X_51gat n_308 0 vdd!) NAND2_A
+U2929 (n_172 n_333 n_173 0 vdd!) NAND2_A
+U2928 (n_334 X_42gat n_172 0 vdd!) NAND2_A
+U2927 (n_174 n_173 n_175 0 vdd!) NAND2_A
+U3007 (X_268gat X_210gat n_293 0 vdd!) NAND2_A
+U2764 (n_437 n_436 X_878gat 0 vdd!) NAND2_A
+U3006 (X_159gat n_143 n_292 0 vdd!) NAND2_A
+U3085 (X_237gat n_180 n_248 0 vdd!) NAND2_A
+U3001 (n_249 n_142 n_143 0 vdd!) NAND2_A
+U2985 (n_251 n_150 n_151 0 vdd!) NAND2_A
+U3081 (n_361 n_152 n_150 0 vdd!) NAND2_A
+U3080 (X_237gat n_181 n_250 0 vdd!) NAND2_A
+U2990 (X_165gat n_151 n_301 0 vdd!) NAND2_A
+U2765 (n_435 n_434 X_879gat 0 vdd!) NAND2_A
+U3079 (n_96 n_97 n_305 0 vdd!) NAND2_A
+U2964 (X_177gat n_163 n_366 0 vdd!) NAND2_A
+U3009 (n_344 n_139 n_138 0 vdd!) NAND2_A
+U2967 (n_368 X_219gat n_161 0 vdd!) NAND2_A
+U2968 (n_344 n_161 n_160 0 vdd!) NAND2_A
+U3008 (X_219gat n_164 n_139 0 vdd!) NAND2_A
+U2933 (X_138gat X_17gat n_317 0 vdd!) NAND2_A
+U2980 (X_171gat n_155 n_356 0 vdd!) NAND2_A
+U2932 (X_17gat n_416 n_320 0 vdd!) NAND2_A
+U3004 (n_297 n_350 n_294 0 vdd!) NAND2_A
+U3084 (n_94 n_95 n_296 0 vdd!) NAND2_A
+U2767 (n_431 n_430 X_866gat 0 vdd!) NAND2_A
+U3018 (X_159gat n_133 n_430 0 vdd!) NAND2_A
+U3005 (n_140 n_180 n_295 0 vdd!) NAND2_A
+U3003 (n_340 n_141 n_140 0 vdd!) NAND2_A
+U3000 (n_344 n_145 n_144 0 vdd!) NAND2_A
+U2999 (X_219gat n_146 n_145 0 vdd!) NAND2_A
+U3002 (n_144 n_354 n_141 0 vdd!) NAND2_A
+U2989 (n_148 n_181 n_304 0 vdd!) NAND2_A
+U2988 (n_306 n_154 n_303 0 vdd!) NAND2_A
+U2986 (n_152 n_362 n_149 0 vdd!) NAND2_A
+U2987 (n_340 n_149 n_148 0 vdd!) NAND2_A
+U2983 (n_358 X_219gat n_153 0 vdd!) NAND2_A
+U2984 (n_344 n_153 n_152 0 vdd!) NAND2_A
+U2996 (n_147 n_362 n_348 0 vdd!) NAND2_A
+U2940 (n_329 X_447gat n_171 0 vdd!) NAND2_A
+U2941 (X_1gat n_171 n_170 0 vdd!) NAND2_A
+U2939 (X_55gat n_416 n_327 0 vdd!) NAND2_A
+U2831 (X_447gat n_330 n_331 0 vdd!) NAND2_A
+U3069 (X_17gat n_411 n_101 0 vdd!) NAND2_A
+U3071 (n_100 n_101 n_330 0 vdd!) NAND2_A
+U2819 (n_342 n_428 n_343 0 vdd!) NAND2_A
+U2773 (n_425 X_59gat X_420gat 0 vdd!) NAND2_A
+U2772 (n_426 X_36gat X_421gat 0 vdd!) NAND2_A
+U2771 (n_427 X_36gat X_422gat 0 vdd!) NAND2_A
+U2783 (X_59gat X_156gat n_410 0 vdd!) NAND2_A
+U2758 (X_390gat n_448 X_446gat 0 vdd!) NAND2_A
+U2912 (n_190 n_189 n_191 0 vdd!) AND2_A
+U2911 (n_193 n_192 n_194 0 vdd!) AND2_A
+U2910 (n_196 n_195 n_197 0 vdd!) AND2_A
+U2908 (n_202 n_201 n_203 0 vdd!) AND2_A
+U2907 (n_205 n_204 n_206 0 vdd!) AND2_A
+U2909 (n_199 n_198 n_200 0 vdd!) AND2_A
+U2906 (n_208 n_207 n_209 0 vdd!) AND2_A
+U2905 (n_211 n_210 n_212 0 vdd!) AND2_A
+U2790 (n_402 n_401 n_403 0 vdd!) AND2_A
+U2836 (n_327 n_324 n_385 0 vdd!) AND2_A
+U2834 (n_326 n_327 n_402 0 vdd!) AND2_A
+U2839 (n_323 n_320 n_379 0 vdd!) AND2_A
+U2799 (n_379 n_378 n_380 0 vdd!) AND2_A
+U2838 (n_322 n_321 n_323 0 vdd!) AND2_A
+U2872 (n_265 n_264 n_445 0 vdd!) AND2_A
+U2893 (n_340 n_240 n_241 0 vdd!) AND2_A
+U2870 (n_268 X_219gat n_269 0 vdd!) AND2_A
+U2871 (n_267 n_266 n_444 0 vdd!) AND2_A
+U2892 (n_343 n_242 n_243 0 vdd!) AND2_A
+U2798 (n_382 n_381 n_383 0 vdd!) AND2_A
+U2797 (n_385 n_384 n_386 0 vdd!) AND2_A
+U2869 (n_271 n_270 n_273 0 vdd!) AND2_A
+U2868 (n_273 n_272 n_442 0 vdd!) AND2_A
+U2801 (n_375 n_374 n_376 0 vdd!) AND2_A
+U2903 (n_215 n_214 n_216 0 vdd!) AND2_A
+U2902 (n_218 n_217 n_219 0 vdd!) AND2_A
+U2901 (n_221 n_220 n_222 0 vdd!) AND2_A
+U2899 (n_227 n_226 n_228 0 vdd!) AND2_A
+U2898 (n_230 n_229 n_231 0 vdd!) AND2_A
+U2900 (n_224 n_223 n_225 0 vdd!) AND2_A
+U2896 (n_236 n_235 n_237 0 vdd!) AND2_A
+U2897 (n_233 n_232 n_234 0 vdd!) AND2_A
+U2793 (n_393 n_392 n_394 0 vdd!) AND2_A
+U2866 (X_219gat n_276 n_277 0 vdd!) AND2_A
+U2867 (n_275 n_274 n_443 0 vdd!) AND2_A
+U2795 (n_389 n_388 n_390 0 vdd!) AND2_A
+U2862 (n_284 X_219gat n_285 0 vdd!) AND2_A
+U2864 (n_281 n_280 n_440 0 vdd!) AND2_A
+U2863 (n_283 n_282 n_441 0 vdd!) AND2_A
+U2891 (n_343 n_244 n_245 0 vdd!) AND2_A
+U2865 (n_279 n_278 n_281 0 vdd!) AND2_A
+U2873 (n_262 n_261 n_263 0 vdd!) AND2_A
+U2874 (n_260 n_259 n_261 0 vdd!) AND2_A
+U2877 (n_257 n_254 n_262 0 vdd!) AND2_A
+U2876 (n_256 n_255 n_257 0 vdd!) AND2_A
+U2791 (n_399 n_398 n_400 0 vdd!) AND2_A
+U2833 (n_328 n_327 n_399 0 vdd!) AND2_A
+U2875 (n_258 n_263 n_446 0 vdd!) AND2_A
+U2835 (n_325 n_327 n_393 0 vdd!) AND2_A
+U2792 (n_396 n_395 n_397 0 vdd!) AND2_A
+U2890 (n_343 n_246 n_247 0 vdd!) AND2_A
+U2861 (n_287 n_286 n_439 0 vdd!) AND2_A
+U2859 (X_219gat n_290 n_291 0 vdd!) AND2_A
+U2860 (n_289 n_288 n_438 0 vdd!) AND2_A
+U2847 (n_313 n_312 n_432 0 vdd!) AND2_A
+U2842 (n_315 X_219gat n_316 0 vdd!) AND2_A
+U2887 (n_343 n_252 n_253 0 vdd!) AND2_A
+U2848 (n_311 n_310 n_433 0 vdd!) AND2_A
+U2855 (n_299 n_298 n_300 0 vdd!) AND2_A
+U2854 (n_300 n_320 n_351 0 vdd!) AND2_A
+U2814 (n_352 n_351 n_353 0 vdd!) AND2_A
+U2810 (n_360 n_359 n_361 0 vdd!) AND2_A
+U2849 (n_309 n_320 n_359 0 vdd!) AND2_A
+U2828 (X_51gat X_1gat n_417 0 vdd!) AND2_A
+U2843 (X_8gat X_1gat n_365 0 vdd!) AND2_A
+U2850 (n_308 n_307 n_309 0 vdd!) AND2_A
+U2830 (X_8gat X_17gat n_332 0 vdd!) AND2_A
+U2829 (n_417 n_332 n_333 0 vdd!) AND2_A
+U2858 (n_293 n_292 n_437 0 vdd!) AND2_A
+U2889 (n_343 n_248 n_249 0 vdd!) AND2_A
+U2888 (n_343 n_250 n_251 0 vdd!) AND2_A
+U2853 (n_302 n_301 n_435 0 vdd!) AND2_A
+U2851 (n_305 X_219gat n_306 0 vdd!) AND2_A
+U2805 (n_367 n_366 n_368 0 vdd!) AND2_A
+U2840 (n_320 n_319 n_369 0 vdd!) AND2_A
+U2841 (n_318 n_317 n_319 0 vdd!) AND2_A
+U2804 (n_370 n_369 n_371 0 vdd!) AND2_A
+U2811 (n_357 n_356 n_358 0 vdd!) AND2_A
+U2755 (X_85gat X_86gat X_391gat 0 vdd!) AND2_A
+U2768 (X_89gat n_449 X_450gat 0 vdd!) AND2_A
+U2757 (X_90gat n_449 X_423gat 0 vdd!) AND2_A
+U2856 (X_219gat n_296 n_297 0 vdd!) AND2_A
+U2857 (n_295 n_294 n_436 0 vdd!) AND2_A
+U2852 (n_304 n_303 n_434 0 vdd!) AND2_A
+U2815 (n_349 n_348 n_350 0 vdd!) AND2_A
+U2832 (X_17gat n_410 n_329 0 vdd!) AND2_A
+U2779 (n_417 X_26gat X_447gat 0 vdd!) AND2_A
+U2822 (n_339 n_338 n_448 0 vdd!) AND2_A
+U2880 (X_13gat X_17gat n_339 0 vdd!) AND2_A
+U2806 (n_365 X_13gat n_424 0 vdd!) AND2_A
+U2879 (X_26gat X_1gat n_338 0 vdd!) AND2_A
+U2826 (X_29gat X_447gat n_415 0 vdd!) AND2_A
+U2825 (n_336 X_75gat n_414 0 vdd!) AND2_A
+U2780 (n_415 n_414 n_416 0 vdd!) AND2_A
+U2845 (X_73gat X_72gat n_314 0 vdd!) AND2_A
+U2846 (n_314 n_427 n_342 0 vdd!) AND2_A
+U2878 (X_74gat X_59gat n_429 0 vdd!) AND2_A
+U2769 (n_429 n_428 X_449gat 0 vdd!) AND2_A
+U2776 (n_422 X_42gat X_388gat 0 vdd!) AND2_A
+U2886 (X_29gat X_75gat n_422 0 vdd!) AND2_A
+U2881 (X_42gat X_29gat n_337 0 vdd!) AND2_A
+U2823 (n_337 X_36gat X_390gat 0 vdd!) AND2_A
+U2807 (n_364 n_424 n_428 0 vdd!) AND2_A
+U2844 (X_68gat X_55gat n_364 0 vdd!) AND2_A
+U2837 (X_55gat n_410 n_412 0 vdd!) AND2_A
+U2781 (n_412 X_447gat n_413 0 vdd!) AND2_A
+U2885 (X_29gat X_80gat n_423 0 vdd!) AND2_A
+U2775 (n_423 X_36gat X_389gat 0 vdd!) AND2_A
+U2884 (X_75gat X_80gat n_425 0 vdd!) AND2_A
+U2883 (X_59gat X_80gat n_426 0 vdd!) AND2_A
+U2882 (X_42gat X_59gat n_427 0 vdd!) AND2_A
+U2827 (X_59gat X_75gat n_334 0 vdd!) AND2_A
+U2770 (n_428 X_29gat X_448gat 0 vdd!) AND2_A
+U2774 (n_424 X_17gat X_418gat 0 vdd!) AND2_A
+U2808 (X_96gat n_363 0 vdd!) INVERT_I
+U2812 (X_91gat n_355 0 vdd!) INVERT_I
+U2821 (X_246gat n_340 0 vdd!) INVERT_I
+U2954 (n_390 n_168 0 vdd!) INVERT_I
+U2787 (X_121gat n_406 0 vdd!) INVERT_I
+U2788 (X_126gat n_405 0 vdd!) INVERT_I
+U2802 (X_101gat n_373 0 vdd!) INVERT_I
+U2784 (X_106gat n_409 0 vdd!) INVERT_I
+U2904 (X_135gat n_213 0 vdd!) INVERT_I
+U2786 (X_116gat n_407 0 vdd!) INVERT_I
+U2785 (X_111gat n_408 0 vdd!) INVERT_I
+U2895 (X_207gat n_238 0 vdd!) INVERT_I
+U2926 (n_197 n_176 0 vdd!) INVERT_I
+U2925 (n_200 n_177 0 vdd!) INVERT_I
+U2894 (X_130gat n_239 0 vdd!) INVERT_I
+U2917 (n_386 n_184 0 vdd!) INVERT_I
+U2958 (n_383 n_166 0 vdd!) INVERT_I
+U2818 (X_228gat n_344 0 vdd!) INVERT_I
+U2916 (n_394 n_185 0 vdd!) INVERT_I
+U2800 (X_177gat n_377 0 vdd!) INVERT_I
+U2803 (X_171gat n_372 0 vdd!) INVERT_I
+U2809 (X_165gat n_362 0 vdd!) INVERT_I
+U2813 (X_159gat n_354 0 vdd!) INVERT_I
+U2796 (X_183gat n_387 0 vdd!) INVERT_I
+U2924 (n_222 n_178 0 vdd!) INVERT_I
+U2923 (n_225 n_179 0 vdd!) INVERT_I
+U2913 (n_403 n_188 0 vdd!) INVERT_I
+U2816 (X_195gat n_347 0 vdd!) INVERT_I
+U2794 (X_189gat n_391 0 vdd!) INVERT_I
+U2915 (n_400 n_186 0 vdd!) INVERT_I
+U2914 (n_397 n_187 0 vdd!) INVERT_I
+U2922 (n_341 n_395 0 vdd!) INVERT_I
+U2789 (X_201gat n_404 0 vdd!) INVERT_I
+U2918 (n_380 n_183 0 vdd!) INVERT_I
+U2962 (n_376 n_164 0 vdd!) INVERT_I
+U2966 (n_368 n_162 0 vdd!) INVERT_I
+U2919 (n_371 n_182 0 vdd!) INVERT_I
+U2920 (n_361 n_181 0 vdd!) INVERT_I
+U3146 (X_80gat n_335 0 vdd!) INVERT_I
+U3147 (n_448 n_450 0 vdd!) INVERT_I
+U2921 (n_353 n_180 0 vdd!) INVERT_I
+U2998 (n_350 n_146 0 vdd!) INVERT_I
+U2982 (n_358 n_154 0 vdd!) INVERT_I
+U2782 (X_42gat n_411 0 vdd!) INVERT_I
+U3135 (n_355 X_96gat n_202 0 vdd!) OR2_A
+U3134 (n_363 X_91gat n_201 0 vdd!) OR2_A
+U3102 (n_184 X_183gat n_87 0 vdd!) OR2_A
+U3103 (n_387 n_386 n_86 0 vdd!) OR2_A
+U2955 (n_185 n_390 n_167 0 vdd!) OR2_A
+U2957 (n_168 n_394 n_382 0 vdd!) OR2_A
+U3144 (n_406 X_126gat n_193 0 vdd!) OR2_A
+U3143 (n_405 X_121gat n_192 0 vdd!) OR2_A
+U3138 (n_373 X_106gat n_205 0 vdd!) OR2_A
+U3137 (n_409 X_101gat n_204 0 vdd!) OR2_A
+U3132 (n_213 X_130gat n_211 0 vdd!) OR2_A
+U3131 (n_239 X_135gat n_210 0 vdd!) OR2_A
+U3129 (n_407 X_111gat n_208 0 vdd!) OR2_A
+U3128 (n_408 X_116gat n_207 0 vdd!) OR2_A
+U3114 (n_238 X_130gat n_236 0 vdd!) OR2_A
+U3113 (n_239 X_207gat n_235 0 vdd!) OR2_A
+U2959 (n_387 n_383 n_165 0 vdd!) OR2_A
+U2961 (n_166 X_183gat n_375 0 vdd!) OR2_A
+U3141 (n_176 n_200 n_190 0 vdd!) OR2_A
+U3140 (n_177 n_197 n_189 0 vdd!) OR2_A
+U3120 (n_372 X_177gat n_230 0 vdd!) OR2_A
+U3119 (n_377 X_171gat n_229 0 vdd!) OR2_A
+U3117 (n_354 X_165gat n_227 0 vdd!) OR2_A
+U3116 (n_362 X_159gat n_226 0 vdd!) OR2_A
+U3100 (n_185 X_189gat n_88 0 vdd!) OR2_A
+U3099 (n_391 n_394 n_89 0 vdd!) OR2_A
+U2951 (n_397 n_400 n_169 0 vdd!) OR2_A
+U2953 (n_187 n_186 n_389 0 vdd!) OR2_A
+U3095 (n_186 X_195gat n_90 0 vdd!) OR2_A
+U3094 (n_347 n_400 n_91 0 vdd!) OR2_A
+U3052 (n_343 n_404 n_260 0 vdd!) OR2_A
+U3055 (n_340 n_403 n_255 0 vdd!) OR2_A
+U3050 (n_344 n_346 n_258 0 vdd!) OR2_A
+U3108 (n_346 X_261gat n_84 0 vdd!) OR2_A
+U3111 (n_387 X_189gat n_233 0 vdd!) OR2_A
+U3110 (n_391 X_183gat n_232 0 vdd!) OR2_A
+U3123 (n_178 n_225 n_215 0 vdd!) OR2_A
+U3122 (n_179 n_222 n_214 0 vdd!) OR2_A
+U2947 (n_188 X_201gat n_345 0 vdd!) OR2_A
+U3126 (n_347 X_201gat n_218 0 vdd!) OR2_A
+U3125 (n_404 X_195gat n_217 0 vdd!) OR2_A
+U3087 (n_377 n_380 n_93 0 vdd!) OR2_A
+U3088 (n_183 X_177gat n_92 0 vdd!) OR2_A
+U3073 (n_182 X_171gat n_98 0 vdd!) OR2_A
+U3072 (n_372 n_371 n_99 0 vdd!) OR2_A
+U2930 (n_331 n_410 n_174 0 vdd!) OR2_A
+U3078 (n_181 X_165gat n_96 0 vdd!) OR2_A
+U3077 (n_362 n_361 n_97 0 vdd!) OR2_A
+U2965 (n_164 n_380 n_367 0 vdd!) OR2_A
+U2963 (n_183 n_376 n_163 0 vdd!) OR2_A
+U2979 (n_162 n_182 n_155 0 vdd!) OR2_A
+U2981 (n_368 n_371 n_357 0 vdd!) OR2_A
+U3068 (X_87gat X_88gat n_449 0 vdd!) OR2_A
+U3083 (n_180 X_159gat n_94 0 vdd!) OR2_A
+U3082 (n_354 n_353 n_95 0 vdd!) OR2_A
+U3017 (n_180 n_350 n_133 0 vdd!) OR2_A
+U3019 (n_146 n_353 n_431 0 vdd!) OR2_A
+U2997 (n_154 n_181 n_349 0 vdd!) OR2_A
+U2995 (n_361 n_358 n_147 0 vdd!) OR2_A
+U3070 (n_411 X_17gat n_100 0 vdd!) OR2_A
+U2756 (n_450 X_390gat X_419gat 0 vdd!) OR2_A
+U2820 (n_404 n_403 n_341 0 vdd!) NOR2_A
+U2824 (n_335 X_268gat n_336 0 vdd!) NOR2_A
+
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=0 \
+    tnom=70 scalem=1.0 scale=1.0 gmin=1e-12 rforce=0.1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 ckptclock=1800 rawfmt=psfxl method=trap \
+    sensfile="../psf/sens.output"
+tran tran stop=45us write="spectre.ic" writefinal="spectre.fc" \
+    annotate=status maxiters=5
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+saveOptions options save=lvlpub nestlvl=1
+
+*relxpert: age 0h
+*relxpert: deltad 0.1
+*relxpert: agemethod agemos
+*relxpert: degsort
+*relxpert: report_model_param
+*relxpert: vthmethod spice
+**relxpert: agelevel_only [level=101]
+**relxpert: new_bo0_format

@@ -1,0 +1,70 @@
+// Generated for: spectre
+// Generated on: Nov  8 15:40:02 2016
+// Design library name: AgingBib
+// Design cell name: tb_xor2
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!
+parameters p5vonly=0 phires=0
+include "model/nmos.scs"
+include "model/pmos.scs"
+
+V0 (vdd! 0) vsource dc=0.0 type=dc
+
+VInput1   (A            0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=20us period=40us
+VInput2   (B            0)    vsource type=pulse val0=0 val1=1.1 delay=100ns rise=1ps fall=1ps width=20us period=40us
+
+C0 (Y 0) capacitor c=10.0f
+
+// Library name: AgingBib
+// Cell name: XOR2
+// View name: schematic
+subckt XOR2 A B Z 0 vdd!
+    M0 (net56 A 0 0) nfet l=180.0n w=560.0n nf=1 m=1 par=1 \
+        ad=2.2e-13 as=2.2e-13 pd=1.86u ps=1.86u nrd=0.52 nrs=0.52 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    M0 (Z B net56 0) nfet l=180.0n w=560.0n nf=1 m=1 par=1 \
+        ad=2.2e-13 as=2.2e-13 pd=1.86u ps=1.86u nrd=0.52 nrs=0.52 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    M0 (net36 B 0 0) nfet l=180.0n w=560.0n nf=1 m=1 par=1 \
+        ad=2.2e-13 as=2.2e-13 pd=1.86u ps=1.86u nrd=0.52 nrs=0.52 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    M0 (Z net56 net34 0) nfet l=180.0n w=560.0n nf=1 m=1 par=1 \
+        ad=2.2e-13 as=2.2e-13 pd=1.86u ps=1.86u nrd=0.52 nrs=0.52 gcon=1 \
+        rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    M0 (net34 net36 0 0) nfet l=180.0n w=560.0n nf=1 m=1 \
+        par=1 ad=2.2e-13 as=2.2e-13 pd=1.86u ps=1.86u nrd=0.52 nrs=0.52 \
+        gcon=1 rf=0 stis=2 rsx=50 dtemp=0 gns=0
+    M1 (net56 A vdd! vdd!) pfet l=180.0n w=1.06u nf=1 m=1 par=1 \
+        ad=4.3e-13 as=4.3e-13 pd=2.86u ps=2.86u nrd=0.26 nrs=0.26 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+    M1 (Z net56 net36 vdd!) pfet l=180.0n w=1.06u nf=1 m=1 par=1 \
+        ad=4.3e-13 as=4.3e-13 pd=2.86u ps=2.86u nrd=0.26 nrs=0.26 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+    M1 (net36 B vdd! vdd!) pfet l=180.0n w=1.06u nf=1 m=1 par=1 \
+        ad=4.3e-13 as=4.3e-13 pd=2.86u ps=2.86u nrd=0.26 nrs=0.26 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+    M1 (Z net36 net56 vdd!) pfet l=180.0n w=1.06u nf=1 m=1 par=1 \
+        ad=4.3e-13 as=4.3e-13 pd=2.86u ps=2.86u nrd=0.26 nrs=0.26 gcon=1 \
+        rf=0 rsx=50 dtemp=0
+ends XOR2
+// End of subcircuit definition.
+
+// Library name: AgingBib
+// Cell name: tb_xor2
+// View name: schematic
+I4 (A B Y 0 vdd!) XOR2
+
+
+
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts  where=rawfile
+saveOptions options save=allpub

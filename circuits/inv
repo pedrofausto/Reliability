@@ -1,0 +1,50 @@
+// Generated for: spectre
+// Generated on: Oct 27 23:19:54 2015
+// Design library name: AgingLibrary
+// Design cell name: inverterChain
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!
+parameters p5vonly=0 phires=0
+include "model/nmos.scs"
+include "model/pmos.scs"
+
+// Library name: bertlink
+// Cell name: inv
+// View name: schematic
+subckt inv A Y
+    M1 (Y A vdd! vdd!) pch w=2.0u l=45n
+    M0 (Y A 0 0) nch w=1.0u l=45n
+ends inv
+// End of subcircuit definition.
+
+V0 (vdd! 0) vsource dc=0.0 type=dc
+
+VInput1   (A            0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=20us period=40us
+
+// Library name: AgingLibrary
+// Cell name: inverterChain
+// View name: schematic
+I0 (A Y ) inv
+C0 (Y 0) capacitor c=10.0f
+
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=0 \
+    tnom=70 scalem=1.0 scale=1.0 gmin=1e-12 rforce=0.1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 ckptclock=1800 rawfmt=psfxl method=trap \
+    sensfile="../psf/sens.output"
+tran tran stop=300us write="spectre.ic" writefinal="spectre.fc" \
+    annotate=status maxiters=5 compression=no
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+saveOptions options save=lvlpub nestlvl=1 
+
+*relxpert: age 0h
+*relxpert: deltad 0.1
+*relxpert: agemethod agemos
+*relxpert: degsort
+*relxpert: report_model_param
+*relxpert: vthmethod spice
+**relxpert: agelevel_only [level=101]
+**relxpert: new_bo0_format

@@ -1,0 +1,55 @@
+// Generated for: spectre
+// Generated on: Nov  8 15:38:36 2016
+// Design library name: AgingBib
+// Design cell name: tb_nor2
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!
+parameters p5vonly=0 phires=0
+include "model/nmos.scs"
+include "model/pmos.scs"
+
+V0 (vdd! 0) vsource dc=0.0 type=dc
+
+VInput1   (A            0)    vsource type=pulse val0=0 val1=1.1 delay=0 rise=1ps fall=1ps width=20us period=40us
+VInput2   (B            0)    vsource type=pulse val0=0 val1=1.1 delay=100ns rise=1ps fall=1ps width=20us period=40us
+
+C0 (Y 0) capacitor c=10.0f
+
+// Library name: AgingBib
+// Cell name: NOR2
+// View name: schematic
+subckt NOR2 A B Z 0 vdd!
+    M0A (Z A 0 0) nch w=1.0u l=45n
+    M0B (Z B 0 0) nch w=1.0u l=45n
+    M1A (Z A net18 vdd!) pch w=2.0u l=45n
+    M1B (net18 B vdd! vdd!) pch w=2.0u l=45n
+ends NOR2
+// End of subcircuit definition.
+
+// Library name: AgingBib
+// Cell name: tb_nor2
+// View name: schematic
+I3 (A B Y 0 vdd!) NOR2
+
+
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=0 \
+    tnom=70 scalem=1.0 scale=1.0 gmin=1e-12 rforce=0.1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 ckptclock=1800 rawfmt=psfxl method=trap \
+    sensfile="../psf/sens.output"
+tran tran stop=90us write="spectre.ic" writefinal="spectre.fc" \
+    annotate=status maxiters=5 compression=no
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+saveOptions options save=lvlpub nestlvl=1 
+
+*relxpert: age 0h
+*relxpert: deltad 0.1
+*relxpert: agemethod agemos
+*relxpert: degsort
+*relxpert: report_model_param
+*relxpert: vthmethod spice
+**relxpert: agelevel_only [level=101]
+**relxpert: new_bo0_format
