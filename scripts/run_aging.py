@@ -66,7 +66,7 @@ def netlistCopy(vdd, temp, act, period, age, netlist_name):
 animation_strings = ('[=', '=', '=]')
 parser = argparse.ArgumentParser()
 
-parser.add_argument("inputFile", help="input file with aging conditions. Must be an CSV formatd file")
+parser.add_argument("inputFile", help="input file with aging conditions. Must be an CSV formated file")
 parser.add_argument("netlist", help="Name of the default netlist file to be aged. Ex: inverter")
 parser.add_argument("--directory", "-d", help="Output directory. All results will reside within this directory.")
 parser.add_argument("--profileNumber", "-p", help="Profile numbering. The default profile name will be 'profile<profileNumber>'.")
