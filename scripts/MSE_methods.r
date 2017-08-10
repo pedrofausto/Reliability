@@ -354,8 +354,8 @@ teste <- data.frame(Error=c(errorEucl,errorCor,errorPLS),Method=rep(metodos, eac
 #teste <- data.frame(Method=rep(metodos, each=(length(errorEucl))), Error=c(errorEucl,errorCor,errorPLS))
 #teste <- data.frame(Method=rep(metodos, each=(length(errorPLS))), Error=c(errorEucl,errorCor,errorPLS))
 plot(teste$Method, (abs(teste$Error)), type = "p", xaxt="n", ylab = "Erro relativo (%)", main = "Erro relativo do MTTF - w_inv100", outliners = TRUE, range=3, cex=1.3, xlab = "Métodos", cex.axis=1.2, cex.lab=1.4)
+axis(1, at=1:3, labels = metodos)
 
-#axis(1, at=1:3, labels = metodos)
 #par(mfrow=c(3,1))
 ##################################
 #           Histogram            #
