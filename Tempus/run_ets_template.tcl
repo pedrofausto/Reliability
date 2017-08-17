@@ -1,7 +1,7 @@
 read_lib -typ LIBRARY
 read_verilog FILE
 set_top_module TOP
-read_sdc CONSTRAIN
+read_sdc CONSTRAINT
 set_analysis_mode -analysisType single
 report_timing -format {instance cell arc load slew delay arrival required} -nworst NUMBER
 report_analysis_coverage
