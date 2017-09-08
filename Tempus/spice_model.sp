@@ -1,5 +1,5 @@
-.MODEL nch NMOS (LEVEl=2 l=45n w=1u VTO=-1.41 TOX=2.41n)
-.MODEL pch NMOS (LEVEl=2 l=45n w=2u VTO=-1.41 TOX=2.41n)
+.MODEL nch NMOS (LEVEl=2 l=45n w=1u VTO=-1.1 TOX=2.41n)
+.MODEL pch NMOS (LEVEl=2 l=45n w=2u VTO=-1.1 TOX=2.41n)
 
 .SUBCKT NOR2_A A B Z gnd vdd
  TNA Z A gnd gnd nch l=45n w=1u 
